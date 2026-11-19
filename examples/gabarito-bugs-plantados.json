@@ -1,0 +1,23 @@
+{
+  "diff": "pr-bugs-plantados.diff",
+  "tolerancia_linhas": 2,
+  "nota": "Achou = comentário no mesmo arquivo, a até 2 linhas do bug, que cita ao menos uma palavra-chave (sem acento, minúsculas). Só a posição não basta: modelos pequenos comentam a linha certa descrevendo a mudança.",
+  "bugs": [
+    {"arquivo": "app/paginacao.py", "linha": 2, "descricao": "off-by-one: página 1 pula os primeiros itens (antes era numero - 1)",
+     "palavras_chave": ["numero - 1", "numero-1", "off-by-one", "pula", "primeira pagina", "pagina 1", "primeiros"]},
+    {"arquivo": "app/paginacao.py", "linha": 7, "descricao": "// arredonda para baixo: perde a última página incompleta",
+     "palavras_chave": ["ceil", "arredond", "incompleta", "ultima pagina", "resto", "math.ceil", "-(-"]},
+    {"arquivo": "app/relatorio.py", "linha": 2, "descricao": "divisão por zero: a guarda de lista vazia foi removida",
+     "palavras_chave": ["vazia", "vazio", "zerodivision", "divisao por zero", "len(valores) == 0", "not valores"]},
+    {"arquivo": "app/relatorio.py", "linha": 6, "descricao": "divisão por zero quando total == 0",
+     "palavras_chave": ["total == 0", "total for 0", "total e 0", "zerodivision", "divisao por zero", "zero"]},
+    {"arquivo": "app/relatorio.py", "linha": 10, "descricao": "IndexError com lista de vendas vazia",
+     "palavras_chave": ["vazia", "vazio", "indexerror", "not vendas", "sem vendas"]},
+    {"arquivo": "app/usuarios.py", "linha": 14, "descricao": "SQL injection: f-string na query",
+     "palavras_chave": ["injection", "injecao", "injeção", "parametriz", "placeholder", "?"]},
+    {"arquivo": "app/usuarios.py", "linha": 20, "descricao": "arquivo aberto e nunca fechado (sem with)",
+     "palavras_chave": ["close", "fech", "with open", "context manager", "gerenciador de contexto"]},
+    {"arquivo": "app/usuarios.py", "linha": 19, "descricao": "conexão nunca fechada",
+     "palavras_chave": ["conn.close", "conexao", "fechar a conexao", "close"]}
+  ]
+}

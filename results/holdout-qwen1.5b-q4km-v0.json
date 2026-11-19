@@ -1,0 +1,32 @@
+{
+  "modelo": "qwen2.5-coder-1.5b-q4km",
+  "endpoint": "http://127.0.0.1:8001/v1",
+  "comentarios": [
+    {
+      "path": "svc/cache.py",
+      "linha": 15,
+      "severidade": "sugestao",
+      "comentario": "O método `set` deve atualizar o valor e o tempo de expiração do cache, não apenas o valor."
+    }
+  ],
+  "arquivos": [
+    {
+      "path": "svc/cache.py",
+      "pulado": null,
+      "resumo": "Adicionou um método `set` para atualizar o valor no cache.",
+      "problemas": []
+    },
+    {
+      "path": "svc/pedidos.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    }
+  ],
+  "chamadas": 2,
+  "tokens_entrada": 935,
+  "tokens_saida": 599,
+  "segundos_no_modelo": 38.5
+}

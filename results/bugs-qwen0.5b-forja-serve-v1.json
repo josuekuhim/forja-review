@@ -1,0 +1,52 @@
+{
+  "modelo": "qwen2.5-coder-0.5b",
+  "endpoint": "http://127.0.0.1:8000/v1",
+  "comentarios": [
+    {
+      "path": "app/relatorio.py",
+      "linha": 1,
+      "severidade": "bug",
+      "comentario": "A função `media` retorna 0.0 se a lista está vazia"
+    },
+    {
+      "path": "app/relatorio.py",
+      "linha": 2,
+      "severidade": "bug",
+      "comentario": "A função `percentual` retorna 0.0 se a parte ou total for zero"
+    },
+    {
+      "path": "app/relatorio.py",
+      "linha": 3,
+      "severidade": "bug",
+      "comentario": "A função `maior_venda` retorna o primeiro item da lista de vendas com maior valor."
+    }
+  ],
+  "arquivos": [
+    {
+      "path": "app/paginacao.py",
+      "pulado": null,
+      "resumo": "Adiciona a função `total_paginas` que calcula a quantidade de páginas para uma lista de itens.",
+      "problemas": [
+        "comentario_vazio"
+      ]
+    },
+    {
+      "path": "app/relatorio.py",
+      "pulado": null,
+      "resumo": "Adiciona funções para calcular a média, percentual e maior venda de vendas.",
+      "problemas": []
+    },
+    {
+      "path": "app/usuarios.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    }
+  ],
+  "chamadas": 3,
+  "tokens_entrada": 2239,
+  "tokens_saida": 446,
+  "segundos_no_modelo": 70.9
+}

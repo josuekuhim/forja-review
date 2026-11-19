@@ -1,0 +1,66 @@
+{
+  "modelo": "qwen2.5-coder-1.5b-q4km",
+  "endpoint": "http://127.0.0.1:8001/v1",
+  "comentarios": [
+    {
+      "path": "app/paginacao.py",
+      "linha": 2,
+      "severidade": "bug",
+      "comentario": "O início da página deve ser calculado como `numero * tamanho` ao invés de `(numero - 1) * tamanho`."
+    },
+    {
+      "path": "app/relatorio.py",
+      "linha": 5,
+      "severidade": "sugestao",
+      "comentario": "Adicionou a função percentual para calcular o percentual de uma parte em relação a uma total."
+    },
+    {
+      "path": "app/relatorio.py",
+      "linha": 14,
+      "severidade": "bug",
+      "comentario": "Corrigiu a comparação de maior_venda para garantir que o maior valor seja o objeto completo, não apenas o valor."
+    },
+    {
+      "path": "app/usuarios.py",
+      "linha": 12,
+      "severidade": "sugestao",
+      "comentario": "Adicionou a função `buscar_por_nome` para buscar usuários por nome."
+    },
+    {
+      "path": "app/usuarios.py",
+      "linha": 17,
+      "severidade": "sugestao",
+      "comentario": "Adicionou a função `exportar_emails` para exportar emails de todos os usuários."
+    },
+    {
+      "path": "app/usuarios.py",
+      "linha": 21,
+      "severidade": "bug",
+      "comentario": "Corrigiu a consulta para buscar emails, adicionando um parênteses em `WHERE nome = '{nome}'`."
+    }
+  ],
+  "arquivos": [
+    {
+      "path": "app/paginacao.py",
+      "pulado": null,
+      "resumo": "A função `pagina` agora retorna itens de acordo com o número e tamanho especificados, mas o início da página está incorreto.",
+      "problemas": []
+    },
+    {
+      "path": "app/relatorio.py",
+      "pulado": null,
+      "resumo": "Adicionou funções percentual e maior_venda.",
+      "problemas": []
+    },
+    {
+      "path": "app/usuarios.py",
+      "pulado": null,
+      "resumo": "Adicionou funções para buscar por nome e exportar emails.",
+      "problemas": []
+    }
+  ],
+  "chamadas": 3,
+  "tokens_entrada": 1390,
+  "tokens_saida": 393,
+  "segundos_no_modelo": 30.0
+}

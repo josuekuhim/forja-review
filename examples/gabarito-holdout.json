@@ -1,0 +1,15 @@
+{
+  "diff": "pr-holdout.diff",
+  "tolerancia_linhas": 2,
+  "nota": "Conjunto reservado: criado antes de ajustar o prompt e nunca usado para ajustá-lo.",
+  "bugs": [
+    {"arquivo": "svc/cache.py", "linha": 11, "descricao": "condição invertida: apaga a entrada válida e devolve a expirada",
+     "palavras_chave": [">=", "invertid", "expirad", "ao contrario", "> self.ttl", "contrario"]},
+    {"arquivo": "svc/pedidos.py", "linha": 8, "descricao": "argumento padrão mutável (descontos={}) compartilhado entre chamadas",
+     "palavras_chave": ["mutavel", "mutable", "padrao", "default", "none", "compartilhad"]},
+    {"arquivo": "svc/pedidos.py", "linha": 16, "descricao": "requests.get sem timeout",
+     "palavras_chave": ["timeout"]},
+    {"arquivo": "svc/pedidos.py", "linha": 17, "descricao": "não checa o status HTTP antes de ler o JSON",
+     "palavras_chave": ["raise_for_status", "status", "status_code", "erro http", "200"]}
+  ]
+}

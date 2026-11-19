@@ -1,0 +1,54 @@
+{
+  "modelo": "qwen2.5-coder-1.5b-q4km",
+  "endpoint": "http://127.0.0.1:8001/v1",
+  "comentarios": [
+    {
+      "path": "app/paginacao.py",
+      "linha": 7,
+      "severidade": "bug",
+      "comentario": "A função `total_paginas` deve dividir o total de itens por o tamanho da página e arredondar para cima."
+    },
+    {
+      "path": "app/relatorio.py",
+      "linha": 5,
+      "severidade": "bug",
+      "comentario": "A função `percentual` deve retornar um número com duas casas decimais, use `round(parte / total * 100, 2)`."
+    },
+    {
+      "path": "app/relatorio.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A função `maior_venda` deve retornar o dicionário da maior venda, use `return maior`."
+    },
+    {
+      "path": "app/usuarios.py",
+      "linha": 14,
+      "severidade": "bug",
+      "comentario": "A função `buscar_por_nome` retorna uma lista de tuplas, mas a função `exportar_emails` escreve apenas o email na linha."
+    }
+  ],
+  "arquivos": [
+    {
+      "path": "app/paginacao.py",
+      "pulado": null,
+      "resumo": "Adiciona uma função `total_paginas` que calcula o número total de páginas.",
+      "problemas": []
+    },
+    {
+      "path": "app/relatorio.py",
+      "pulado": null,
+      "resumo": "Adiciona funções para calcular média, percentual e maior venda.",
+      "problemas": []
+    },
+    {
+      "path": "app/usuarios.py",
+      "pulado": null,
+      "resumo": "Adiciona funções para buscar por nome e exportar emails.",
+      "problemas": []
+    }
+  ],
+  "chamadas": 3,
+  "tokens_entrada": 2239,
+  "tokens_saida": 344,
+  "segundos_no_modelo": 26.6
+}

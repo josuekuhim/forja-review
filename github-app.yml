@@ -1,0 +1,14 @@
+# Manifesto do GitHub App (https://docs.github.com/apps/sharing-github-apps/registering-a-github-app-from-a-manifest).
+# Crie em: Settings → Developer settings → GitHub Apps → New GitHub App, com estes valores.
+name: forja-review
+url: https://github.com/<usuario>/forja-review
+hook_attributes:
+  url: https://<seu-tunel-ou-servidor>/webhook   # ex.: um túnel (cloudflared/ngrok) para a porta 8080
+redirect_url: https://github.com/<usuario>/forja-review
+public: false
+default_permissions:
+  pull_requests: write   # ler o PR e publicar a review
+  contents: read         # ler os arquivos do diff
+  metadata: read         # obrigatório
+default_events:
+  - pull_request

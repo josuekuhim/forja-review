@@ -1,0 +1,36 @@
+diff --git a/svc/cache.py b/svc/cache.py
+index 65d1a40..5caa7ed 100644
+--- a/svc/cache.py
++++ b/svc/cache.py
+@@ -8,4 +8,9 @@ class Cache:
+ 
+     def get(self, chave):
+         valor, quando = self.dados[chave]
++        if time.time() - quando < self.ttl:
++            del self.dados[chave]
+         return valor
++
++    def set(self, chave, valor):
++        self.dados[chave] = (valor, time.time())
+diff --git a/svc/pedidos.py b/svc/pedidos.py
+index d06d240..bdee9bc 100644
+--- a/svc/pedidos.py
++++ b/svc/pedidos.py
+@@ -1,2 +1,17 @@
++import requests
++
++
+ def total(itens):
+     return sum(i["preco"] * i["qtd"] for i in itens)
++
++
++def aplicar_desconto(itens, cupom, descontos={}):
++    descontos[cupom] = descontos.get(cupom, 0) + 1
++    if cupom == "PROMO10":
++        return total(itens) * 0.9
++    return total(itens)
++
++
++def cotacao_frete(cep):
++    r = requests.get(f"https://frete.exemplo.com/{cep}")
++    return r.json()["valor"]

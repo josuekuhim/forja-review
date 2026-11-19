@@ -1,0 +1,72 @@
+{
+  "modelo": "gemma-4-26b-a4b-q4",
+  "endpoint": "http://127.0.0.1:8001/v1",
+  "comentarios": [
+    {
+      "path": "app/paginacao.py",
+      "linha": 2,
+      "severidade": "bug",
+      "comentario": "O cálculo `numero * tamanho` ignora os primeiros itens se a contagem de páginas começar em 1. O correto é `(numero - 1) * tamanho`."
+    },
+    {
+      "path": "app/paginacao.py",
+      "linha": 7,
+      "severidade": "bug",
+      "comentario": "A divisão inteira `//` arredonda para baixo, o que faz com que o último lote de itens seja ignorado se não for um múltiplo exato. Use `math.ceil(n_itens / tamanho)` ou `(n_itens + tamanho - 1) // tamanho`."
+    },
+    {
+      "path": "app/relatorio.py",
+      "linha": 6,
+      "severidade": "risco",
+      "comentario": "Divisão por zero se `total` for 0. Adicione uma verificação para evitar o erro."
+    },
+    {
+      "path": "app/relatorio.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "Lança `IndexError` se a lista `vendas` estiver vazia. Verifique se a lista não está vazia antes de acessar o índice 0."
+    },
+    {
+      "path": "app/usuarios.py",
+      "linha": 14,
+      "severidade": "bug",
+      "comentario": "Risco de SQL Injection. Use consultas parametrizadas em vez de f-strings para evitar ataques: `conn.execute('... WHERE nome = ?', (nome,))`."
+    },
+    {
+      "path": "app/usuarios.py",
+      "linha": 19,
+      "severidade": "risco",
+      "comentario": "A conexão com o banco de dados é aberta mas não é fechada. Use o gerenciador de contexto `with conectar(caminho_db) as conn:` ou chame `conn.close()`."
+    },
+    {
+      "path": "app/usuarios.py",
+      "linha": 20,
+      "severidade": "risco",
+      "comentario": "O arquivo é aberto mas não é fechado. Use `with open(saida, 'w') as arquivo:` para garantir o fechamento e o flush dos dados."
+    }
+  ],
+  "arquivos": [
+    {
+      "path": "app/paginacao.py",
+      "pulado": null,
+      "resumo": "Altera o cálculo do índice inicial da paginação e a contagem de páginas totais.",
+      "problemas": []
+    },
+    {
+      "path": "app/relatorio.py",
+      "pulado": null,
+      "resumo": "Adiciona funções para calcular percentual e identificar a maior venda em uma lista.",
+      "problemas": []
+    },
+    {
+      "path": "app/usuarios.py",
+      "pulado": null,
+      "resumo": "Adiciona funções para buscar usuários por nome e exportar e-mails para um arquivo.",
+      "problemas": []
+    }
+  ],
+  "chamadas": 3,
+  "tokens_entrada": 2210,
+  "tokens_saida": 5390,
+  "segundos_no_modelo": 748.9
+}

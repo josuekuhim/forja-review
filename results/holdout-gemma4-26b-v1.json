@@ -1,0 +1,48 @@
+{
+  "modelo": "gemma-4-26b-a4b-q4",
+  "endpoint": "http://127.0.0.1:8001/v1",
+  "comentarios": [
+    {
+      "path": "svc/cache.py",
+      "linha": 11,
+      "severidade": "bug",
+      "comentario": "A lógica está invertida: o código deleta itens válidos (`< self.ttl`) e mantém itens expirados. Corrija a condição para `time.time() - quando >= self.ttl` e garanta que o método retorne `None` quando o item for removido por expiração."
+    },
+    {
+      "path": "svc/pedidos.py",
+      "linha": 8,
+      "severidade": "bug",
+      "comentario": "Argumento padrão mutável (`descontos={}`) é compartilhado entre todas as chamadas da função. Use `descontos=None` e inicialize como `{}` dentro da função."
+    },
+    {
+      "path": "svc/pedidos.py",
+      "linha": 16,
+      "severidade": "risco",
+      "comentario": "A chamada de rede não possui um parâmetro `timeout`. Sem isso, a aplicação pode ficar travada indefinidamente caso o servidor não responda."
+    },
+    {
+      "path": "svc/pedidos.py",
+      "linha": 17,
+      "severidade": "risco",
+      "comentario": "A resposta da requisição não é validada. Use `r.raise_for_status()` para checar erros HTTP e verifique se a chave 'valor' existe no JSON para evitar `KeyError`."
+    }
+  ],
+  "arquivos": [
+    {
+      "path": "svc/cache.py",
+      "pulado": null,
+      "resumo": "Implementa lógica de expiração invertida no método `get`.",
+      "problemas": []
+    },
+    {
+      "path": "svc/pedidos.py",
+      "pulado": null,
+      "resumo": "Adiciona funções para aplicar descontos em pedidos e consultar o valor do frete via API.",
+      "problemas": []
+    }
+  ],
+  "chamadas": 2,
+  "tokens_entrada": 1470,
+  "tokens_saida": 9131,
+  "segundos_no_modelo": 1341.0
+}

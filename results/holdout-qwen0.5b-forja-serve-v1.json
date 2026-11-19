@@ -1,0 +1,27 @@
+{
+  "modelo": "qwen2.5-coder-0.5b",
+  "endpoint": "http://127.0.0.1:8000/v1",
+  "comentarios": [],
+  "arquivos": [
+    {
+      "path": "svc/cache.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "svc/pedidos.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    }
+  ],
+  "chamadas": 2,
+  "tokens_entrada": 1501,
+  "tokens_saida": 768,
+  "segundos_no_modelo": 112.4
+}

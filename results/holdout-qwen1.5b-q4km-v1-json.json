@@ -1,0 +1,38 @@
+{
+  "modelo": "qwen2.5-coder-1.5b-q4km",
+  "endpoint": "http://127.0.0.1:8001/v1",
+  "comentarios": [
+    {
+      "path": "svc/pedidos.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A função `aplicar_desconto` não retorna o valor total após aplicar o desconto. Use `return total(itens) * 0.9`."
+    },
+    {
+      "path": "svc/pedidos.py",
+      "linha": 16,
+      "severidade": "bug",
+      "comentario": "A função `cotacao_frete` não retorna o valor correto da cotação de frete. Verifique a URL e a estrutura da resposta do serviço."
+    }
+  ],
+  "arquivos": [
+    {
+      "path": "svc/cache.py",
+      "pulado": null,
+      "resumo": "Adiciona um método `set` para atualizar o valor associado a uma chave no cache.",
+      "problemas": [
+        "comentario_vazio"
+      ]
+    },
+    {
+      "path": "svc/pedidos.py",
+      "pulado": null,
+      "resumo": "Adiciona funções para calcular o total, aplicar desconto e consultar a cotação de frete.",
+      "problemas": []
+    }
+  ],
+  "chamadas": 2,
+  "tokens_entrada": 1501,
+  "tokens_saida": 200,
+  "segundos_no_modelo": 16.8
+}
