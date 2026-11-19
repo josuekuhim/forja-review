@@ -33,6 +33,10 @@ O que os números dizem:
 - **O custo do teto é o tempo.** O Gemma raciocina de 1.500 a 4.500 tokens por arquivo a ~7 tok/s: 12 a 22 min por PR em CPU. Funciona para um repositório pessoal com poucos PRs; para uso real, precisa de GPU ou de um modelo pequeno que acerte.
 - **A ponte para o resto do Forja:** esses dois PRs viram casos de `deteccao_bug` no forja-evals, e os comentários do Gemma viram pares de preferência para o DPO do forja-posttrain (escolhida: Gemma; rejeitada: o 0.5B). O teto local vira professor do modelo pequeno.
 
+### O ciclo fechado: eval online
+
+Os traces desses testes passaram pelo `forja-evals online` com o Gemma como juiz: 12 chamadas sorteadas, nota média 1,43 para o 1.5B e 1,00 para o 0.5B. Dos 14 comentários dos modelos pequenos, o juiz marcou **um** como útil, que é exatamente o único acerto real pelo gabarito. Ver [`forja-evals/baselines/online-forja-review-local`](../forja-evals/baselines/online-forja-review-local).
+
 ## O que tem dentro
 
 | Peça | Arquivo | Garantia testada |
