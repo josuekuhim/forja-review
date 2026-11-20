@@ -1,0 +1,51 @@
+{
+ "modelo": "ruff (B,S,BLE,E722,SIM115,PLW; --preview)",
+ "comentarios": [
+  {
+   "path": "app/usuarios.py",
+   "linha": 14,
+   "severidade": "risco",
+   "comentario": "[S608] query SQL montada com string: risco de injeção, use placeholder",
+   "mensagem": "Possible SQL injection vector through string-based query construction"
+  },
+  {
+   "path": "app/usuarios.py",
+   "linha": 20,
+   "severidade": "risco",
+   "comentario": "[PLW1514]",
+   "mensagem": "`open` in text mode without explicit `encoding` argument"
+  },
+  {
+   "path": "app/usuarios.py",
+   "linha": 20,
+   "severidade": "risco",
+   "comentario": "[SIM115] arquivo aberto sem with: não fecha",
+   "mensagem": "Use a context manager for opening files"
+  }
+ ],
+ "arquivos": [
+  {
+   "path": "app/paginacao.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "app/relatorio.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "app/usuarios.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  }
+ ],
+ "chamadas": 0,
+ "tokens_entrada": 0,
+ "tokens_saida": 0,
+ "segundos_no_modelo": 0.1,
+ "erros_de_sintaxe_da_reconstrucao": 0
+}

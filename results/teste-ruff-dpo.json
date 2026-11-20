@@ -1,0 +1,845 @@
+{
+ "modelo": "ruff+dpo",
+ "comentarios": [
+  {
+   "path": "backend/funcionarios_utils.py",
+   "linha": 10,
+   "severidade": "bug",
+   "comentario": "`estoque < minimo` compara identidade, não valor: uma lista vazia é sempre menor que qualquer número. Use `if not estoque:`."
+  },
+  {
+   "path": "app/students_jobs.py",
+   "linha": 5,
+   "severidade": "bug",
+   "comentario": "`k` pode ser 0 e ser ignorado em cada iteração: a média de um número sequencial é `NaN` (Not a Number). Se `k` pode ser 0, trate antes ou use `valores[-k:]`."
+  },
+  {
+   "path": "app/students_jobs.py",
+   "linha": 13,
+   "severidade": "bug",
+   "comentario": "O `round` default é `ROUND_HALF_UP`, então comum o número se arredonda para baixo. Use `ROUND_HALF_DOWN`."
+  },
+  {
+   "path": "svc/faturas.py",
+   "linha": 10,
+   "severidade": "bug",
+   "comentario": "`os.popen` sem nome usa o shell padrão (comando padrão de shell no Linux), e num servidor sem `shell=True` some comlaguma coisa. Passe `shell=False`."
+  },
+  {
+   "path": "svc/faturas.py",
+   "linha": 19,
+   "severidade": "bug",
+   "comentario": "`None` no `next` de `faturas` quando itere vazio: uma vez que o iterador se da, o elemento seguinte nunca é avaliado. Itere `list(faturas)` ou monte um novo lista."
+  },
+  {
+   "path": "jobs/alunos.py",
+   "linha": 12,
+   "severidade": "bug",
+   "comentario": "`Decimal(\"0.01\")` converte para zero e trunca: com 2 casas, \"0,10\" vale 0, não 1. Use `Decimal(\"0.10\")`."
+  },
+  {
+   "path": "jobs/alunos.py",
+   "linha": 16,
+   "severidade": "bug",
+   "comentario": "O nome diz \"alunos\", mas o filtro usa `x[\"status\"]` e devolve vazio para o campo que não tem. Troque para `x[\"status\"] is not None`."
+  },
+  {
+   "path": "backend/orders_service.py",
+   "linha": 10,
+   "severidade": "bug",
+   "comentario": "`os.popen` sem nome de arquivo cria uma nova janela: um processo com `ping` numa porta fica parado; use `subprocess.check_output`."
+  },
+  {
+   "path": "src/servicos/partidas_utils.py",
+   "linha": 16,
+   "severidade": "bug",
+   "comentario": "`estoque` pode ser 0 e a média é `None` quando o conjunto é vazio. Teste `if not estoque:` antes de dividir."
+  },
+  {
+   "path": "lib/readings.py",
+   "linha": 10,
+   "severidade": "bug",
+   "comentario": "`next` de uma sequência vazia levanta `StopIteration`. Se `readings` pode vir vazia, trate antes ou use `itertools.find_first_true`."
+  },
+  {
+   "path": "lib/readings.py",
+   "linha": 14,
+   "severidade": "bug",
+   "comentario": "`Counter` de tuplas de um lista de tuples levanta `RuntimeWarning: dictionary value changed size during iteration`. Itere sobre `list(readings)` ou monte um novo dicionário."
+  },
+  {
+   "path": "src/servicos/alunos_jobs.py",
+   "linha": 10,
+   "severidade": "bug",
+   "comentario": "`Decimal(\"0.01\")` sempre arredonda para baixo, então os valores que já estão abaixo disso aparecem como acima. Use `Decimal(\"0.01\").quantize(Decimal(\"1\"), rounding=ROUND_HALF_UP)`."
+  },
+  {
+   "path": "src/servicos/alunos_jobs.py",
+   "linha": 14,
+   "severidade": "bug",
+   "comentario": "`extra` pode ser `None` e o dicionário vira vazio: `{}` quando chega como `None` no Python 3.6. Use `if extra is None: extra = {}`."
+  },
+  {
+   "path": "api/viagens.py",
+   "linha": 2,
+   "severidade": "bug",
+   "comentario": "`except Exception as e:` captura tudo, inclusive `KeyboardInterrupt` e erros de programação, e devolve `None` como se o operário der erro. Capture `(OSError, Exception)` só."
+  },
+  {
+   "path": "api/viagens.py",
+   "linha": 10,
+   "severidade": "bug",
+   "comentario": "`conn.execute` sem tipo de cursor: lista de resultados indeterminada. Use `cursor.fetchall()` ou `cursor.bind_param` e tire o tipo de cursor depois."
+  },
+  {
+   "path": "src/servicos/viagens_jobs.py",
+   "linha": 11,
+   "severidade": "bug",
+   "comentario": "`valor` entra num comando com `sudo`: pule aspas e teste como if `valor is None`: `if viagens and viagens[0][\"motorista_id\"] == valor:`."
+  },
+  {
+   "path": "svc/produtos.py",
+   "linha": 5,
+   "severidade": "bug",
+   "comentario": "`not in` testa identidade: para o elemento a primeira vez, o índice é `None`, e o teste verifica `vistos is None` (e é `False` para qualquer valor), e o resultado é `True`. Use `if usuario not in vistos:`."
+  },
+  {
+   "path": "svc/produtos.py",
+   "linha": 11,
+   "severidade": "bug",
+   "comentario": "`Counter` de tuplas de 2 itens levanta `RuntimeWarning: dictionary value changed size during iteration`. Itere sobre `list(x)`, monte um novo dicionário e vá. (`produtos` numa lista de iters é avaliado uma vez: 100 itens, 100 contagem.)"
+  },
+  {
+   "path": "core/partidas_service.py",
+   "linha": 12,
+   "severidade": "bug",
+   "comentario": "`k` pode ser 0 e ser ignorado em some: tuplas vazias entre `for` e `if` se verem como verdadeiros. Use `if v is not None and k in v`."
+  },
+  {
+   "path": "core/partidas_service.py",
+   "linha": 20,
+   "severidade": "bug",
+   "comentario": "A condição está invertida: itere uma lista e devolva o último elemento, então travie o `for` sem checar o que vem depois. Use `for x in lista:`."
+  },
+  {
+   "path": "backend/produtos_utils.py",
+   "linha": 13,
+   "severidade": "bug",
+   "comentario": "`while True` sem `break` fica em loop indefinido: cada página completa duas vezes. Passe `break` no fim."
+  },
+  {
+   "path": "backend/produtos_utils.py",
+   "linha": 24,
+   "severidade": "bug",
+   "comentario": "SQL injection: `termo` entra direto no texto da query. Passe como parâmetro (`?`) em vez de interpolar."
+  },
+  {
+   "path": "app/readings_repo.py",
+   "linha": 13,
+   "severidade": "bug",
+   "comentario": "`valor` entra num filtro: devolve itens que não estão no `readings` (o que não existe) e prende o banco de dados. Passe uma lista de valores para `filter` (e evite aí o `or None`): `[x[\"device_id\"] == valor for x in readings]`."
+  },
+  {
+   "path": "lib/pedidos.py",
+   "linha": 10,
+   "severidade": "bug",
+   "comentario": "`padrao` é avaliado uma vez: todas as chaves de `extra` são o mesmo e o que se apaga também apaga para todas. Use `dict.fromkeys(extra.keys(), padrao)`."
+  },
+  {
+   "path": "lib/pedidos.py",
+   "linha": 16,
+   "severidade": "bug",
+   "comentario": "`Counter` de uma sequência vazia levanta `ZeroDivisionError`. Se `pedidos` pode vir vazia, trate antes ou use `Counter(pedidos[\"status\"])`."
+  },
+  {
+   "path": "lib/students_repo.py",
+   "linha": 16,
+   "severidade": "bug",
+   "comentario": "`Counter` de `students` vira vazio com cada `id` (duplo `id` no HTML ou no Python): uma id vira o outro e some os counts. Passe a tupla como segundo argumento: `Counter(*students)`."
+  },
+  {
+   "path": "lib/students_repo.py",
+   "linha": 20,
+   "severidade": "bug",
+   "comentario": "`novo` é avaliado uma vez, depois dos ids já foram descartados, então True some os ids vindos de `vistos` e False some os de `students`. Troque para `novo = not usuario in vistos`."
+  },
+  {
+   "path": "lib/consultas_repo.py",
+   "linha": 8,
+   "severidade": "bug",
+   "comentario": "`%` formata a string antes de chegar no driver, então os valores entram crus no SQL (injeção e erro com aspas). Passe a tupla como segundo argumento: `conn.execute(\"SELECT * FROM ...\", (termo,))`."
+  },
+  {
+   "path": "core/pedidos.py",
+   "linha": 5,
+   "severidade": "bug",
+   "comentario": "`None` no `next` vira `None` sempre: o pedido com o menor `cliente_id` vem depois de todos os outros. Retorne um valor padrão (o primeiro item default) se não houver itens."
+  },
+  {
+   "path": "core/pedidos.py",
+   "linha": 9,
+   "severidade": "bug",
+   "comentario": "`Counter` de tuplas vira um dicionário com valores unicos: dos mesmos `cliente_id` aparecem 2. Passe a chave `x[\"cliente_id\"]`."
+  },
+  {
+   "path": "api/consultas_service.py",
+   "linha": 2,
+   "severidade": "bug",
+   "comentario": "`next` de uma lista vazia levanta `StopIteration`. Se `consultas` pode vir vazia, trate antes ou use `if not consultas:`."
+  },
+  {
+   "path": "api/consultas_service.py",
+   "linha": 6,
+   "severidade": "bug",
+   "comentario": "`k` pode ser maior que o número de itens: em que caso `valores[i + k]` é `valores[i] + k - 1` e o elemento seguinte não existe, e `sum(janela)` levanta `IndexError`. Use `valores[i:i + k] if i + k <= len(valores) else []`."
+  },
+  {
+   "path": "backend/tickets_utils.py",
+   "linha": 11,
+   "severidade": "bug",
+   "comentario": "`next` de uma lista vazia levanta `StopIteration`. Se `tickets` pode vir vazia, trate antes ou use `itertools.filterfalse`."
+  },
+  {
+   "path": "backend/tickets_utils.py",
+   "linha": 15,
+   "severidade": "bug",
+   "comentario": "`math.ceil` trunca: com resto, o último página parcial some. Arredonde para cima: `math.ceil(total_registros / limite) - 1`."
+  },
+  {
+   "path": "api/orders_service.py",
+   "linha": 9,
+   "severidade": "bug",
+   "comentario": "`next` de uma sequência vazia levanta `StopIteration`. Se `orders` pode vir vazia, trate antes ou use `itertools.filterfalse`."
+  },
+  {
+   "path": "api/orders_service.py",
+   "linha": 13,
+   "severidade": "bug",
+   "comentario": "`len(selecionados)` pode ser 0 e a média é `None` quando o conjunto é vazio. Teste `if not selecionados:` antes de dividir."
+  },
+  {
+   "path": "backend/viagens.py",
+   "linha": 9,
+   "severidade": "bug",
+   "comentario": "`except Exception as e:` captura tudo, inclusive `KeyboardInterrupt` e erros de programação, e devolve `None` como se o usuário clicou no `X`. Capture `(OSError, Exception)` só: erros de programação."
+  },
+  {
+   "path": "backend/alunos_service.py",
+   "linha": 2,
+   "severidade": "bug",
+   "comentario": "`%{}%` usa a sintaxe de formatação (que permite qualquer tipo de injeção) e espaço no nome permite injeção de comando. Passe a lista de argumentos como segundo argumento: `conn.execute(\"SELECT * FROM alunos WHERE nome LIKE %s\", (termo,))`."
+  },
+  {
+   "path": "backend/consultas_utils.py",
+   "linha": 2,
+   "severidade": "bug",
+   "comentario": "`valor` entra num filtro: os resultados não são ordenados e corrompencem. Passe uma tupla como segundo argumento: `consultas.filter(medico_id=valor)`."
+  },
+  {
+   "path": "backend/consultas_utils.py",
+   "linha": 9,
+   "severidade": "bug",
+   "comentario": "`estoque` pode ser 0 e a função verifica a condição: maior que o minimo. Retorne `False` só para o caso padrão (estoque zero) e calcule numa lista: `[estoque > minimo for estoque in estoque]`."
+  },
+  {
+   "path": "backend/produtos_jobs.py",
+   "linha": 9,
+   "severidade": "bug",
+   "comentario": "`not in` verifica identidade: não verifica o valor, e o usuário pode vir multipleplas vezes com o mesmo `id`. Use `if usuario not in vistos`: conjunto mutável, não permite duplicidade."
+  },
+  {
+   "path": "backend/produtos_jobs.py",
+   "linha": 15,
+   "severidade": "bug",
+   "comentario": "`Counter` de tuplas levanta `RuntimeWarning: dictionary too large` com `n` itens: %s`."
+  },
+  {
+   "path": "src/servicos/invoices_jobs.py",
+   "linha": 5,
+   "severidade": "bug",
+   "comentario": "`< minimo` é `None` no primeiro chamada: quando o invoice ainda não vem no corpo, `estoque` pode ser `None` e a condição levanta `TypeError`. Use `if estoque is None or estoque < minimo:`."
+  },
+  {
+   "path": "src/servicos/viagens_repo.py",
+   "linha": 13,
+   "severidade": "bug",
+   "comentario": "`acquire()` de `_lock` numa thread só é avaliado uma vez: todas as outras chamadas de `_lock` trava numa mesma thread. Passe `blocking=False` como segundo argumento."
+  },
+  {
+   "path": "src/servicos/viagens_repo.py",
+   "linha": 26,
+   "severidade": "bug",
+   "comentario": "`ids.discard(i)` está sempre verificando o elemento atual e levanta `ValueError: list index out of range` quando o item é removido: uma id inválida é o último e o índice seguinte é sempre `None`. Monte uma nova lista: `[i for i in ids if i > 0]`."
+  },
+  {
+   "path": "api/viagens.py",
+   "linha": 5,
+   "severidade": "risco",
+   "comentario": "[BLE001] except Exception engole o erro",
+   "mensagem": "Do not catch blind exception: `Exception`"
+  },
+  {
+   "path": "app/viagens_utils.py",
+   "linha": 9,
+   "severidade": "risco",
+   "comentario": "[S608] query SQL montada com string: risco de injeção, use placeholder",
+   "mensagem": "Possible SQL injection vector through string-based query construction"
+  },
+  {
+   "path": "app/viagens_utils.py",
+   "linha": 16,
+   "severidade": "risco",
+   "comentario": "[S113] requests sem timeout",
+   "mensagem": "Probable use of `requests` call without timeout"
+  },
+  {
+   "path": "backend/alunos_service.py",
+   "linha": 2,
+   "severidade": "risco",
+   "comentario": "[S608] query SQL montada com string: risco de injeção, use placeholder",
+   "mensagem": "Possible SQL injection vector through string-based query construction"
+  },
+  {
+   "path": "backend/alunos_service.py",
+   "linha": 9,
+   "severidade": "risco",
+   "comentario": "[B909] lista modificada enquanto itera",
+   "mensagem": "Mutation to loop iterable `ids` during iteration"
+  },
+  {
+   "path": "backend/funcionarios_utils.py",
+   "linha": 2,
+   "severidade": "risco",
+   "comentario": "[S404]",
+   "mensagem": "`subprocess` module is possibly insecure"
+  },
+  {
+   "path": "backend/funcionarios_utils.py",
+   "linha": 14,
+   "severidade": "risco",
+   "comentario": "[PLW1510]",
+   "mensagem": "`subprocess.run` without explicit `check` argument"
+  },
+  {
+   "path": "backend/funcionarios_utils.py",
+   "linha": 14,
+   "severidade": "risco",
+   "comentario": "[S603] subprocess sem validar a entrada",
+   "mensagem": "`subprocess` call: check for execution of untrusted input"
+  },
+  {
+   "path": "backend/funcionarios_utils.py",
+   "linha": 14,
+   "severidade": "risco",
+   "comentario": "[S607] subprocess com caminho parcial",
+   "mensagem": "Starting a process with a partial executable path"
+  },
+  {
+   "path": "backend/leituras.py",
+   "linha": 7,
+   "severidade": "risco",
+   "comentario": "[S113] requests sem timeout",
+   "mensagem": "Probable use of `requests` call without timeout"
+  },
+  {
+   "path": "backend/orders_service.py",
+   "linha": 10,
+   "severidade": "risco",
+   "comentario": "[S605] processo iniciado com shell",
+   "mensagem": "Starting a process with a shell, possible injection detected"
+  },
+  {
+   "path": "backend/produtos_jobs.py",
+   "linha": 8,
+   "severidade": "risco",
+   "comentario": "[B006] argumento padrão mutável compartilhado entre chamadas",
+   "mensagem": "Do not use mutable data structures for argument defaults"
+  },
+  {
+   "path": "backend/produtos_utils.py",
+   "linha": 15,
+   "severidade": "risco",
+   "comentario": "[S113] requests sem timeout",
+   "mensagem": "Probable use of `requests` call without timeout"
+  },
+  {
+   "path": "backend/produtos_utils.py",
+   "linha": 24,
+   "severidade": "risco",
+   "comentario": "[S608] query SQL montada com string: risco de injeção, use placeholder",
+   "mensagem": "Possible SQL injection vector through string-based query construction"
+  },
+  {
+   "path": "backend/students_utils_2.py",
+   "linha": 20,
+   "severidade": "risco",
+   "comentario": "[S113] requests sem timeout",
+   "mensagem": "Probable use of `requests` call without timeout"
+  },
+  {
+   "path": "backend/viagens.py",
+   "linha": 12,
+   "severidade": "risco",
+   "comentario": "[BLE001] except Exception engole o erro",
+   "mensagem": "Do not catch blind exception: `Exception`"
+  },
+  {
+   "path": "core/partidas_service.py",
+   "linha": 22,
+   "severidade": "risco",
+   "comentario": "[S113] requests sem timeout",
+   "mensagem": "Probable use of `requests` call without timeout"
+  },
+  {
+   "path": "jobs/invoices_jobs.py",
+   "linha": 2,
+   "severidade": "risco",
+   "comentario": "[S608] query SQL montada com string: risco de injeção, use placeholder",
+   "mensagem": "Possible SQL injection vector through string-based query construction"
+  },
+  {
+   "path": "lib/consultas_repo.py",
+   "linha": 1,
+   "severidade": "risco",
+   "comentario": "[B006] argumento padrão mutável compartilhado entre chamadas",
+   "mensagem": "Do not use mutable data structures for argument defaults"
+  },
+  {
+   "path": "lib/consultas_repo.py",
+   "linha": 8,
+   "severidade": "risco",
+   "comentario": "[S608] query SQL montada com string: risco de injeção, use placeholder",
+   "mensagem": "Possible SQL injection vector through string-based query construction"
+  },
+  {
+   "path": "lib/students_repo.py",
+   "linha": 11,
+   "severidade": "risco",
+   "comentario": "[B909] lista modificada enquanto itera",
+   "mensagem": "Mutation to loop iterable `ids` during iteration"
+  },
+  {
+   "path": "lib/students_repo.py",
+   "linha": 19,
+   "severidade": "risco",
+   "comentario": "[B006] argumento padrão mutável compartilhado entre chamadas",
+   "mensagem": "Do not use mutable data structures for argument defaults"
+  },
+  {
+   "path": "src/servicos/consultas_repo.py",
+   "linha": 5,
+   "severidade": "risco",
+   "comentario": "[S605] processo iniciado com shell",
+   "mensagem": "Starting a process with a shell, possible injection detected"
+  },
+  {
+   "path": "src/servicos/partidas_utils_2.py",
+   "linha": 5,
+   "severidade": "risco",
+   "comentario": "[S605] processo iniciado com shell",
+   "mensagem": "Starting a process with a shell, possible injection detected"
+  },
+  {
+   "path": "src/servicos/viagens_jobs.py",
+   "linha": 6,
+   "severidade": "risco",
+   "comentario": "[S605] processo iniciado com shell",
+   "mensagem": "Starting a process with a shell, possible injection detected"
+  },
+  {
+   "path": "src/servicos/viagens_repo.py",
+   "linha": 28,
+   "severidade": "risco",
+   "comentario": "[B909] lista modificada enquanto itera",
+   "mensagem": "Mutation to loop iterable `ids` during iteration"
+  },
+  {
+   "path": "svc/faturas.py",
+   "linha": 10,
+   "severidade": "risco",
+   "comentario": "[S605] processo iniciado com shell",
+   "mensagem": "Starting a process with a shell, possible injection detected"
+  },
+  {
+   "path": "svc/produtos.py",
+   "linha": 4,
+   "severidade": "risco",
+   "comentario": "[B006] argumento padrão mutável compartilhado entre chamadas",
+   "mensagem": "Do not use mutable data structures for argument defaults"
+  },
+  {
+   "path": "svc/viagens.py",
+   "linha": 4,
+   "severidade": "risco",
+   "comentario": "[B909] lista modificada enquanto itera",
+   "mensagem": "Mutation to loop iterable `ids` during iteration"
+  }
+ ],
+ "arquivos": [
+  {
+   "path": "jobs/invoices_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/funcionarios_utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "app/students_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/students_utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "api/leituras_repo.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "svc/faturas.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "jobs/alunos.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/orders_service.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "src/servicos/faturas_service.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "src/servicos/consultas_repo.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "src/servicos/partidas_utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "lib/readings_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "lib/readings.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/faturas_utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "src/servicos/alunos_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "api/viagens.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "src/servicos/viagens_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "svc/produtos.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "core/partidas_service.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "api/leituras_utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/produtos_utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "app/readings_repo.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "lib/pedidos.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "api/alunos_service.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "lib/students_repo.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "core/tickets_utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/students_utils_2.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "lib/consultas_repo.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "jobs/alunos_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "lib/consultas_service.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "lib/orders_repo.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "core/pedidos.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "api/consultas_service.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/tickets_utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "core/orders_utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/leituras.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "api/orders_service.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "svc/students_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "lib/consultas_repo_2.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "svc/alunos_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "svc/alunos.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "app/partidas_repo.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/viagens.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "app/consultas_repo.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/alunos_service.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "app/viagens_utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "app/alunos_repo.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/consultas_utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "src/servicos/partidas_utils_2.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "app/faturas_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/produtos_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/orders_service_2.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "src/servicos/invoices_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "core/orders_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "app/funcionarios_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/alunos_service_2.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/pedidos_utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "src/servicos/viagens_repo.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "src/servicos/pedidos_service.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "svc/viagens.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  }
+ ],
+ "chamadas": 0,
+ "tokens_entrada": 0,
+ "tokens_saida": 0,
+ "segundos_no_modelo": 0.3,
+ "erros_de_sintaxe_da_reconstrucao": 1
+}

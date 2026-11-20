@@ -23,6 +23,7 @@ class ReviewConfig:
     concorrencia: int = 1  # o forja-serve em CPU faz batching, mas 1 por vez dá latência previsível
     ignorar: list[str] = field(default_factory=list)  # globs extras
     capturar_conteudo: bool = True  # diff e resposta vão para o trace (desligue para repos privados)
+    prompt: str = "completo"  # "curto" para um modelo pós-treinado na tarefa (forja-posttrain)
 
 
 @dataclass
@@ -76,7 +77,9 @@ async def review_files(
 
     async def one(f: FileDiff, r: FileResult) -> None:
         for i, hunks in enumerate(prompt.chunks(f, cfg.max_chars_por_chamada)):
-            msgs = prompt.messages(f, hunks, max_comentarios=cfg.max_comentarios_por_arquivo, titulo=titulo)
+            msgs = prompt.messages(
+                f, hunks, max_comentarios=cfg.max_comentarios_por_arquivo, titulo=titulo, estilo=cfg.prompt
+            )
             async with sem:
                 with tracer.start_as_current_span(T.SPAN_LLM) as span:
                     span.set_attributes({**base_attrs, T.ATTR_FILE: f.path, T.ATTR_CHUNK: i})

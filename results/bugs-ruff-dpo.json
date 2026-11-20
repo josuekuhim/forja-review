@@ -1,0 +1,69 @@
+{
+ "modelo": "ruff+dpo",
+ "comentarios": [
+  {
+   "path": "app/relatorio.py",
+   "linha": 10,
+   "severidade": "bug",
+   "comentario": "`maior` é o mesmo em todos os itereiros: o primeiro vale o que `vendas[0]` vem antes, e então todos se sobraem. Itere sobre `vendas` numa nova lista: `maior = max(venda[\"valor\"] for venda in vendas)`."
+  },
+  {
+   "path": "app/usuarios.py",
+   "linha": 14,
+   "severidade": "bug",
+   "comentario": "SQL injection: `nome` entra direto no texto da query. Passe como parâmetro (`?`) em vez de interpolar."
+  },
+  {
+   "path": "app/usuarios.py",
+   "linha": 20,
+   "severidade": "risco",
+   "comentario": "Conexão `conn` não é fechada: o servidor fica ocupado por conexões não utilizadas. Feche com `closing(...)` ou `conn.close()` num `finally`."
+  },
+  {
+   "path": "app/usuarios.py",
+   "linha": 14,
+   "severidade": "risco",
+   "comentario": "[S608] query SQL montada com string: risco de injeção, use placeholder",
+   "mensagem": "Possible SQL injection vector through string-based query construction"
+  },
+  {
+   "path": "app/usuarios.py",
+   "linha": 20,
+   "severidade": "risco",
+   "comentario": "[PLW1514]",
+   "mensagem": "`open` in text mode without explicit `encoding` argument"
+  },
+  {
+   "path": "app/usuarios.py",
+   "linha": 20,
+   "severidade": "risco",
+   "comentario": "[SIM115] arquivo aberto sem with: não fecha",
+   "mensagem": "Use a context manager for opening files"
+  }
+ ],
+ "arquivos": [
+  {
+   "path": "app/paginacao.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "app/relatorio.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "app/usuarios.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  }
+ ],
+ "chamadas": 0,
+ "tokens_entrada": 0,
+ "tokens_saida": 0,
+ "segundos_no_modelo": 0.1,
+ "erros_de_sintaxe_da_reconstrucao": 0
+}

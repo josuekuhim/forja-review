@@ -1,0 +1,62 @@
+{
+  "modelo": "qwen-base",
+  "endpoint": "http://127.0.0.1:8000/v1",
+  "comentarios": [
+    {
+      "path": "app/relatorio.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A função `percentual` está incorreta. A função deve calcular o percentual de vendas, não o valor da venda."
+    },
+    {
+      "path": "app/relatorio.py",
+      "linha": 13,
+      "severidade": "bug",
+      "comentario": "A função `percentual` está incorreta. A função deve calcular o percentual de vendas, não o valor da venda."
+    },
+    {
+      "path": "app/relatorio.py",
+      "linha": 14,
+      "severidade": "bug",
+      "comentario": "A função `percentual` está incorreta. A função deve calcular o percentual de vendas, não o valor da venda."
+    },
+    {
+      "path": "app/usuarios.py",
+      "linha": 8,
+      "severidade": "bug",
+      "comentario": "A função `buscar_usuario` foi adicionada para buscar um usuário pelo ID. No entanto, a função `buscar_por_nome` foi adicionada para buscar um usuário pelo nome. Ambas funções devem ser usadas corretamente."
+    },
+    {
+      "path": "app/usuarios.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A função `exportar_emails` foi adicionada para exportar os emails de todos os usuários. No entanto, a função `buscar_usuario` foi adicionada para buscar um usuário pelo ID. Ambas funções devem ser usadas corretamente."
+    }
+  ],
+  "arquivos": [
+    {
+      "path": "app/paginacao.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "app/relatorio.py",
+      "pulado": null,
+      "resumo": "O arquivo `app/relatorio.py` foi modificado para incluir a função `percentual` que calcula o percentual de vendas.",
+      "problemas": []
+    },
+    {
+      "path": "app/usuarios.py",
+      "pulado": null,
+      "resumo": "O arquivo `app/usuarios.py` foi modificado para incluir novas funções para buscar usuários por ID e nome, além de exportar os emails de todos os usuários.",
+      "problemas": []
+    }
+  ],
+  "chamadas": 3,
+  "tokens_entrada": 838,
+  "tokens_saida": 933,
+  "segundos_no_modelo": 202.2
+}

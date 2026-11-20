@@ -37,6 +37,12 @@ Resposta:
 Responda APENAS com JSON, sem texto antes ou depois, neste formato:
 {{"resumo": "o que a mudança faz, em 1 frase", "comentarios": [{{"linha": 12, "severidade": "bug", "comentario": "..."}}]}}"""
 
+# Prompt curto para um modelo pós-treinado na tarefa (forja-posttrain): as regras estão nos pesos, não
+# no contexto. São ~550 tokens a menos por chamada; o modelo base com este prompt não sabe o formato.
+SYSTEM_CURTO = """Revise o diff de UM arquivo de um pull request. Aponte só problemas reais nas linhas adicionadas, em português do Brasil, com a correção. No máximo {max_comentarios} comentários. Responda só com JSON: {{"resumo": "...", "comentarios": [{{"linha": 12, "severidade": "bug|risco|sugestao", "comentario": "..."}}]}}"""
+
+PROMPTS = {"completo": SYSTEM, "curto": SYSTEM_CURTO}
+
 STATUS = {"added": "novo", "modified": "modificado", "renamed": "renomeado", "removed": "removido"}
 
 
@@ -78,7 +84,12 @@ def chunks(f: FileDiff, max_chars: int) -> list[list[Hunk]]:
 
 
 def messages(
-    f: FileDiff, hunks: list[Hunk], *, max_comentarios: int, titulo: str | None = None
+    f: FileDiff,
+    hunks: list[Hunk],
+    *,
+    max_comentarios: int,
+    titulo: str | None = None,
+    estilo: str = "completo",
 ) -> list[dict[str, str]]:
     body = [f"Arquivo: {f.path} ({STATUS.get(f.status, f.status)})"]
     if f.old_path:
@@ -89,6 +100,6 @@ def messages(
     for h in hunks:
         body += render_hunk(h)
     return [
-        {"role": "system", "content": SYSTEM.format(max_comentarios=max_comentarios)},
+        {"role": "system", "content": PROMPTS[estilo].format(max_comentarios=max_comentarios)},
         {"role": "user", "content": "\n".join(body)},
     ]

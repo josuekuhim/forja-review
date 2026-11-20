@@ -1,0 +1,30 @@
+{
+  "modelo": "review-dpo",
+  "endpoint": "http://127.0.0.1:8000/v1",
+  "comentarios": [
+    {
+      "path": "svc/pedidos.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "Se o cupom já estiver no dicionário, o descuento aumenta e o novo descuento sombra o antigo. Use `cupom in descontos` para verificar se o descuento já existe."
+    }
+  ],
+  "arquivos": [
+    {
+      "path": "svc/cache.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo uma função que guarda um valor em cache.",
+      "problemas": []
+    },
+    {
+      "path": "svc/pedidos.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 2 funções: uma que aplica desconto a itens de um pedido; uma que busca a cotação de um endereço.",
+      "problemas": []
+    }
+  ],
+  "chamadas": 2,
+  "tokens_entrada": 567,
+  "tokens_saida": 136,
+  "segundos_no_modelo": 43.5
+}

@@ -1,0 +1,48 @@
+{
+  "modelo": "review-sft",
+  "endpoint": "http://127.0.0.1:8000/v1",
+  "comentarios": [
+    {
+      "path": "app/paginacao.py",
+      "linha": 7,
+      "severidade": "bug",
+      "comentario": "`n_itens // tamanho` trunca: com resto, a última página parcial some. Arredonde para cima (`math.ceil` ou `-(-a // b)`)."
+    },
+    {
+      "path": "app/relatorio.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "`maior` é o mesmo no primeiro itereio e no último: um item vira `maior` em seguida. Filtre numa nova lista: `[v for v in vendas if v[\"valor\"] > maior[\"valor\"]]`."
+    },
+    {
+      "path": "app/usuarios.py",
+      "linha": 14,
+      "severidade": "bug",
+      "comentario": "SQL injection: `nome` entra direto no texto da query. Passe como parâmetro (`?`) em vez de interpolar."
+    }
+  ],
+  "arquivos": [
+    {
+      "path": "app/paginacao.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo uma função que calcula o número de páginas.",
+      "problemas": []
+    },
+    {
+      "path": "app/relatorio.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 2 funções: uma que calcula o percentual de um item; uma que devolve o maior venda.",
+      "problemas": []
+    },
+    {
+      "path": "app/usuarios.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 2 funções: uma que busca usuarios por `nome`; uma que exporta e-mails de todos os usuários.",
+      "problemas": []
+    }
+  ],
+  "chamadas": 3,
+  "tokens_entrada": 838,
+  "tokens_saida": 290,
+  "segundos_no_modelo": 109.0
+}

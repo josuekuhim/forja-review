@@ -1,0 +1,31 @@
+{
+ "modelo": "bandit",
+ "comentarios": [
+  {
+   "path": "svc/pedidos.py",
+   "linha": 16,
+   "severidade": "risco",
+   "comentario": "[B113] requests sem timeout",
+   "mensagem": "Call to requests without timeout"
+  }
+ ],
+ "arquivos": [
+  {
+   "path": "svc/cache.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "svc/pedidos.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  }
+ ],
+ "chamadas": 0,
+ "tokens_entrada": 0,
+ "tokens_saida": 0,
+ "segundos_no_modelo": 2.6,
+ "erros_de_sintaxe_da_reconstrucao": 0
+}

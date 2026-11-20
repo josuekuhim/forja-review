@@ -1,0 +1,38 @@
+{
+ "modelo": "ruff (B,S,BLE,E722,SIM115,PLW; --preview)",
+ "comentarios": [
+  {
+   "path": "svc/pedidos.py",
+   "linha": 8,
+   "severidade": "risco",
+   "comentario": "[B006] argumento padrão mutável compartilhado entre chamadas",
+   "mensagem": "Do not use mutable data structures for argument defaults"
+  },
+  {
+   "path": "svc/pedidos.py",
+   "linha": 16,
+   "severidade": "risco",
+   "comentario": "[S113] requests sem timeout",
+   "mensagem": "Probable use of `requests` call without timeout"
+  }
+ ],
+ "arquivos": [
+  {
+   "path": "svc/cache.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "svc/pedidos.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  }
+ ],
+ "chamadas": 0,
+ "tokens_entrada": 0,
+ "tokens_saida": 0,
+ "segundos_no_modelo": 0.1,
+ "erros_de_sintaxe_da_reconstrucao": 1
+}

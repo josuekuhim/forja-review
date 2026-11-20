@@ -47,9 +47,14 @@ def local(
     json_mode: Annotated[bool | None, typer.Option(help="Pede response_format json_object")] = None,
     out: Annotated[Path | None, typer.Option(help="Salva o resultado em Markdown")] = None,
     json_out: Annotated[Path | None, typer.Option(help="Salva comentários e métricas em JSON")] = None,
+    prompt_estilo: Annotated[
+        str | None, typer.Option("--prompt", help="completo (padrão) ou curto (modelo pós-treinado)")
+    ] = None,
 ) -> None:
     """Revisa um diff local, sem GitHub. Útil para testar modelo e prompt."""
     s = _settings(base_url, model, json_mode)
+    if prompt_estilo:
+        s.review.prompt = prompt_estilo
     if diff_file:
         text = diff_file.read_text(encoding="utf-8")
     else:

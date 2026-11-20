@@ -1,0 +1,37 @@
+{
+ "modelo": "bandit",
+ "comentarios": [
+  {
+   "path": "app/usuarios.py",
+   "linha": 14,
+   "severidade": "risco",
+   "comentario": "[B608] query SQL montada com string: risco de injeção, use placeholder",
+   "mensagem": "Possible SQL injection vector through string-based query construction."
+  }
+ ],
+ "arquivos": [
+  {
+   "path": "app/paginacao.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "app/relatorio.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "app/usuarios.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  }
+ ],
+ "chamadas": 0,
+ "tokens_entrada": 0,
+ "tokens_saida": 0,
+ "segundos_no_modelo": 2.6,
+ "erros_de_sintaxe_da_reconstrucao": 0
+}

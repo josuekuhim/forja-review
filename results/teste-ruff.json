@@ -1,0 +1,575 @@
+{
+ "modelo": "ruff (B,S,BLE,E722,SIM115,PLW; --preview)",
+ "comentarios": [
+  {
+   "path": "api/viagens.py",
+   "linha": 5,
+   "severidade": "risco",
+   "comentario": "[BLE001] except Exception engole o erro",
+   "mensagem": "Do not catch blind exception: `Exception`"
+  },
+  {
+   "path": "app/viagens_utils.py",
+   "linha": 9,
+   "severidade": "risco",
+   "comentario": "[S608] query SQL montada com string: risco de injeção, use placeholder",
+   "mensagem": "Possible SQL injection vector through string-based query construction"
+  },
+  {
+   "path": "app/viagens_utils.py",
+   "linha": 16,
+   "severidade": "risco",
+   "comentario": "[S113] requests sem timeout",
+   "mensagem": "Probable use of `requests` call without timeout"
+  },
+  {
+   "path": "backend/alunos_service.py",
+   "linha": 2,
+   "severidade": "risco",
+   "comentario": "[S608] query SQL montada com string: risco de injeção, use placeholder",
+   "mensagem": "Possible SQL injection vector through string-based query construction"
+  },
+  {
+   "path": "backend/alunos_service.py",
+   "linha": 9,
+   "severidade": "risco",
+   "comentario": "[B909] lista modificada enquanto itera",
+   "mensagem": "Mutation to loop iterable `ids` during iteration"
+  },
+  {
+   "path": "backend/funcionarios_utils.py",
+   "linha": 2,
+   "severidade": "risco",
+   "comentario": "[S404]",
+   "mensagem": "`subprocess` module is possibly insecure"
+  },
+  {
+   "path": "backend/funcionarios_utils.py",
+   "linha": 14,
+   "severidade": "risco",
+   "comentario": "[PLW1510]",
+   "mensagem": "`subprocess.run` without explicit `check` argument"
+  },
+  {
+   "path": "backend/funcionarios_utils.py",
+   "linha": 14,
+   "severidade": "risco",
+   "comentario": "[S603] subprocess sem validar a entrada",
+   "mensagem": "`subprocess` call: check for execution of untrusted input"
+  },
+  {
+   "path": "backend/funcionarios_utils.py",
+   "linha": 14,
+   "severidade": "risco",
+   "comentario": "[S607] subprocess com caminho parcial",
+   "mensagem": "Starting a process with a partial executable path"
+  },
+  {
+   "path": "backend/leituras.py",
+   "linha": 7,
+   "severidade": "risco",
+   "comentario": "[S113] requests sem timeout",
+   "mensagem": "Probable use of `requests` call without timeout"
+  },
+  {
+   "path": "backend/orders_service.py",
+   "linha": 10,
+   "severidade": "risco",
+   "comentario": "[S605] processo iniciado com shell",
+   "mensagem": "Starting a process with a shell, possible injection detected"
+  },
+  {
+   "path": "backend/produtos_jobs.py",
+   "linha": 8,
+   "severidade": "risco",
+   "comentario": "[B006] argumento padrão mutável compartilhado entre chamadas",
+   "mensagem": "Do not use mutable data structures for argument defaults"
+  },
+  {
+   "path": "backend/produtos_utils.py",
+   "linha": 15,
+   "severidade": "risco",
+   "comentario": "[S113] requests sem timeout",
+   "mensagem": "Probable use of `requests` call without timeout"
+  },
+  {
+   "path": "backend/produtos_utils.py",
+   "linha": 24,
+   "severidade": "risco",
+   "comentario": "[S608] query SQL montada com string: risco de injeção, use placeholder",
+   "mensagem": "Possible SQL injection vector through string-based query construction"
+  },
+  {
+   "path": "backend/students_utils_2.py",
+   "linha": 20,
+   "severidade": "risco",
+   "comentario": "[S113] requests sem timeout",
+   "mensagem": "Probable use of `requests` call without timeout"
+  },
+  {
+   "path": "backend/viagens.py",
+   "linha": 12,
+   "severidade": "risco",
+   "comentario": "[BLE001] except Exception engole o erro",
+   "mensagem": "Do not catch blind exception: `Exception`"
+  },
+  {
+   "path": "core/partidas_service.py",
+   "linha": 22,
+   "severidade": "risco",
+   "comentario": "[S113] requests sem timeout",
+   "mensagem": "Probable use of `requests` call without timeout"
+  },
+  {
+   "path": "jobs/invoices_jobs.py",
+   "linha": 2,
+   "severidade": "risco",
+   "comentario": "[S608] query SQL montada com string: risco de injeção, use placeholder",
+   "mensagem": "Possible SQL injection vector through string-based query construction"
+  },
+  {
+   "path": "lib/consultas_repo.py",
+   "linha": 1,
+   "severidade": "risco",
+   "comentario": "[B006] argumento padrão mutável compartilhado entre chamadas",
+   "mensagem": "Do not use mutable data structures for argument defaults"
+  },
+  {
+   "path": "lib/consultas_repo.py",
+   "linha": 8,
+   "severidade": "risco",
+   "comentario": "[S608] query SQL montada com string: risco de injeção, use placeholder",
+   "mensagem": "Possible SQL injection vector through string-based query construction"
+  },
+  {
+   "path": "lib/students_repo.py",
+   "linha": 11,
+   "severidade": "risco",
+   "comentario": "[B909] lista modificada enquanto itera",
+   "mensagem": "Mutation to loop iterable `ids` during iteration"
+  },
+  {
+   "path": "lib/students_repo.py",
+   "linha": 19,
+   "severidade": "risco",
+   "comentario": "[B006] argumento padrão mutável compartilhado entre chamadas",
+   "mensagem": "Do not use mutable data structures for argument defaults"
+  },
+  {
+   "path": "src/servicos/consultas_repo.py",
+   "linha": 5,
+   "severidade": "risco",
+   "comentario": "[S605] processo iniciado com shell",
+   "mensagem": "Starting a process with a shell, possible injection detected"
+  },
+  {
+   "path": "src/servicos/partidas_utils_2.py",
+   "linha": 5,
+   "severidade": "risco",
+   "comentario": "[S605] processo iniciado com shell",
+   "mensagem": "Starting a process with a shell, possible injection detected"
+  },
+  {
+   "path": "src/servicos/viagens_jobs.py",
+   "linha": 6,
+   "severidade": "risco",
+   "comentario": "[S605] processo iniciado com shell",
+   "mensagem": "Starting a process with a shell, possible injection detected"
+  },
+  {
+   "path": "src/servicos/viagens_repo.py",
+   "linha": 28,
+   "severidade": "risco",
+   "comentario": "[B909] lista modificada enquanto itera",
+   "mensagem": "Mutation to loop iterable `ids` during iteration"
+  },
+  {
+   "path": "svc/faturas.py",
+   "linha": 10,
+   "severidade": "risco",
+   "comentario": "[S605] processo iniciado com shell",
+   "mensagem": "Starting a process with a shell, possible injection detected"
+  },
+  {
+   "path": "svc/produtos.py",
+   "linha": 4,
+   "severidade": "risco",
+   "comentario": "[B006] argumento padrão mutável compartilhado entre chamadas",
+   "mensagem": "Do not use mutable data structures for argument defaults"
+  },
+  {
+   "path": "svc/viagens.py",
+   "linha": 4,
+   "severidade": "risco",
+   "comentario": "[B909] lista modificada enquanto itera",
+   "mensagem": "Mutation to loop iterable `ids` during iteration"
+  }
+ ],
+ "arquivos": [
+  {
+   "path": "jobs/invoices_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/funcionarios_utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "app/students_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/students_utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "api/leituras_repo.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "svc/faturas.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "jobs/alunos.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/orders_service.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "src/servicos/faturas_service.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "src/servicos/consultas_repo.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "src/servicos/partidas_utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "lib/readings_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "lib/readings.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/faturas_utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "src/servicos/alunos_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "api/viagens.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "src/servicos/viagens_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "svc/produtos.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "core/partidas_service.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "api/leituras_utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/produtos_utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "app/readings_repo.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "lib/pedidos.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "api/alunos_service.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "lib/students_repo.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "core/tickets_utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/students_utils_2.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "lib/consultas_repo.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "jobs/alunos_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "lib/consultas_service.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "lib/orders_repo.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "core/pedidos.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "api/consultas_service.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/tickets_utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "core/orders_utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/leituras.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "api/orders_service.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "svc/students_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "lib/consultas_repo_2.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "svc/alunos_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "svc/alunos.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "app/partidas_repo.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/viagens.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "app/consultas_repo.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/alunos_service.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "app/viagens_utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "app/alunos_repo.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/consultas_utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "src/servicos/partidas_utils_2.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "app/faturas_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/produtos_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/orders_service_2.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "src/servicos/invoices_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "core/orders_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "app/funcionarios_jobs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/alunos_service_2.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "backend/pedidos_utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "src/servicos/viagens_repo.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "src/servicos/pedidos_service.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "svc/viagens.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  }
+ ],
+ "chamadas": 0,
+ "tokens_entrada": 0,
+ "tokens_saida": 0,
+ "segundos_no_modelo": 0.3,
+ "erros_de_sintaxe_da_reconstrucao": 1
+}

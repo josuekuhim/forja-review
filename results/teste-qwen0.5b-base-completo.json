@@ -1,0 +1,643 @@
+{
+  "modelo": "qwen-base",
+  "endpoint": "http://127.0.0.1:8000/v1",
+  "comentarios": [
+    {
+      "path": "backend/funcionarios_utils.py",
+      "linha": 1,
+      "severidade": "bug",
+      "comentario": "Função `primeiro_de` deve retornar o primeiro funcionário com o setor especificado."
+    },
+    {
+      "path": "backend/funcionarios_utils.py",
+      "linha": 2,
+      "severidade": "bug",
+      "comentario": "Função `precisa_reabastecer` deve verificar se o estoque é suficiente para um novo pedido."
+    },
+    {
+      "path": "backend/funcionarios_utils.py",
+      "linha": 3,
+      "severidade": "bug",
+      "comentario": "Função `responde` deve usar `subprocess.run` para executar o ping e verificar o retorno."
+    },
+    {
+      "path": "backend/orders_service.py",
+      "linha": 1,
+      "severidade": "bug",
+      "comentario": "Arredondar valores com duas casas decimais e verificar se o host está online."
+    },
+    {
+      "path": "backend/orders_service.py",
+      "linha": 11,
+      "severidade": "bug",
+      "comentario": "O método `os.popen` é usado para executar o comando `ping` e obter a saída. A saída é convertida para uma string e usada como um dicionário para armazenar os resultados."
+    },
+    {
+      "path": "backend/orders_service.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A função `mesclar` recebe dois parâmetros: `padrao` e `extra`. O `padrao` é um dicionário que define o padrão para o resultado, e o `extra` é um dicionário que adiciona novos valores ao padrão."
+    },
+    {
+      "path": "src/servicos/partidas_utils.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A função `arredondar` deve retornar um valor decimal com duas casas decimais."
+    },
+    {
+      "path": "src/servicos/partidas_utils.py",
+      "linha": 13,
+      "severidade": "bug",
+      "comentario": "A função `media_por_jogador_id` deve retornar um valor decimal."
+    },
+    {
+      "path": "src/servicos/partidas_utils.py",
+      "linha": 14,
+      "severidade": "bug",
+      "comentario": "A função `precisa_reabastecer` deve retornar um valor booleano."
+    },
+    {
+      "path": "svc/produtos.py",
+      "linha": 1,
+      "severidade": "bug",
+      "comentario": "A função `registrar_visita` deve receber um usuário e um conjunto de visitas. A função `contar_status` deve retornar um dicionário com o status de cada produto."
+    },
+    {
+      "path": "svc/produtos.py",
+      "linha": 11,
+      "severidade": "bug",
+      "comentario": "A função `contar_status` deve retornar um dicionário com o status de cada produto."
+    },
+    {
+      "path": "app/readings_repo.py",
+      "linha": 1,
+      "severidade": "bug",
+      "comentario": "O método `primeiro_de` deve retornar o primeiro registro da lista que matche o valor fornecido. O método `cabecalho_paginacao` deve retornar um objeto com as informações de paginção."
+    },
+    {
+      "path": "app/readings_repo.py",
+      "linha": 4,
+      "severidade": "bug",
+      "comentario": "O método `media_por_device_id` deve retornar a média dos valores de um dispositivo específico. O método `cabecalho_paginacao` deve retornar um objeto com as informações de paginção."
+    },
+    {
+      "path": "app/readings_repo.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "O método `media_por_device_id` deve retornar a média dos valores de um dispositivo específico. O método `cabecalho_paginacao` deve retornar um objeto com as informações de paginção."
+    },
+    {
+      "path": "lib/pedidos.py",
+      "linha": 1,
+      "severidade": "bug",
+      "comentario": "Função `arredondar` deve retornar um Decimal com duas casas decimais."
+    },
+    {
+      "path": "lib/pedidos.py",
+      "linha": 2,
+      "severidade": "bug",
+      "comentario": "Função `mesclar` deve retornar um dicionário com os dados de pedidos."
+    },
+    {
+      "path": "lib/pedidos.py",
+      "linha": 3,
+      "severidade": "bug",
+      "comentario": "Função `contar_status` deve retornar um dicionário com o status de cada pedido."
+    },
+    {
+      "path": "svc/alunos.py",
+      "linha": 1,
+      "severidade": "bug",
+      "comentario": "Função `cabecalho_paginacao` deve retornar um dicionário com as informações de cabecalho."
+    },
+    {
+      "path": "svc/alunos.py",
+      "linha": 2,
+      "severidade": "bug",
+      "comentario": "Função `medias_moveis` deve retornar uma lista de médias de movimentos."
+    },
+    {
+      "path": "svc/alunos.py",
+      "linha": 3,
+      "severidade": "bug",
+      "comentario": "Função `primeiro_de` deve retornar o primeiro aluno da turma especificada."
+    },
+    {
+      "path": "backend/consultas_utils.py",
+      "linha": 2,
+      "severidade": "bug",
+      "comentario": "Selecionar apenas os medicos com o mesmo ID."
+    },
+    {
+      "path": "backend/consultas_utils.py",
+      "linha": 3,
+      "severidade": "bug",
+      "comentario": "Verificar se a lista está vazia antes de calcular a média."
+    },
+    {
+      "path": "backend/consultas_utils.py",
+      "linha": 4,
+      "severidade": "bug",
+      "comentario": "Revisão da função para garantir que o estoque não seja menor que o mínimo."
+    },
+    {
+      "path": "backend/alunos_service_2.py",
+      "linha": 1,
+      "severidade": "bug",
+      "comentario": "Função `arredondar` usa `Decimal` para arredondar valores e `quantize` para formatar o resultado com duas casas decimais."
+    },
+    {
+      "path": "backend/alunos_service_2.py",
+      "linha": 2,
+      "severidade": "bug",
+      "comentario": "Função `contar_status` usa `Counter` para contar o número de alunos em cada status."
+    },
+    {
+      "path": "svc/viagens.py",
+      "linha": 2,
+      "severidade": "bug",
+      "comentario": "Remove itens da lista enquanto itera sobre ela pula elementos: [-1, -2] vira [-2]. Use uma nova lista: [x for x in ids if x >= 0]."
+    },
+    {
+      "path": "svc/viagens.py",
+      "linha": 3,
+      "severidade": "bug",
+      "comentario": "`discard(i)` remove o elemento se ele existir na lista."
+    }
+  ],
+  "arquivos": [
+    {
+      "path": "jobs/invoices_jobs.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "backend/funcionarios_utils.py",
+      "pulado": null,
+      "resumo": "Adiciona funções para buscar funcionários por setor e verificar se o estoque é suficiente para um novo pedido.",
+      "problemas": []
+    },
+    {
+      "path": "app/students_jobs.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "backend/students_utils.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "api/leituras_repo.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "svc/faturas.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "jobs/alunos.py",
+      "pulado": null,
+      "resumo": "Adiciona funções para mesclar, arredondar e contar status de alunos.",
+      "problemas": [
+        "comentario_descritivo",
+        "comentario_descritivo",
+        "comentario_descritivo",
+        "comentario_descritivo"
+      ]
+    },
+    {
+      "path": "backend/orders_service.py",
+      "pulado": null,
+      "resumo": "Adiciona funções para arredondar e verificar se um host está online.",
+      "problemas": [
+        "excesso_de_comentarios"
+      ]
+    },
+    {
+      "path": "src/servicos/faturas_service.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "src/servicos/consultas_repo.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "src/servicos/partidas_utils.py",
+      "pulado": null,
+      "resumo": "Adiciona funções para arredondar e calcular a média de pontos por jogador.",
+      "problemas": []
+    },
+    {
+      "path": "lib/readings_jobs.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "lib/readings.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "backend/faturas_utils.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "src/servicos/alunos_jobs.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "api/viagens.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "src/servicos/viagens_jobs.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "svc/produtos.py",
+      "pulado": null,
+      "resumo": "Adiciona uma função para registrar visitas e contar o status de produtos.",
+      "problemas": []
+    },
+    {
+      "path": "core/partidas_service.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "api/leituras_utils.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "backend/produtos_utils.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "app/readings_repo.py",
+      "pulado": null,
+      "resumo": "Adiciona funções para obter o primeiro registro de um dispositivo específico e para calcular a média de valores por dispositivo.",
+      "problemas": []
+    },
+    {
+      "path": "lib/pedidos.py",
+      "pulado": null,
+      "resumo": "Adiciona funções para arredondar e mesclar dados de pedidos.",
+      "problemas": []
+    },
+    {
+      "path": "api/alunos_service.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "lib/students_repo.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "core/tickets_utils.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "backend/students_utils_2.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "lib/consultas_repo.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "jobs/alunos_jobs.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "lib/consultas_service.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "lib/orders_repo.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "core/pedidos.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "api/consultas_service.py",
+      "pulado": null,
+      "resumo": "Adiciona uma função para obter a média de médicos movidos por um valor específico.",
+      "problemas": [
+        "comentario_vazio"
+      ]
+    },
+    {
+      "path": "backend/tickets_utils.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "core/orders_utils.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "backend/leituras.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "api/orders_service.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "svc/students_jobs.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "lib/consultas_repo_2.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "svc/alunos_jobs.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "svc/alunos.py",
+      "pulado": null,
+      "resumo": "Adiciona funções para calcular cabecalho de páginação e médias de movimentos.",
+      "problemas": []
+    },
+    {
+      "path": "app/partidas_repo.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "backend/viagens.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "app/consultas_repo.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "backend/alunos_service.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "app/viagens_utils.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "app/alunos_repo.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "backend/consultas_utils.py",
+      "pulado": null,
+      "resumo": "Adiciona funções para calcular a média por médico e verificar se há necessidade de reabastecer.",
+      "problemas": [
+        "comentario_descritivo",
+        "comentario_descritivo",
+        "excesso_de_comentarios"
+      ]
+    },
+    {
+      "path": "src/servicos/partidas_utils_2.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "app/faturas_jobs.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "backend/produtos_jobs.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "backend/orders_service_2.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "src/servicos/invoices_jobs.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "core/orders_jobs.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "app/funcionarios_jobs.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "backend/alunos_service_2.py",
+      "pulado": null,
+      "resumo": "Adiciona funções para arredondar e contar status de alunos.",
+      "problemas": []
+    },
+    {
+      "path": "backend/pedidos_utils.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "src/servicos/viagens_repo.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "src/servicos/pedidos_service.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "svc/viagens.py",
+      "pulado": null,
+      "resumo": "Adiciona uma função para remover IDs negativos da lista.",
+      "problemas": []
+    }
+  ],
+  "chamadas": 60,
+  "tokens_entrada": 44306,
+  "tokens_saida": 22183,
+  "segundos_no_modelo": 14016.8
+}

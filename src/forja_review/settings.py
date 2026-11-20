@@ -36,7 +36,9 @@ class Settings:
         )
         review = ReviewConfig(
             max_arquivos=int(_env("MAX_ARQUIVOS", str(ReviewConfig.max_arquivos))),
+            concorrencia=int(_env("CONCORRENCIA", str(ReviewConfig.concorrencia))),
             capturar_conteudo=_env("CAPTURAR_CONTEUDO", "1") == "1",
+            prompt=_env("PROMPT", ReviewConfig.prompt),
             ignorar=[g for g in (_env("IGNORAR") or "").split(",") if g],
         )
         return cls(
