@@ -1,0 +1,2484 @@
+{
+ "modelo": "ruff (B,S,BLE,E722,SIM115,PLW; --preview)",
+ "comentarios": [
+  {
+   "path": "apache__airflow/providers/elasticsearch/src/airflow/providers/elasticsearch/log/es_response.py",
+   "linha": 63,
+   "severidade": "risco",
+   "comentario": "[B904]",
+   "mensagem": "Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling"
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/integrations/pydantic_ai/__init__.corrigido.py",
+   "linha": 7,
+   "severidade": "risco",
+   "comentario": "[B904]",
+   "mensagem": "Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling"
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/integrations/pydantic_ai/__init__.py",
+   "linha": 7,
+   "severidade": "risco",
+   "comentario": "[B904]",
+   "mensagem": "Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling"
+  },
+  {
+   "path": "huggingface__transformers/utils/fetch_hub_objects_for_ci.py",
+   "linha": 63,
+   "severidade": "risco",
+   "comentario": "[S113] requests sem timeout",
+   "mensagem": "Probable use of `requests` call without timeout"
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/core/diff/calculator.corrigido.py",
+   "linha": 41,
+   "severidade": "risco",
+   "comentario": "[B903]",
+   "mensagem": "Class could be dataclass or namedtuple"
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/graphql/mutations/repository.corrigido.py",
+   "linha": 51,
+   "severidade": "risco",
+   "comentario": "[PLW3201]",
+   "mensagem": "Dunder method `__init_subclass_with_meta__` has no special meaning in Python 3"
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/experiments/simple_fsdp/llama3/parallelize.corrigido.py",
+   "linha": 46,
+   "severidade": "risco",
+   "comentario": "[B007]",
+   "mensagem": "Loop control variable `layer_id` not used within loop body"
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/experiments/simple_fsdp/llama3/parallelize.py",
+   "linha": 46,
+   "severidade": "risco",
+   "comentario": "[B007]",
+   "mensagem": "Loop control variable `layer_id` not used within loop body"
+  },
+  {
+   "path": "ray-project__ray/python/ray/dashboard/modules/job/cli.py",
+   "linha": 6,
+   "severidade": "risco",
+   "comentario": "[S404]",
+   "mensagem": "`subprocess` module is possibly insecure"
+  },
+  {
+   "path": "ray-project__ray/python/ray/dashboard/modules/job/cli.py",
+   "linha": 53,
+   "severidade": "risco",
+   "comentario": "[BLE001] except Exception engole o erro",
+   "mensagem": "Do not catch blind exception: `Exception`"
+  },
+  {
+   "path": "ray-project__ray/python/ray/dashboard/modules/job/cli.py",
+   "linha": 54,
+   "severidade": "risco",
+   "comentario": "[B904]",
+   "mensagem": "Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling"
+  },
+  {
+   "path": "ray-project__ray/python/ray/train/v2/_internal/callbacks/placement_group_callback.corrigido.py",
+   "linha": 58,
+   "severidade": "risco",
+   "comentario": "[BLE001] except Exception engole o erro",
+   "mensagem": "Do not catch blind exception: `Exception`"
+  }
+ ],
+ "arquivos": [
+  {
+   "path": "DataDog__integrations-core/postgres/datadog_checks/postgres/schemas.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "DataDog__integrations-core/postgres/datadog_checks/postgres/schemas.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "DataDog__integrations-core/kafka_consumer/datadog_checks/kafka_consumer/kafka_consumer.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "DataDog__integrations-core/kafka_consumer/datadog_checks/kafka_consumer/kafka_consumer.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "DataDog__integrations-core/kafka_consumer/datadog_checks/kafka_consumer/cluster_metadata.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "DataDog__integrations-core/kafka_consumer/datadog_checks/kafka_consumer/cluster_metadata.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "DataDog__integrations-core/sqlserver/datadog_checks/sqlserver/sqlserver.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "DataDog__integrations-core/sqlserver/datadog_checks/sqlserver/sqlserver.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "DataDog__integrations-core/spark/datadog_checks/spark/spark.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "DataDog__integrations-core/spark/datadog_checks/spark/spark.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "DataDog__integrations-core/kafka_actions/datadog_checks/kafka_actions/kafka_client.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "DataDog__integrations-core/kafka_actions/datadog_checks/kafka_actions/kafka_client.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "DataDog__integrations-core/ibm_mq/datadog_checks/ibm_mq/metrics.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "DataDog__integrations-core/ibm_mq/datadog_checks/ibm_mq/metrics.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "DataDog__integrations-core/postgres/datadog_checks/postgres/explain_parameterized_queries.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "DataDog__integrations-core/postgres/datadog_checks/postgres/explain_parameterized_queries.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "DataDog__integrations-core/ibm_mq/datadog_checks/ibm_mq/collectors/channel_metric_collector.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "DataDog__integrations-core/ibm_mq/datadog_checks/ibm_mq/collectors/channel_metric_collector.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "DataDog__integrations-core/citrix_hypervisor/datadog_checks/citrix_hypervisor/check.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "DataDog__integrations-core/citrix_hypervisor/datadog_checks/citrix_hypervisor/check.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "DataDog__integrations-core/ddev/src/ddev/plugin/external/hatch/environment_collector.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "DataDog__integrations-core/ddev/src/ddev/plugin/external/hatch/environment_collector.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "DataDog__integrations-core/llm_d/datadog_checks/llm_d/check.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "DataDog__integrations-core/llm_d/datadog_checks/llm_d/check.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "DataDog__integrations-core/ddev/src/ddev/cli/env/start.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "DataDog__integrations-core/ddev/src/ddev/cli/env/start.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/ops/op_math/pow2.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/ops/op_math/pow2.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/templates/subroutines/select.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/templates/subroutines/select.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/capture/dynamic_shapes.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/capture/dynamic_shapes.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/workflow/get_best_diff_method.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/workflow/get_best_diff_method.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/devices/qubit/initialize_state.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/devices/qubit/initialize_state.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/pauli/pauli_arithmetic.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/pauli/pauli_arithmetic.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/drawer/mpldrawer.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/drawer/mpldrawer.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/math/interface_utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/math/interface_utils.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/ops/op_math/condition.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/ops/op_math/condition.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/templates/state_preparations/sum_of_slaters.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/templates/state_preparations/sum_of_slaters.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/templates/state_preparations/partial_unary.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/templates/state_preparations/partial_unary.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/operation.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/operation.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/backline/decoders/triton/decoder_frontend.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "PennyLaneAI__pennylane/pennylane/backline/decoders/triton/decoder_frontend.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ROCm__TheRock/build_tools/packaging/python/templates/rocm/src/rocm_sdk/_devel.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ROCm__TheRock/build_tools/packaging/python/templates/rocm/src/rocm_sdk/_devel.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ROCm__TheRock/build_tools/github_actions/github_actions_api.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ROCm__TheRock/build_tools/github_actions/github_actions_api.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ROCm__TheRock/build_tools/install_rocm_from_artifacts.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ROCm__TheRock/build_tools/install_rocm_from_artifacts.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ROCm__TheRock/build_tools/github_actions/publish_rocm_to_release_buckets.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ROCm__TheRock/build_tools/github_actions/publish_rocm_to_release_buckets.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ROCm__TheRock/build_tools/packaging/python/templates/rocm-sdk-core/setup.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ROCm__TheRock/build_tools/packaging/python/templates/rocm-sdk-core/setup.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ROCm__TheRock/build_tools/artifact_manager.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ROCm__TheRock/build_tools/artifact_manager.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ROCm__TheRock/build_tools/github_actions/fetch_package_targets.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ROCm__TheRock/build_tools/github_actions/fetch_package_targets.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ROCm__TheRock/build_tools/github_actions/fetch_test_configurations.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ROCm__TheRock/build_tools/github_actions/fetch_test_configurations.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ROCm__TheRock/external-builds/pytorch/build_prod_wheels.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ROCm__TheRock/external-builds/pytorch/build_prod_wheels.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ROCm__TheRock/build_tools/github_actions/test_executable_scripts/pytest_runner.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ROCm__TheRock/build_tools/github_actions/test_executable_scripts/pytest_runner.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ROCm__TheRock/build_tools/packaging/linux/build_package.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ROCm__TheRock/build_tools/packaging/linux/build_package.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ai2cm__ace/fme/ace/inference/data_writer/file_writer.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ai2cm__ace/fme/ace/inference/data_writer/file_writer.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ai2cm__ace/fme/ace/stepper/derived_forcings.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ai2cm__ace/fme/ace/stepper/derived_forcings.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ai2cm__ace/fme/ace/stepper/single_module.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ai2cm__ace/fme/ace/stepper/single_module.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ai2cm__ace/fme/downscaling/models.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ai2cm__ace/fme/downscaling/models.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ai2cm__ace/fme/ace/stepper/parameter_init.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ai2cm__ace/fme/ace/stepper/parameter_init.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ai2cm__ace/fme/ace/inference/data_writer/zarr.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ai2cm__ace/fme/ace/inference/data_writer/zarr.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ai2cm__ace/fme/core/histogram.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ai2cm__ace/fme/core/histogram.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ai2cm__ace/fme/core/dataset/concat.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ai2cm__ace/fme/core/dataset/concat.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ai2cm__ace/fme/ace/data_loading/inference.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ai2cm__ace/fme/ace/data_loading/inference.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ai2cm__ace/fme/fme/core/atmosphere_data.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ai2cm__ace/fme/fme/core/atmosphere_data.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ai2cm__ace/fme/downscaling/modules/unets.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ai2cm__ace/fme/downscaling/modules/unets.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ai2cm__ace/fme/ace/models/ocean/m2lines/samudra.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ai2cm__ace/fme/ace/models/ocean/m2lines/samudra.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/airflow-core/src/airflow/models/trigger.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/airflow-core/src/airflow/models/trigger.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/providers/google/src/airflow/providers/google/cloud/triggers/kubernetes_engine.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/providers/google/src/airflow/providers/google/cloud/triggers/kubernetes_engine.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/providers/src/airflow/providers/exasol/hooks/exasol.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/providers/src/airflow/providers/exasol/hooks/exasol.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/airflow/cli/commands/remote_commands/backfill_command.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/airflow/cli/commands/remote_commands/backfill_command.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/airflow-core/src/airflow/utils/email.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/airflow-core/src/airflow/utils/email.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/providers/common/ai/src/airflow/providers/common/ai/utils/usage_budget.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/providers/common/ai/src/airflow/providers/common/ai/utils/usage_budget.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/providers/google/src/airflow/providers/google/cloud/hooks/cloud_composer.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/providers/google/src/airflow/providers/google/cloud/hooks/cloud_composer.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/providers/cncf/kubernetes/src/airflow/providers/cncf/kubernetes/executors/kubernetes_executor.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/providers/cncf/kubernetes/src/airflow/providers/cncf/kubernetes/executors/kubernetes_executor.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/providers/elasticsearch/src/airflow/providers/elasticsearch/log/es_response.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/providers/elasticsearch/src/airflow/providers/elasticsearch/log/es_response.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/airflow-core/src/airflow/cli/commands/asset_command.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/airflow-core/src/airflow/cli/commands/asset_command.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/airflow-core/src/airflow/serialization/definitions/notset.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/airflow-core/src/airflow/serialization/definitions/notset.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/airflow-core/src/airflow/api_fastapi/core_api/datamodels/ui/grid.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/airflow-core/src/airflow/api_fastapi/core_api/datamodels/ui/grid.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/shared/observability/src/airflow_shared/observability/common.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "apache__airflow/shared/observability/src/airflow_shared/observability/common.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "datahub-project__datahub/metadata-ingestion/src/datahub/cli/specific/dataset_cli.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "datahub-project__datahub/metadata-ingestion/src/datahub/cli/specific/dataset_cli.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "datahub-project__datahub/metadata-ingestion/src/datahub/configuration/env_vars.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "datahub-project__datahub/metadata-ingestion/src/datahub/configuration/env_vars.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/datahub/datahub_source.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/datahub/datahub_source.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/dbt/dbt_core.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/dbt/dbt_core.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/sql/sqlalchemy_data_reader.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/sql/sqlalchemy_data_reader.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "datahub-project__datahub/metadata-ingestion/src/datahub/utilities/pkg_resources_shim.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "datahub-project__datahub/metadata-ingestion/src/datahub/utilities/pkg_resources_shim.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/schema_inference/json.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/schema_inference/json.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/fabric/onelake/schema_client.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/fabric/onelake/schema_client.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "datahub-project__datahub/datahub-actions/src/datahub_actions/plugin/source/acryl/datahub_cloud_events_consumer.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "datahub-project__datahub/datahub-actions/src/datahub_actions/plugin/source/acryl/datahub_cloud_events_consumer.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "datahub-project__datahub/metadata-ingestion-modules/airflow-plugin/src/datahub_airflow_plugin/airflow3/_athena_openlineage_patch.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "datahub-project__datahub/metadata-ingestion-modules/airflow-plugin/src/datahub_airflow_plugin/airflow3/_athena_openlineage_patch.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/looker/looker_common.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/looker/looker_common.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "datahub-project__datahub/metadata-ingestion/src/datahub/sdk/main_client.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "datahub-project__datahub/metadata-ingestion/src/datahub/sdk/main_client.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "frappe__frappe/frappe/studio/doctype/studio_page/patches/migrate_charts_to_frappe_ui_charts.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "frappe__frappe/frappe/studio/doctype/studio_page/patches/migrate_charts_to_frappe_ui_charts.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "frappe__frappe/frappe/twofactor.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "frappe__frappe/frappe/twofactor.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "frappe__frappe/flow/harness/src/flow_server/session/store.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "frappe__frappe/flow/harness/src/flow_server/session/store.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "frappe__frappe/flow/harness/src/flow_server/agent/loop.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "frappe__frappe/flow/harness/src/flow_server/agent/loop.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "frappe__frappe/frappe/core/doctype/data_import/import_provider.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "frappe__frappe/frappe/core/doctype/data_import/import_provider.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "frappe__frappe/frappe/core/doctype/data_import/exporter.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "frappe__frappe/frappe/core/doctype/data_import/exporter.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "frappe__frappe/flow/harness/src/flow_harness/session/config.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "frappe__frappe/flow/harness/src/flow_harness/session/config.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "frappe__frappe/frappe/printing/doctype/print_format/classic_converter.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "frappe__frappe/frappe/printing/doctype/print_format/classic_converter.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "frappe__frappe/frappe/flow/assistant/assistant.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "frappe__frappe/frappe/flow/assistant/assistant.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "frappe__frappe/flow/harness/src/flow/agent/loop.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "frappe__frappe/flow/harness/src/flow/agent/loop.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "frappe__frappe/frappe/core/doctype/file/file_v2.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "frappe__frappe/frappe/core/doctype/file/file_v2.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "frappe__frappe/frappe/core/doctype/error_log/error_log.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "frappe__frappe/frappe/core/doctype/error_log/error_log.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/serializer.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/serializer.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/integrations/openai.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/integrations/openai.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/integrations/aiohttp.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/integrations/aiohttp.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/integrations/pydantic_ai/patches/agent_run.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/integrations/pydantic_ai/patches/agent_run.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/profiler/continuous_profiler.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/profiler/continuous_profiler.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/integrations/gcp.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/integrations/gcp.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/integrations/pydantic_ai/__init__.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/integrations/pydantic_ai/__init__.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/logger.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/logger.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/integrations/arq.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/integrations/arq.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/integrations/google_genai/utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/integrations/google_genai/utils.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/integrations/openai_agents/patches/runner.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/integrations/openai_agents/patches/runner.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/integrations/_asgi_common.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "getsentry__sentry-python/sentry_sdk/integrations/_asgi_common.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/webostv/__init__.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/webostv/__init__.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/roomba/vacuum.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/roomba/vacuum.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/myuplink/select.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/myuplink/select.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/yale_smart_alarm/__init__.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/yale_smart_alarm/__init__.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/prosegur/camera.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/prosegur/camera.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/lyric/sensor.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/lyric/sensor.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/tado/config_flow.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/tado/config_flow.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/alexa_devices/coordinator.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/alexa_devices/coordinator.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/sonos/entity.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/sonos/entity.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/matter/cover.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/matter/cover.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/blebox/light.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/blebox/light.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/esphome/entity.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/esphome/entity.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/isy994/helpers.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "home-assistant__core/homeassistant/components/isy994/helpers.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/src/transformers/models/mamba2/modeling_mamba2.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/src/transformers/models/mamba2/modeling_mamba2.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/src/transformers/models/dac/modeling_dac.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/src/transformers/models/dac/modeling_dac.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/src/transformers/models/qwen2_vl/image_processing_qwen2_vl.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/src/transformers/models/qwen2_vl/image_processing_qwen2_vl.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/src/transformers/models/tipsv2/modeling_tipsv2.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/src/transformers/models/tipsv2/modeling_tipsv2.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/src/transformers/models/emu3/modular_emu3.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/src/transformers/models/emu3/modular_emu3.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/src/transformers/commands/serving.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/src/transformers/commands/serving.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/src/transformers/models/blt/modeling_blt.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/src/transformers/models/blt/modeling_blt.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/src/transformers/models/ernie4_5_moe/modular_ernie4_5_moe.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/src/transformers/models/ernie4_5_moe/modular_ernie4_5_moe.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/src/transformers/models/reformer/modeling_reformer.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/src/transformers/models/reformer/modeling_reformer.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/src/transformers/models/mistral/configuration_mistral.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/src/transformers/models/mistral/configuration_mistral.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/src/transformers/generation/streamers.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/src/transformers/generation/streamers.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/src/transformers/models/inkling/feature_extraction_inkling.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/src/transformers/models/inkling/feature_extraction_inkling.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/utils/fetch_hub_objects_for_ci.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "huggingface__transformers/utils/fetch_hub_objects_for_ci.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/computed_attribute/models.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/computed_attribute/models.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/core/branch/tasks.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/core/branch/tasks.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/config.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/config.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/trace.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/trace.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/core/migrations/schema/node_remove.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/core/migrations/schema/node_remove.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/core/diff/calculator.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/core/diff/calculator.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/core/convert_object_type/object_conversion.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/core/convert_object_type/object_conversion.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/graphql/mutations/ipam.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/graphql/mutations/ipam.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/core/node/ipam.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/core/node/ipam.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/api/admission/middleware.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/api/admission/middleware.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/graphql/mutations/repository.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/graphql/mutations/repository.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/graphql/resolvers/resolver.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "opsmill__infrahub/backend/infrahub/graphql/resolvers/resolver.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/result.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/result.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pydantic__pydantic-ai/.github/scripts/semantic_owner_router.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pydantic__pydantic-ai/.github/scripts/semantic_owner_router.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/models/test.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/models/test.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pydantic__pydantic-ai/src/pydantic_clai2/pydantic_clai2/cli/self_update.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pydantic__pydantic-ai/src/pydantic_clai2/pydantic_clai2/cli/self_update.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/ui/_adapter.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/ui/_adapter.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pydantic__pydantic-ai/src/pydantic_ai_harness/pydantic_ai_harness/dynamic_workflow/_capability.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pydantic__pydantic-ai/src/pydantic_ai_harness/pydantic_ai_harness/dynamic_workflow/_capability.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pydantic__pydantic-ai/src/pydantic_clai2/pydantic_clai2/prompt_transcript.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pydantic__pydantic-ai/src/pydantic_clai2/pydantic_clai2/prompt_transcript.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/_run_context.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/_run_context.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pydantic__pydantic-ai/src/pydantic_ai_harness/pydantic_ai_harness/experimental/overflow/_capability.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pydantic__pydantic-ai/src/pydantic_ai_harness/pydantic_ai_harness/experimental/overflow/_capability.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pydantic__pydantic-ai/src/pydantic_clai2/pydantic_clai2/runtime/tasks.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pydantic__pydantic-ai/src/pydantic_clai2/pydantic_clai2/runtime/tasks.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/ui/vercel_ai/request_types.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/ui/vercel_ai/request_types.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/models/gemini.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/models/gemini.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/experiments/simple_fsdp/llama3/parallelize.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/experiments/simple_fsdp/llama3/parallelize.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/experiments/torchft/checkpoint.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/experiments/torchft/checkpoint.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/experiments/rl/models/vllm_wrapper.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/experiments/rl/models/vllm_wrapper.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/experiments/graph_trainer/simple_fsdp.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/experiments/graph_trainer/simple_fsdp.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/models/common/rope.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/models/common/rope.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/config/configs.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/config/configs.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/models/common/moe/token_dispatcher.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/models/common/moe/token_dispatcher.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/distributed/fsdp.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/distributed/fsdp.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/distributed/flex_shard/dist_muon.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/distributed/flex_shard/dist_muon.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/experiments/torchft/optimizer.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/experiments/torchft/optimizer.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/components/optim/ema.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/components/optim/ema.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/config_manager.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/config_manager.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/experiments/torchft/manager.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "pytorch__torchtitan/torchtitan/experiments/torchft/manager.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/python/ray/data/_internal/util.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/python/ray/data/_internal/util.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/python/ray/llm/_internal/batch/processor/base.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/python/ray/llm/_internal/batch/processor/base.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/python/ray/_private/runtime_env/working_dir.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/python/ray/_private/runtime_env/working_dir.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/rllib/env/single_agent_env_runner.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/rllib/env/single_agent_env_runner.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/python/ray/serve/_private/replica.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/python/ray/serve/_private/replica.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/python/ray/data/_internal/execution/operators/map_operator.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/python/ray/data/_internal/execution/operators/map_operator.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/python/ray/train/v2/_internal/callbacks/placement_group_callback.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/python/ray/train/v2/_internal/callbacks/placement_group_callback.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/python/ray/data/_internal/execution/operators/task_pool_map_operator.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/python/ray/data/_internal/execution/operators/task_pool_map_operator.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/python/ray/data/_internal/planner/plan_expression/expression_evaluator.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/python/ray/data/_internal/planner/plan_expression/expression_evaluator.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/rllib/env/multi_agent_env_runner.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/rllib/env/multi_agent_env_runner.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/python/ray/dashboard/modules/job/cli.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/python/ray/dashboard/modules/job/cli.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/python/ray/data/_internal/datasource/parquet_datasink.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/python/ray/data/_internal/datasource/parquet_datasink.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/python/ray/serve/_private/grpc_util.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ray-project__ray/python/ray/serve/_private/grpc_util.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ukaea__PROCESS/process/models/physics/physics.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ukaea__PROCESS/process/models/physics/physics.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ukaea__PROCESS/process/input.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ukaea__PROCESS/process/input.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ukaea__PROCESS/process/core/io/plot/summary.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ukaea__PROCESS/process/core/io/plot/summary.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ukaea__PROCESS/process/pulse.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ukaea__PROCESS/process/pulse.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ukaea__PROCESS/process/pfcoil.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ukaea__PROCESS/process/pfcoil.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ukaea__PROCESS/process/models/physics/current_drive.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ukaea__PROCESS/process/models/physics/current_drive.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ukaea__PROCESS/process/caller.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ukaea__PROCESS/process/caller.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ukaea__PROCESS/process/power.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ukaea__PROCESS/process/power.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ukaea__PROCESS/process/tf_coil.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ukaea__PROCESS/process/tf_coil.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ukaea__PROCESS/process/models/cs_fatigue.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ukaea__PROCESS/process/models/cs_fatigue.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ukaea__PROCESS/documentation/scripts/plotting_scripts/profile_peng_qbar.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ukaea__PROCESS/documentation/scripts/plotting_scripts/profile_peng_qbar.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ukaea__PROCESS/process/io/plot_solutions.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "ukaea__PROCESS/process/io/plot_solutions.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/vllm/models/step5/nvidia/mtp.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/vllm/models/step5/nvidia/mtp.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/vllm/transformers_utils/processors/deepseek_ocr.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/vllm/transformers_utils/processors/deepseek_ocr.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/vllm/model_executor/layers/quantization/compressed_tensors/schemes/compressed_tensors_w4a8_fp8.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/vllm/model_executor/layers/quantization/compressed_tensors/schemes/compressed_tensors_w4a8_fp8.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/vllm/model_executor/layers/fused_moe/experts/cutlass_moe.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/vllm/model_executor/layers/fused_moe/experts/cutlass_moe.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/vllm/scalar_type.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/vllm/scalar_type.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/vllm/distributed/kv_events.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/vllm/distributed/kv_events.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/vllm/entrypoints/openai/responses/serving.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/vllm/entrypoints/openai/responses/serving.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/examples/offline_inference/audio_language.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/examples/offline_inference/audio_language.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/vllm/distributed/kv_transfer/kv_connector/v1/offloading/scheduler.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/vllm/distributed/kv_transfer/kv_connector/v1/offloading/scheduler.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/vllm/renderers/hf.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/vllm/renderers/hf.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/vllm/config/speculative.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/vllm/config/speculative.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/vllm/tool_parsers/utils.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/vllm/tool_parsers/utils.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/vllm/v1/attention/backends/flashinfer.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  },
+  {
+   "path": "vllm-project__vllm/vllm/v1/attention/backends/flashinfer.corrigido.py",
+   "pulado": null,
+   "resumo": "",
+   "problemas": []
+  }
+ ],
+ "chamadas": 0,
+ "tokens_entrada": 0,
+ "tokens_saida": 0,
+ "segundos_no_modelo": 6.9,
+ "erros_de_sintaxe_da_reconstrucao": 5963
+}

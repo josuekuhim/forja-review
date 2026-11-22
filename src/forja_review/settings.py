@@ -56,13 +56,13 @@ class Settings:
             raise RuntimeError("defina FORJA_REVIEW_PRIVATE_KEY_PATH (a chave .pem do GitHub App)")
         return Path(self.private_key_path).read_text(encoding="utf-8")
 
-    def require_app(self) -> None:
+    def require_app(self, webhook: bool = True) -> None:
         faltando = [
             n
             for n, v in (
                 ("FORJA_REVIEW_APP_ID", self.app_id),
                 ("FORJA_REVIEW_PRIVATE_KEY_PATH", self.private_key_path),
-                ("FORJA_REVIEW_WEBHOOK_SECRET", self.webhook_secret),
+                ("FORJA_REVIEW_WEBHOOK_SECRET", self.webhook_secret if webhook else "não precisa"),
             )
             if not v
         ]

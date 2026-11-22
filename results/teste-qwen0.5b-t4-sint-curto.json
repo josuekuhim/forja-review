@@ -1,0 +1,726 @@
+{
+  "modelo": "review-sint-t4",
+  "endpoint": "http://127.0.0.1:8000/v1",
+  "comentarios": [
+    {
+      "path": "jobs/invoices_jobs.py",
+      "linha": 2,
+      "severidade": "bug",
+      "comentario": "SQL injection: `termo` entra direto no texto da query. Passe como parâmetro (`?`) em vez de interpolar."
+    },
+    {
+      "path": "backend/funcionarios_utils.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "`<` testa identidade: strings iguais vindas do banco ou de JSON não são o mesmo objeto, e o resultado é `None`. Use `if not estoque:` ou `if estoque is None:`."
+    },
+    {
+      "path": "app/students_jobs.py",
+      "linha": 5,
+      "severidade": "bug",
+      "comentario": "`k` pode ser maior que o número de itens: em que caso o resultado seja `NaN` (not a number)` e o `sum` levanta `ZeroDivisionError`. Trate o caso vazio antes: `if k == 0: return 0.0`."
+    },
+    {
+      "path": "api/leituras_repo.py",
+      "linha": 2,
+      "severidade": "bug",
+      "comentario": "`vistos is None` compara identidade, não valor: é o mesmo objeto multiplemente e o que se adiciona numa vez aparece todas as vezes. Use `if vistos is not None`."
+    },
+    {
+      "path": "svc/faturas.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "O comando `os.popen` sem nome de arquivo abre uma janela de texto. Use `subprocess.check_output` ou um bloco `with open(...)`."
+    },
+    {
+      "path": "jobs/alunos.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "`Decimal(\"0.01\")` converte para 0,1 e trunca: com 2 dígitos perto, o resultado é 0.10. Passe acentos (e. g., `Decimal(\"0,01\"`) ou monte o valor antes: `Decimal(\"0.10\")`."
+    },
+    {
+      "path": "backend/orders_service.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "`os.popen` sem nome de arquivo cria uma nova janela: um processo com `ping` no nome de arquivo bloqueia a tela. Use `subprocess.check_output` (ou `subprocess.run` com `stdout=subprocess.PIPE` e `stderr=subprocess.PIPE` para ver o erro)."
+    },
+    {
+      "path": "backend/orders_service.py",
+      "linha": 15,
+      "severidade": "bug",
+      "comentario": "O dicionário `extra` vem de parâmetro: um `None` no campo que não vem é ignorado. Passe uma tupla de padrões (`()`, `{}` ou `{key: default}`) e o valor padrão vai ser `None` quando o dicionário não for passado."
+    },
+    {
+      "path": "src/servicos/faturas_service.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "`valor` pode ser `None` e o filtro vira um iterador vazio: `x[\"empresa_id\"] == valor` é `False` para todos. Use `if x[\"empresa_id\"] is None` (nenhum valor igual a `valor`) ou `if x is None`."
+    },
+    {
+      "path": "src/servicos/consultas_repo.py",
+      "linha": 5,
+      "severidade": "bug",
+      "comentario": "O comando `os.popen` sem `encoding` usa a codificação padrão do sistema (não especificada: UTF-8). Passe `encoding=\"utf-8\"`."
+    },
+    {
+      "path": "src/servicos/partidas_utils.py",
+      "linha": 16,
+      "severidade": "bug",
+      "comentario": "`estoque > minimo` compara identidade com uma lista nova e é sempre False. Para comparar lista, use `if estoque is None or estoque < minimo:`."
+    },
+    {
+      "path": "lib/readings.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "`next` de uma sequência vazia levanta `StopIteration`. Se `readings` pode vir vazia, trate antes ou use `itertools.find_first_true`."
+    },
+    {
+      "path": "backend/faturas_utils.py",
+      "linha": 11,
+      "severidade": "bug",
+      "comentario": "`not in` testa identidade: para o valor `None`, o nome aparece multiplemente. Use `if usuario is None:` (nenhum valor) ou `if not usuario:` (vazio)."
+    },
+    {
+      "path": "backend/faturas_utils.py",
+      "linha": 18,
+      "severidade": "bug",
+      "comentario": "A URL padrão vem em inglês, mas o servidor devolve em português. Use `base_url=urllib.parse.quote(base_url, encoding='utf-8')`."
+    },
+    {
+      "path": "src/servicos/alunos_jobs.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "O nome diz \"arredondar\", mas o retorno usa `Decimal` e devolve `None` para chaves que não existem. Use `if v is None: return padrao[k]` (ou `padrao.get(k, padrao[k])` if `k` novevez não existe else padrao[k])."
+    },
+    {
+      "path": "api/viagens.py",
+      "linha": 2,
+      "severidade": "bug",
+      "comentario": "A exceção `Exception` é capturada em todas as funções, incluindo essa que processa pagamentos. Pelo menos uma função trate a exceção."
+    },
+    {
+      "path": "api/viagens.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "O `%` formata a string antes de chegar no driver, então os valores entram crus no SQL (injeção e erro com aspas). Passe a tupla como segundo argumento: `conn.execute(sql, (termo,))`."
+    },
+    {
+      "path": "src/servicos/viagens_jobs.py",
+      "linha": 11,
+      "severidade": "bug",
+      "comentario": "`valor` entra num comando com `ping`: injeção de comando. Passe uma lista de argumentos e tire o `valor` antes."
+    },
+    {
+      "path": "svc/produtos.py",
+      "linha": 5,
+      "severidade": "bug",
+      "comentario": "`not in` testa identidade: para o primeiro ocorrência, é `False`, e para o segundo, `True`. Use `if usuario not in vistos:`."
+    },
+    {
+      "path": "core/partidas_service.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "`k` pode ser 0 e ser ignorado: uma sequência de 0s é igual a uma sequência vazia. Se `k` pode ser 0, trate antes ou use `valores[-k:]`."
+    },
+    {
+      "path": "api/leituras_utils.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "A condição está invertida: devolve a página quando há mais que um. Deve ser `if not dados:`."
+    },
+    {
+      "path": "backend/produtos_utils.py",
+      "linha": 13,
+      "severidade": "bug",
+      "comentario": "`while True` sem `break` fica em loop indefinido: cada chamada para `requests.get` vem depois de `itens` foi montado, e quando o servidor responde, a lista vaza. Passe `break` no fim."
+    },
+    {
+      "path": "backend/produtos_utils.py",
+      "linha": 24,
+      "severidade": "bug",
+      "comentario": "SQL injection: `termo` entra direto no texto da query. Passe como parâmetro (`?`) em vez de interpolar."
+    },
+    {
+      "path": "app/readings_repo.py",
+      "linha": 13,
+      "severidade": "bug",
+      "comentario": "`valor` entra num filtro: os itens que não correspondem devem ser ignorados. Se `valor` vem de um input, trate antes ou use `is` (nenhum tipo aceita o valor)."
+    },
+    {
+      "path": "app/readings_repo.py",
+      "linha": 14,
+      "severidade": "bug",
+      "comentario": "Se `selecionados` estiver vazia, a divisão levanta `ZeroDivisionError`. Trate o caso vazio: `if not selecionados: return None`."
+    },
+    {
+      "path": "lib/pedidos.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "`padrao` é avaliado uma vez: todas as chaves de `extra` são o mesmo e o que se apaga também apaga para todas. Use `dict.fromkeys(extra.keys(), padrao)`."
+    },
+    {
+      "path": "api/alunos_service.py",
+      "linha": 9,
+      "severidade": "bug",
+      "comentario": "`next` de uma sequência vazia levanta `StopIteration`. Se `alunos` pode vir vazia, trate antes ou use `if not alunos:`."
+    },
+    {
+      "path": "lib/students_repo.py",
+      "linha": 16,
+      "severidade": "bug",
+      "comentario": "`Counter` aceita qualquer sequência (inclusive vazia):`students` pode ser None e ocorrência de `None` no Python não é definida. Retorne uma lista vazia se `students` for None antes."
+    },
+    {
+      "path": "backend/students_utils_2.py",
+      "linha": 11,
+      "severidade": "bug",
+      "comentario": "`valor` pode ser `None` e o filtro vem vazia: quando há um itens vazia no meio, a soma vai para o final e a média fica com `NaN`. Teste `if not students or \"\" in students[0]: return None`."
+    },
+    {
+      "path": "lib/consultas_repo.py",
+      "linha": 8,
+      "severidade": "bug",
+      "comentario": "`%` formata a string antes de chegar no driver, então os valores entram crus no SQL (injeção e erro com aspas). Passe a tupla como segundo argumento: `conn.execute(\"SELECT * FROM ...\", (termo,))`."
+    },
+    {
+      "path": "jobs/alunos_jobs.py",
+      "linha": 2,
+      "severidade": "bug",
+      "comentario": "`vistos is None` compara identidade, não valor: pode ser `None` e o conjunto vira vazio. Use `if vistos is not None`."
+    },
+    {
+      "path": "lib/consultas_service.py",
+      "linha": 4,
+      "severidade": "bug",
+      "comentario": "`total_registros // limite` trunca: com resto, a última página parcial some. Arredonde para cima (`math.ceil` ou `-(-a // b)`)."
+    },
+    {
+      "path": "lib/consultas_service.py",
+      "linha": 5,
+      "severidade": "bug",
+      "comentario": "`//` trunca: com resto, a última página parcial some. Arredonde para baixo (`math.floor` ou `-(-a // b)`)."
+    },
+    {
+      "path": "core/pedidos.py",
+      "linha": 9,
+      "severidade": "bug",
+      "comentario": "`Counter` de uma sequência vazia levanta `CounterError`. Se `pedidos` pode vir vazia, trate antes ou use `Counter(pedidos or [])`."
+    },
+    {
+      "path": "api/consultas_service.py",
+      "linha": 2,
+      "severidade": "bug",
+      "comentario": "`next` de uma lista vazia levanta `StopIteration`. Se `consultas` pode vir vazia, trate antes ou use `if not consultas:`."
+    },
+    {
+      "path": "backend/tickets_utils.py",
+      "linha": 11,
+      "severidade": "bug",
+      "comentario": "`next` de uma lista vazia levanta `StopIteration`. Se `tickets` pode vir vazia, trate antes ou use `itertools.filterfalse`."
+    },
+    {
+      "path": "core/orders_utils.py",
+      "linha": 9,
+      "severidade": "bug",
+      "comentario": "`valor` entra num `if` invertido: devolve `None` para itens que não precisam reabastecer. Passe `if not estoque` antes: `if estoque is None`."
+    },
+    {
+      "path": "backend/leituras.py",
+      "linha": 5,
+      "severidade": "bug",
+      "comentario": "A condição está invertida: devolve a página depois de listar. Deve ser `if not dados: return []`."
+    },
+    {
+      "path": "api/orders_service.py",
+      "linha": 9,
+      "severidade": "bug",
+      "comentario": "`next` de uma sequência vazia levanta `StopIteration`. Se `orders` pode vir vazia, trate antes ou use `if not orders:`."
+    },
+    {
+      "path": "svc/students_jobs.py",
+      "linha": 16,
+      "severidade": "bug",
+      "comentario": "`base_url` pode ser `None` e a request levanta `ConnectionError`. Teste `if base_url is None: return []` antes de chamar `requests.get`."
+    },
+    {
+      "path": "svc/alunos.py",
+      "linha": 17,
+      "severidade": "bug",
+      "comentario": "`next` de uma lista vazia levanta `StopIteration`. Se `alunos` pode vir vazia, trate antes ou use `if alunos is None`: `if not alunos: return None`."
+    },
+    {
+      "path": "app/partidas_repo.py",
+      "linha": 8,
+      "severidade": "bug",
+      "comentario": "`next` de uma sequência vazia levanta `StopIteration`. O parâmetro `valor` pode ser `None` e o item não vem, então devolva `None` no caso de empate."
+    },
+    {
+      "path": "backend/viagens.py",
+      "linha": 9,
+      "severidade": "bug",
+      "comentario": "O `except Exception as e:` é executado independentemente do `try` e de forma corrompida. Para capturar tudo, use `except Exception as e:` ou `try: ... except Exception as e: print(e)`."
+    },
+    {
+      "path": "backend/alunos_service.py",
+      "linha": 2,
+      "severidade": "bug",
+      "comentario": "`%{}%` usa a sintaxe de formatação (que permite qualquer tipo de injeção) e o nome do campo aparece em todas as consultas. Passe a tupla como segundo argumento: `conn.execute(\"SELECT * FROM alunos WHERE nome LIKE %s\", (termo,))`."
+    },
+    {
+      "path": "app/viagens_utils.py",
+      "linha": 14,
+      "severidade": "bug",
+      "comentario": "A condição está invertida: devolve itens somente quando há mais que uma página. Se há 50 e o `page` é 51, devolve 50 itens e mantém o `pagina` atual. Use `if not dados or len(dados) < 20`."
+    },
+    {
+      "path": "app/alunos_repo.py",
+      "linha": 5,
+      "severidade": "bug",
+      "comentario": "`total == 0` compara identidade com uma constante (0 é 0, não é o que quer), e levanta `TypeError`. Use `if not total: return False`."
+    },
+    {
+      "path": "backend/consultas_utils.py",
+      "linha": 2,
+      "severidade": "bug",
+      "comentario": "`valor` entra num filtro: os resultados não são ordenados e a seleção está sempre vazia. Use `filter(consulta[\"medico_id\"] == valor, consultas)`."
+    },
+    {
+      "path": "src/servicos/partidas_utils_2.py",
+      "linha": 5,
+      "severidade": "bug",
+      "comentario": "O comando `os.popen` sem `shell=True` usa o sistema de shells padrão (o padrão de Python), e espaço no caminho quebra o comando. Passe `shell=True` como argumento: `os.popen(\"ping -c 1 {host}\")`."
+    },
+    {
+      "path": "app/faturas_jobs.py",
+      "linha": 8,
+      "severidade": "bug",
+      "comentario": "`total == 0` testa identidade: strings iguais vindas do banco ou de JSON não são o mesmo objeto, e o que se verifica com `== 0` levanta `TypeError`. Use `if not total:` ou `if total == 0`."
+    },
+    {
+      "path": "backend/produtos_jobs.py",
+      "linha": 9,
+      "severidade": "bug",
+      "comentario": "`not in vistos` é sempre False quando o elemento não está no conjunto: `[1, 2, 3]` é verificado 3 vezes, e o elemento que não está é o último que chega. Para testar a presença, use `if usuario not in vistos:`."
+    },
+    {
+      "path": "backend/orders_service_2.py",
+      "linha": 2,
+      "severidade": "bug",
+      "comentario": "`valor` pode ser `None` e aí o denominador é zero. Teste `if valor is None` antes de dividir."
+    },
+    {
+      "path": "src/servicos/invoices_jobs.py",
+      "linha": 5,
+      "severidade": "bug",
+      "comentario": "`< minimo` é `None` no primeiro chamada: quando o invoice ainda não vem no corpo, `estoque` pode ser `None` e a condição levanta `TypeError`. Use `if estoque is None or estoque < minimo:`."
+    },
+    {
+      "path": "app/funcionarios_jobs.py",
+      "linha": 2,
+      "severidade": "bug",
+      "comentario": "`valor` pode ser `None` e aí o denominador é zero. Teste `if valor is None` antes de dividir."
+    },
+    {
+      "path": "backend/alunos_service_2.py",
+      "linha": 6,
+      "severidade": "bug",
+      "comentario": "O nome diz \"arredondar\", mas o retorno usa `Decimal` e arredonda para cima. Passe `ROUND_HALF_DOWN` como segundo argumento."
+    },
+    {
+      "path": "backend/pedidos_utils.py",
+      "linha": 4,
+      "severidade": "bug",
+      "comentario": "`total_registros // limite` trunca: com resto, a última página parcial some. Arredonde para cima (`math.ceil` ou `-(-a // b)`)."
+    },
+    {
+      "path": "backend/pedidos_utils.py",
+      "linha": 5,
+      "severidade": "bug",
+      "comentario": "`total_registros // limite` pode dar 0 (e o último page num volta paria com o item seguinte) com `total_registros % limite != 0`. Use `math.floor(total_registros / limite)`."
+    },
+    {
+      "path": "src/servicos/viagens_repo.py",
+      "linha": 13,
+      "severidade": "bug",
+      "comentario": "A função sem `lock` fica sem semaforo: um chamada numa vez prende a outra. Passe `lock=threading.Lock()`."
+    },
+    {
+      "path": "src/servicos/pedidos_service.py",
+      "linha": 6,
+      "severidade": "bug",
+      "comentario": "`estoque > minimo` compara identidade: é o mesmo objeto múltiplas vezes. Use `if estoque < minimo`: menor é verdade, mas não sempre o que espera é o que vem. Use `if estoque < minimo or not estoque`."
+    },
+    {
+      "path": "svc/viagens.py",
+      "linha": 3,
+      "severidade": "bug",
+      "comentario": "O `discard` devolve `False` apenas quando o elemento é encontrado: em lista desordenada, o segundo `i` acesa `ids[0]` e levanta `IndexError`. Monte a lista antes: `[i for i in ids if i > 0]`."
+    }
+  ],
+  "arquivos": [
+    {
+      "path": "jobs/invoices_jobs.py",
+      "pulado": null,
+      "resumo": "Adiciona uma função que busca invoices por nome.",
+      "problemas": []
+    },
+    {
+      "path": "backend/funcionarios_utils.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 2 funções: uma que verifica se o estoque precisa ser reabastecido; uma que testa o ping de um host.",
+      "problemas": []
+    },
+    {
+      "path": "app/students_jobs.py",
+      "pulado": null,
+      "resumo": "Adiciona 2 funções: uma que calcula a média de `valores` moveis; uma que arredonda um número para baixo.",
+      "problemas": []
+    },
+    {
+      "path": "backend/students_utils.py",
+      "pulado": null,
+      "resumo": "Adiciona uma função que remove ids negativos.",
+      "problemas": []
+    },
+    {
+      "path": "api/leituras_repo.py",
+      "pulado": null,
+      "resumo": "Adiciona uma função que registra um visitante.",
+      "problemas": []
+    },
+    {
+      "path": "svc/faturas.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 3 funções: uma que testa a conectividade de um host; uma que remove ids negativos; uma que devolve o primeiro registro com `empresa_id` igual a um valor.",
+      "problemas": []
+    },
+    {
+      "path": "jobs/alunos.py",
+      "pulado": null,
+      "resumo": "Adiciona 3 funções: uma que mescla dicionários; uma que arredonda um valor para baixo; uma que conta os itens de uma lista de alunos.",
+      "problemas": []
+    },
+    {
+      "path": "backend/orders_service.py",
+      "pulado": null,
+      "resumo": "Adiciona 3 funções: uma que arredonda um valor para baixo; uma que verifica se o host está online; uma que mescla dicionários.",
+      "problemas": []
+    },
+    {
+      "path": "src/servicos/faturas_service.py",
+      "pulado": null,
+      "resumo": "Adiciona 3 funções: uma que devolve o fatura com o maior `total`; uma que mescla dicionários; uma que calcula a média de `total` por `empresa_id`.",
+      "problemas": []
+    },
+    {
+      "path": "src/servicos/consultas_repo.py",
+      "pulado": null,
+      "resumo": "Adiciona uma função que testa connectivity a um host.",
+      "problemas": []
+    },
+    {
+      "path": "src/servicos/partidas_utils.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 2 funções: uma que calcula a média de `pontos` por `jogador_id`; uma que verifica se o estoque é menor que o mínimo.",
+      "problemas": []
+    },
+    {
+      "path": "lib/readings_jobs.py",
+      "pulado": null,
+      "resumo": "Adiciona uma função que verifica se o reading precisa ser reabastecido.",
+      "problemas": []
+    },
+    {
+      "path": "lib/readings.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 2 funções: uma que devolve o reading com `device_id` igual a um parâmetro; uma que conta os status de readings.",
+      "problemas": []
+    },
+    {
+      "path": "backend/faturas_utils.py",
+      "pulado": null,
+      "resumo": "Adiciona 3 funções: uma que mescla dicionários; uma que registra um visitante; uma que lista todos os faturas.",
+      "problemas": []
+    },
+    {
+      "path": "src/servicos/alunos_jobs.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 2 funções: uma que arredonda um valor para baixo; uma que mescla dicionários.",
+      "problemas": []
+    },
+    {
+      "path": "api/viagens.py",
+      "pulado": null,
+      "resumo": "Adiciona 2 funções: uma que processa pagamentos de viagens; uma que busca viagens na database.",
+      "problemas": []
+    },
+    {
+      "path": "src/servicos/viagens_jobs.py",
+      "pulado": null,
+      "resumo": "Adiciona 3 funções: uma que testa connectivity a um servidor; uma que calcula a média de `distancia`; uma que conta os status.",
+      "problemas": []
+    },
+    {
+      "path": "svc/produtos.py",
+      "pulado": null,
+      "resumo": "Adiciona 2 funções: uma que registra um visita de um produto; uma que conta os status de produtos.",
+      "problemas": []
+    },
+    {
+      "path": "core/partidas_service.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 3 funções: uma que calcula a média de `moveis` de um conjunto de partidas; uma que lista todos os partidas; uma que calcula o percentual de itens no conjunto.",
+      "problemas": []
+    },
+    {
+      "path": "api/leituras_utils.py",
+      "pulado": null,
+      "resumo": "Adiciona 2 funções: uma que arredonda um valor em leitura; uma que lista todos os leituras.",
+      "problemas": []
+    },
+    {
+      "path": "backend/produtos_utils.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 3 funções: uma que lista todos os produtos; uma que busca produtos na API; uma que processa a página de produtos.",
+      "problemas": []
+    },
+    {
+      "path": "app/readings_repo.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 2 funções: uma que calcula o percentual de itens na página; uma que calcula a média de `value` por `device_id`.",
+      "problemas": []
+    },
+    {
+      "path": "lib/pedidos.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 2 funções: uma que mescla dicionários; uma que conta os status de pedidos.",
+      "problemas": []
+    },
+    {
+      "path": "api/alunos_service.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo uma função que devolve o primeiro aluno de um determinado `turma`.",
+      "problemas": []
+    },
+    {
+      "path": "lib/students_repo.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 3 funções: uma que remove ids com `id` negativo; uma que conta os status de students; uma que registra um visitante.",
+      "problemas": []
+    },
+    {
+      "path": "core/tickets_utils.py",
+      "pulado": null,
+      "resumo": "Adiciona uma função que verifica se o estoque precisa reabastecer.",
+      "problemas": []
+    },
+    {
+      "path": "backend/students_utils_2.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 3 funções: uma que calcula a média de `score` por classroom; uma que lista todos os students; uma que calcula a média de `moveis` de um conjunto de students.",
+      "problemas": []
+    },
+    {
+      "path": "lib/consultas_repo.py",
+      "pulado": null,
+      "resumo": "Adiciona 3 funções: uma que registra um visita; uma que busca consultas por nome; uma que calcula a média de um intervalo.",
+      "problemas": []
+    },
+    {
+      "path": "jobs/alunos_jobs.py",
+      "pulado": null,
+      "resumo": "Adiciona uma função que registra um visita de um aluno.",
+      "problemas": []
+    },
+    {
+      "path": "lib/consultas_service.py",
+      "pulado": null,
+      "resumo": "Adiciona uma função que calcula o cabeçalho de uma página de consultas.",
+      "problemas": []
+    },
+    {
+      "path": "lib/orders_repo.py",
+      "pulado": null,
+      "resumo": "Adiciona uma função que calcula a média de `valores` moveis.",
+      "problemas": []
+    },
+    {
+      "path": "core/pedidos.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo uma função que conta os itens de `status`.",
+      "problemas": []
+    },
+    {
+      "path": "api/consultas_service.py",
+      "pulado": null,
+      "resumo": "Adiciona 2 funções: uma que devolve o consulta com `medico_id` primeiro; uma que calcula a média de `medico_id` de uma lista de consultas.",
+      "problemas": []
+    },
+    {
+      "path": "backend/tickets_utils.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 2 funções: uma que devolve o ticket com `responsavel` igual a um valor; uma que arredonda um número para baixo.",
+      "problemas": []
+    },
+    {
+      "path": "core/orders_utils.py",
+      "pulado": null,
+      "resumo": "Adiciona 3 funções: uma que verifica se o estoque precisa reabastecer; uma que calcula a média de `amount`; uma que arredonda um número.",
+      "problemas": []
+    },
+    {
+      "path": "backend/leituras.py",
+      "pulado": null,
+      "resumo": "Adiciona uma função que lista todos os leituras.",
+      "problemas": []
+    },
+    {
+      "path": "api/orders_service.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 2 funções: uma que devolve o order com `customer_id` igual a um valor; uma que calcula a média de `amount` por `customer_id`.",
+      "problemas": []
+    },
+    {
+      "path": "svc/students_jobs.py",
+      "pulado": null,
+      "resumo": "Adiciona 2 funções: uma que registra um student; uma que lista todos os students.",
+      "problemas": []
+    },
+    {
+      "path": "lib/consultas_repo_2.py",
+      "pulado": null,
+      "resumo": "Adiciona uma função que calcula a média de `duracao` por `medico_id`.",
+      "problemas": []
+    },
+    {
+      "path": "svc/alunos_jobs.py",
+      "pulado": null,
+      "resumo": "Adiciona uma função que verifica se o aluno precisa reabastecer.",
+      "problemas": []
+    },
+    {
+      "path": "svc/alunos.py",
+      "pulado": null,
+      "resumo": "Adiciona 3 funções: uma que calcula a média de `valores` por coluna; uma que devolve o primeiro aluno de um lista; uma que devolve o primeiro aluno de `alunos` com `valor` como `turma`.",
+      "problemas": []
+    },
+    {
+      "path": "app/partidas_repo.py",
+      "pulado": null,
+      "resumo": "Adiciona 2 funções: uma que mescla dicionários; uma que devolve o primeiro item de `partidas` com `valor` (ou `None` no caso de empate).",
+      "problemas": []
+    },
+    {
+      "path": "backend/viagens.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 2 funções: uma que processa pagamentos; uma que registra um visitante.",
+      "problemas": []
+    },
+    {
+      "path": "app/consultas_repo.py",
+      "pulado": null,
+      "resumo": "Adiciona uma função que mescla dicionários.",
+      "problemas": []
+    },
+    {
+      "path": "backend/alunos_service.py",
+      "pulado": null,
+      "resumo": "Adiciona 2 funções: uma que pesquisa alunos por nome; uma que remove ids inválidos.",
+      "problemas": []
+    },
+    {
+      "path": "app/viagens_utils.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 2 funções: uma que busca viagens na API; uma que lista todos os viagens.",
+      "problemas": []
+    },
+    {
+      "path": "app/alunos_repo.py",
+      "pulado": null,
+      "resumo": "Adiciona 2 funções: uma que verifica se o total é 0; uma que conta os status de alunos.",
+      "problemas": []
+    },
+    {
+      "path": "backend/consultas_utils.py",
+      "pulado": null,
+      "resumo": "Adiciona 2 funções: uma que calcula a média de `duracao` por `medico_id`; uma que verifica se o estoque precisa ser reabastecido.",
+      "problemas": []
+    },
+    {
+      "path": "src/servicos/partidas_utils_2.py",
+      "pulado": null,
+      "resumo": "Adiciona uma função que testa connectivity a um servidor.",
+      "problemas": []
+    },
+    {
+      "path": "app/faturas_jobs.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 2 funções: uma que verifica se `saldo` é 0; uma que busca faturas na database.",
+      "problemas": []
+    },
+    {
+      "path": "backend/produtos_jobs.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 2 funções: uma que registra um visitante; uma que conta os status de produtos.",
+      "problemas": []
+    },
+    {
+      "path": "backend/orders_service_2.py",
+      "pulado": null,
+      "resumo": "Adiciona uma função que calcula a média de `amount` por `customer_id`.",
+      "problemas": []
+    },
+    {
+      "path": "src/servicos/invoices_jobs.py",
+      "pulado": null,
+      "resumo": "Adiciona 2 funções: uma que verifica se o invoice precisa reabastecer; uma que arredonda um valor para duas casas.",
+      "problemas": []
+    },
+    {
+      "path": "core/orders_jobs.py",
+      "pulado": null,
+      "resumo": "Adiciona uma função que verifica se o pedido precisa reabastecer.",
+      "problemas": []
+    },
+    {
+      "path": "app/funcionarios_jobs.py",
+      "pulado": null,
+      "resumo": "Adiciona uma função que calcula a média de `salario` por setor.",
+      "problemas": []
+    },
+    {
+      "path": "backend/alunos_service_2.py",
+      "pulado": null,
+      "resumo": "Adiciona 2 funções: uma que arredonda um valor para baixo; uma que conta os status de alunos.",
+      "problemas": []
+    },
+    {
+      "path": "backend/pedidos_utils.py",
+      "pulado": null,
+      "resumo": "Adiciona uma função que calcula o número de páginas.",
+      "problemas": []
+    },
+    {
+      "path": "src/servicos/viagens_repo.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 3 funções: uma que registra um viagem; uma que calcula o número de páginas de viagens; uma que remove ids inválidos.",
+      "problemas": []
+    },
+    {
+      "path": "src/servicos/pedidos_service.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo uma função que verifica se o estoque precisa ser reabastecido.",
+      "problemas": []
+    },
+    {
+      "path": "svc/viagens.py",
+      "pulado": null,
+      "resumo": "Adiciona uma função que remove ids negativos.",
+      "problemas": []
+    }
+  ],
+  "chamadas": 60,
+  "tokens_entrada": 16286,
+  "tokens_saida": 6180,
+  "segundos_no_modelo": 3633.3
+}

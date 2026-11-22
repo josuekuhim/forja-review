@@ -1,0 +1,36 @@
+{
+  "modelo": "review-misto-t4",
+  "endpoint": "http://127.0.0.1:8000/v1",
+  "comentarios": [
+    {
+      "path": "svc/cache.py",
+      "linha": 16,
+      "severidade": "bug",
+      "comentario": "O dicionário `self.dados` está sendo atualizado com a hora de atualização (`time.time()`), mas o valor é armazenado na chave `chave`. Se o mesmo `chave` for acessada posteriormente, o novo valor sobrescreverá o anterior. Além disso, o uso de `time.time()` na chave pode causar conflitos de chave em sistemas que não garantem a ordem de processamento (como o Python). O ideal é usar um índice único como chave (ex: `hash(chave)` ou `uuid.uuid4()`) e armazenar o valor na lista de tuplas (`[(valor, timestamp)]`), garantindo que o novo valor sobrescreva o anterior."
+    },
+    {
+      "path": "svc/pedidos.py",
+      "linha": 9,
+      "severidade": "bug",
+      "comentario": "O dicionário `descontos` está sendo sobrescrito cada vez que o mesmo código é executado. Para cada `cupom`, o valor deve ser armazenado num dicionário separado (`cupom: {quantidade: 1}`) e acessado no `if`."
+    }
+  ],
+  "arquivos": [
+    {
+      "path": "svc/cache.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo uma função que remove um item de cache quando o tempo de expira.",
+      "problemas": []
+    },
+    {
+      "path": "svc/pedidos.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 2 funções: uma que aplica desconto; uma que calcula o frete.",
+      "problemas": []
+    }
+  ],
+  "chamadas": 2,
+  "tokens_entrada": 567,
+  "tokens_saida": 324,
+  "segundos_no_modelo": 43.6
+}

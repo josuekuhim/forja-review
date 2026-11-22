@@ -1,0 +1,3848 @@
+{
+  "modelo": "qwen0.5b-base",
+  "endpoint": "http://127.0.0.1:8000/v1",
+  "comentarios": [
+    {
+      "path": "DataDog__integrations-core/postgres/datadog_checks/postgres/schemas.corrigido.py",
+      "linha": 32,
+      "severidade": "bug",
+      "comentario": "A linha 32 foi adicionada para definir o tipo de tabela (schema_id) e o nome da tabela (table_name) na consulta de tabelas PostgreSQL."
+    },
+    {
+      "path": "DataDog__integrations-core/kafka_consumer/datadog_checks/kafka_consumer/kafka_consumer.py",
+      "linha": 732,
+      "severidade": "bug",
+      "comentario": "O método `kafka_consumer` deve ser usado para deserializar mensagens de Kafka usando protobuf e avro."
+    },
+    {
+      "path": "DataDog__integrations-core/kafka_consumer/datadog_checks/kafka_consumer/kafka_consumer.corrigido.py",
+      "linha": 732,
+      "severidade": "bug",
+      "comentario": "O método `deserialize_protobuf` foi adicionado para deserializar um Protobuf message usando google.protobuf, incluindo suporte para indices de confluent."
+    },
+    {
+      "path": "DataDog__integrations-core/spark/datadog_checks/spark/spark.corrigido.py",
+      "linha": 699,
+      "severidade": "bug",
+      "comentario": "O método `_should_suppress_connection_error` foi adicionado para supressir conexões de Kubernetes apenas durante o shutdown de pods."
+    },
+    {
+      "path": "DataDog__integrations-core/kafka_actions/datadog_checks/kafka_actions/kafka_client.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O método `get_admin_client` deve ser chamado após a criação do cliente de administração."
+    },
+    {
+      "path": "DataDog__integrations-core/kafka_actions/datadog_checks/kafka_actions/kafka_client.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O método `get_admin_client` deve ser chamado após a criação do Kafka client."
+    },
+    {
+      "path": "DataDog__integrations-core/postgres/datadog_checks/postgres/explain_parameterized_queries.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A função `explain_statement` foi adicionada sem verificar se a versão do PostgreSQL é menor que 12. Se for, ela foi ignorada."
+    },
+    {
+      "path": "DataDog__integrations-core/ibm_mq/datadog_checks/ibm_mq/collectors/channel_metric_collector.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A função `get_pcf_channel_metrics` deve ser chamada com um manager de mensagens específico."
+    },
+    {
+      "path": "DataDog__integrations-core/citrix_hypervisor/datadog_checks/citrix_hypervisor/check.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O método `check_initializations` deve ser chamado antes de `submit_metrics`."
+    },
+    {
+      "path": "DataDog__integrations-core/citrix_hypervisor/datadog_checks/citrix_hypervisor/check.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A função `safely_process_metrics_response` deve ser chamada antes de processar as respostas do servidor de hypervisor."
+    },
+    {
+      "path": "DataDog__integrations-core/ddev/src/ddev/plugin/external/hatch/environment_collector.py",
+      "linha": 27,
+      "severidade": "bug",
+      "comentario": "A propriedade `package_directory` deve ser definida como `self.root.name`."
+    },
+    {
+      "path": "DataDog__integrations-core/ddev/src/ddev/plugin/external/hatch/environment_collector.corrigido.py",
+      "linha": 27,
+      "severidade": "bug",
+      "comentario": "A propriedade `package_directory` deve ser definida como uma propriedade de classe."
+    },
+    {
+      "path": "DataDog__integrations-core/llm_d/datadog_checks/llm_d/check.corrigido.py",
+      "linha": 26,
+      "severidade": "bug",
+      "comentario": "O método `get_default_config` deve retornar uma configuração padrão para o check."
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/ops/op_math/pow2.py",
+      "linha": 249,
+      "severidade": "bug",
+      "comentario": "O método `generator` deve ser chamado com `z` como argumento."
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/ops/op_math/pow2.corrigido.py",
+      "linha": 202,
+      "severidade": "bug",
+      "comentario": "O método `compute_diagonalizing_gates` deve ser implementado para calcular os gates diagonalizadores de um operador."
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/workflow/get_best_diff_method.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A função `get_best_diff_method` deve retornar uma string que indica o método de comparação."
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/workflow/get_best_diff_method.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A função `get_best_diff_method` deve ser chamada com um `QNode` que tenha um método de comparação de diferentes métodos de diferentes gradientes."
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/devices/qubit/initialize_state.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O método `create_initial_state` deve ser chamado com uma instância de `StatePrepBase` para preparar a state."
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/drawer/mpldrawer.corrigido.py",
+      "linha": 525,
+      "severidade": "bug",
+      "comentario": "O método `add_notch` deve ser chamado após o método `conditional_frame` para garantir que as notches sejam adicionadas corretamente ao diagrama."
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/math/interface_utils.corrigido.py",
+      "linha": 80,
+      "severidade": "bug",
+      "comentario": "A linha 80 está incorreta. A função `InterfaceLike` deve ser uma tupla de strings, mas está sendo passada um objeto `Interface`."
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/ops/op_math/condition.py",
+      "linha": 719,
+      "severidade": "bug",
+      "comentario": "Verifique se o tipo de jaxpr_branches está correto e se os tipos de jaxpr_branches estão corretos."
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/operation.py",
+      "linha": 2354,
+      "severidade": "bug",
+      "comentario": "O método `has_gen` deve verificar se o objeto é uma instância de `Operator` e se o gerador está definido."
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/operation.corrigido.py",
+      "linha": 2355,
+      "severidade": "bug",
+      "comentario": "A função `has_grad_method` deve verificar se o método `grad_method` é definido."
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/packaging/python/templates/rocm/src/rocm_sdk/_devel.py",
+      "linha": 189,
+      "severidade": "bug",
+      "comentario": "O arquivo `rocm/src/rocm_sdk/_devel.py` deve ser adicionado para garantir que os links de desenvolvimento sejam reescritos e que não haja duplicações."
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/install_rocm_from_artifacts.corrigido.py",
+      "linha": 442,
+      "severidade": "bug",
+      "comentario": "O parâmetro `extra_artifacts` deve ser adicionado ao script para incluir os arquivos adicionais necessários para a instalação do ROCm."
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/packaging/python/templates/rocm-sdk-core/setup.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O _dist_info.py não deve ser acessado diretamente no build time. O código deve ser importado dinamicamente."
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/inference/data_writer/zarr.py",
+      "linha": 283,
+      "severidade": "bug",
+      "comentario": "O método `append_batch` deve ser chamado após o ZarrWriter ser inicializado."
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/inference/data_writer/zarr.corrigido.py",
+      "linha": 284,
+      "severidade": "bug",
+      "comentario": "O método `append_batch` deve ser chamado após o ZarrWriter ser inicializado."
+    },
+    {
+      "path": "ai2cm__ace/fme/core/dataset/concat.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O método `__getitem__` deve retornar uma tupla de tensors e dataarrays de forma concisa."
+    },
+    {
+      "path": "ai2cm__ace/fme/core/dataset/concat.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O método `__getitem__` deve retornar uma tupla de `TensorDict` e `xr.DataArray`."
+    },
+    {
+      "path": "ai2cm__ace/fme/fme/core/atmosphere_data.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O nome da variável `specific_total_water` deve ser alterado para `specific_total_water_` para evitar conflitos com variáveis já existentes."
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/models/ocean/m2lines/samudra.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O método `__init__` deve ser chamado com os parâmetros `input_channels`, `output_channels`, `ch_width`, `dilation`, `n_layers`, e `pad`."
+    },
+    {
+      "path": "apache__airflow/providers/src/airflow/providers/exasol/hooks/exasol.py",
+      "linha": 219,
+      "severidade": "bug",
+      "comentario": "O método `execute` deve ser chamado com uma lista de SQL statements e parâmetros."
+    },
+    {
+      "path": "apache__airflow/providers/google/src/airflow/providers/google/cloud/hooks/cloud_composer.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O arquivo está incorreto e deve ser chamado `get_environment_client` e `get_image_versions_client`."
+    },
+    {
+      "path": "apache__airflow/providers/cncf/kubernetes/src/airflow/providers/cncf/kubernetes/executors/kubernetes_executor.corrigido.py",
+      "linha": 685,
+      "severidade": "bug",
+      "comentario": "O método `_alive_other_scheduler_job_ids` deve retornar um conjunto de IDs de SchedulerJobs que estão ativos e não são o próprio scheduler."
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/cli/commands/asset_command.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A função `asset_list` deve ser chamada com `args.alias` para listar as alias de assets."
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/cli/commands/asset_command.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A função `asset_list` deve ser chamada com `args.alias` para listar as alias de assets."
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/serialization/definitions/notset.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O tipo `ArgNotSet` deve ser usado como sentinel value para argumentos default."
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/serialization/definitions/notset.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O tipo `ArgNotSet` deve ser usado como sentinel value para argumentos default."
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/api_fastapi/core_api/datamodels/ui/grid.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A classe `GridTISummaries` deve ser uma classe abstrata para encapsular detalhes específicos de uma tarefa run."
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/api_fastapi/core_api/datamodels/ui/grid.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A classe `GridTISummaries` deve ser uma subclasse de `BaseModel` para garantir que ela possa ter atributos de classe."
+    },
+    {
+      "path": "apache__airflow/shared/observability/src/airflow_shared/observability/common.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O método `get_otel_data_exporter` foi adicionado para exportar dados de observabilidade em um ambiente OpenTelemetry."
+    },
+    {
+      "path": "apache__airflow/shared/observability/src/airflow_shared/observability/common.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O método `get_otel_data_exporter` foi adicionado para formatar URLs e hostnames em um ambiente de observabilidade Apache Airflow."
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/datahub/datahub_source.py",
+      "linha": 82,
+      "severidade": "bug",
+      "comentario": "O método `get_database_workunits` deve verificar se há uma conexão de banco de dados antes de tentar obter aspectos."
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/dbt/dbt_core.corrigido.py",
+      "linha": 514,
+      "severidade": "bug",
+      "comentario": "A função `extract_semantic_models` deve ser chamada com o argumento `manifest_semantic_models`."
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/sql/sqlalchemy_data_reader.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O método `create` deve receber uma `Inspector` e retornar um objeto `SqlAlchemyTableDataReader`. Além disso, deve ser usado o método `__init__` para inicializar o objeto."
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/utilities/pkg_resources_shim.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O shim deve ser adicionado após verificar a real semântica do `pkg_resources`."
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/utilities/pkg_resources_shim.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O shim deve ser adicionado após verificar a real semântica do `pkg_resources`."
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion-modules/airflow-plugin/src/datahub_airflow_plugin/airflow3/_athena_openlineage_patch.corrigido.py",
+      "linha": 41,
+      "severidade": "bug",
+      "comentario": "O método `get_openlineage_facets_on_complete` foi adicionado para melhorar a linha de execução do OpenLineage."
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/sdk/main_client.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "Verifique se os argumentos são fornecidos corretamente."
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/sdk/main_client.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "Verifique se o argumento `server` é fornecido."
+    },
+    {
+      "path": "frappe__frappe/frappe/twofactor.py",
+      "linha": 74,
+      "severidade": "bug",
+      "comentario": "O método `authenticate_for_2factor` deve verificar se a 2FA está habilitada e se o token é válido antes de autenticar."
+    },
+    {
+      "path": "frappe__frappe/frappe/twofactor.corrigido.py",
+      "linha": 74,
+      "severidade": "bug",
+      "comentario": "O método de autenticação de dois fatores deve ser chamado antes de autenticação de um usuário."
+    },
+    {
+      "path": "frappe__frappe/flow/harness/src/flow_server/agent/loop.corrigido.py",
+      "linha": 102,
+      "severidade": "bug",
+      "comentario": "O método `resume` deve ser chamado após a pausa de run para continuar a execução."
+    },
+    {
+      "path": "frappe__frappe/frappe/core/doctype/data_import/import_provider.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "Aqui está a correção do arquivo de importador: `data_import_import_provider.corrigido.py`."
+    },
+    {
+      "path": "frappe__frappe/frappe/flow/assistant/assistant.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O método `ensure_builtin_assistant` deve garantir que o Assistente esteja com o modelo especificado. Se o modelo já existir, não altera o Assistente."
+    },
+    {
+      "path": "frappe__frappe/frappe/flow/assistant/assistant.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A definição da função ensure_builtin_assistant está incorreta. A função deve garantir que o Assistant tenha o modelo atual ou um novo modelo se o modelo anterior não existir."
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/serializer.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O arquivo `serializer.py` deve ser adicionado para ser usado pelo SDK."
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/serializer.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A linha 12 está incorreta e deve ser `import math`."
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/openai.py",
+      "linha": 158,
+      "severidade": "bug",
+      "comentario": "O método `set_input_data` deve ser chamado antes de qualquer outro método que manipule o token data."
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/aiohttp.py",
+      "linha": 147,
+      "severidade": "bug",
+      "comentario": "O método `aiohttp` deve ser chamado com um objeto `request` que contém informações sobre a requisição HTTP."
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/aiohttp.corrigido.py",
+      "linha": 147,
+      "severidade": "bug",
+      "comentario": "O método `aiohttp.corrigido.py` deve ser adicionado para integrar o SDK AIOHTTP em um projeto de sentry."
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/pydantic_ai/patches/agent_run.py",
+      "linha": 59,
+      "severidade": "bug",
+      "comentario": "O método `Agent.run` deve ser chamado com `is_streaming=True` para criar um `invoke_agent_span`."
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/gcp.py",
+      "linha": 212,
+      "severidade": "bug",
+      "comentario": "O método `invoke_user_function` foi adicionado para garantir que o usuário tenha acesso a funções do Google Cloud Functions."
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/gcp.corrigido.py",
+      "linha": 221,
+      "severidade": "bug",
+      "comentario": "O método `event_processor` deve ser chamado com um evento e um parâmetro de configuração de timeout."
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/logger.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O método `_capture_log` deve ser usado para capturar logs de sentry com base em um template e atributos fornecidos."
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/arq.corrigido.py",
+      "linha": 148,
+      "severidade": "bug",
+      "comentario": "O método `_wrap_coroutine` deve ser chamado antes do método `create_worker` para garantir que o SDK Sentry seja configurado corretamente."
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/google_genai/utils.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A função `extract_usage_data` deve ser chamada com um objeto `GenerateContentResponse` ou um dicionário contendo dados de uso."
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/google_genai/utils.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O uso de `typing` deve ser importado antes de usar `TypedDict`."
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/_asgi_common.py",
+      "linha": 68,
+      "severidade": "bug",
+      "comentario": "A função `_get_ip` deve extrair IP Address do ASGI scope."
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/_asgi_common.corrigido.py",
+      "linha": 65,
+      "severidade": "bug",
+      "comentario": "A função deve extrair IP Address do ASGI scope usando a solicitação headers."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/webostv/__init__.py",
+      "linha": 92,
+      "severidade": "bug",
+      "comentario": "O arquivo está incorreto e não contém a definição do WebOsClient."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/myuplink/select.py",
+      "linha": 22,
+      "severidade": "bug",
+      "comentario": "O ponto de configuração do dispositivo deve ser configurado antes de ser usado."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/myuplink/select.corrigido.py",
+      "linha": 24,
+      "severidade": "bug",
+      "comentario": "O ponto de seleção deve ser um parâmetro do MyUplink."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/yale_smart_alarm/__init__.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A importação de `entity_registry` e `er` deve ser feita antes de tentar atualizar o estado do componente."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/prosegur/camera.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A função `async_request_image` deve ser chamada diretamente no método `async_setup_entry`."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/prosegur/camera.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O nome da classe deve ser 'ProsegurCamera' e o método 'async_camera_image' deve ser sobrecarregado."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/tado/config_flow.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O nome da função `validate_input` deve ser `validate_input` e não `validate_input`."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/tado/config_flow.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O nome da classe deve ser 'TadoConfigFlow' e o método 'async_step_user' deve ser chamado com 'user_input' como parâmetro."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/matter/cover.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O método `async_setup_entry` deve ser chamado antes de `async_add_entities` para garantir que o dispositivo esteja pronto para ser adicionado ao sistema."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/matter/cover.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O método `async_setup_entry` deve ser chamado antes de `async_add_entities` para garantir que o componente esteja configurado corretamente."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/blebox/light.corrigido.py",
+      "linha": 148,
+      "severidade": "bug",
+      "comentario": "A propriedade `rgbw_color` deve ser retornada como uma lista de três inteiros."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/isy994/helpers.py",
+      "linha": 251,
+      "severidade": "bug",
+      "comentario": "O método deve verificar se o sensor é um dispositivo binário antes de adicionar a entidade."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/isy994/helpers.corrigido.py",
+      "linha": 251,
+      "severidade": "bug",
+      "comentario": "A função deve verificar se o sensor é um dispositivo binário e não se é um dispositivo sensor."
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/dac/modeling_dac.py",
+      "linha": 353,
+      "severidade": "bug",
+      "comentario": "O método `from_latents` deve ser chamado após a chamada do método `quantized_representation`."
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/dac/modeling_dac.corrigido.py",
+      "linha": 353,
+      "severidade": "bug",
+      "comentario": "O método `from_latents` deve ser chamado após a chamada do método `quantized_representation`."
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/qwen2_vl/image_processing_qwen2_vl.py",
+      "linha": 342,
+      "severidade": "bug",
+      "comentario": "O arquivo `image_processing_qwen2_vl.py` deve ser renomeado para `image_processing_qwen2_vl.py` para evitar conflitos com o arquivo `image_processing_qwen2_vl.py` do Hugging Face."
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/blt/modeling_blt.py",
+      "linha": 697,
+      "severidade": "bug",
+      "comentario": "O método `patch_reduce` deve ser chamado antes de qualquer outro método que use patches."
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/blt/modeling_blt.corrigido.py",
+      "linha": 697,
+      "severidade": "bug",
+      "comentario": "O método `patch_reduce` deve ser chamado antes de qualquer outro método que use patches."
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/mistral/configuration_mistral.py",
+      "linha": 95,
+      "severidade": "bug",
+      "comentario": "O arquivo de configuração deve ser adicionado com a linha 95."
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/mistral/configuration_mistral.corrigido.py",
+      "linha": 148,
+      "severidade": "bug",
+      "comentario": "O atributo `head_dim` deve ser definido antes de ser usado."
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/generation/streamers.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O método `put` deve ser implementado para armazenar os tokens."
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/inkling/feature_extraction_inkling.py",
+      "linha": 72,
+      "severidade": "bug",
+      "comentario": "O método `extract_fbank_features` deve ser chamado com um tensor de áudio e um número de frames para extrair features de log-mel spectrogram."
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/inkling/feature_extraction_inkling.corrigido.py",
+      "linha": 72,
+      "severidade": "bug",
+      "comentario": "O método `extract_fbank_features` deve ser chamado antes de ser usado."
+    },
+    {
+      "path": "huggingface__transformers/utils/fetch_hub_objects_for_ci.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O arquivo `fetch_hub_objects_for_ci.py` deve ser adicionado para garantir que os objetos do Hugging Face Hub estejam disponíveis para testes de CI."
+    },
+    {
+      "path": "huggingface__transformers/utils/fetch_hub_objects_for_ci.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A função `url_to_local_path` não retorna o nome do arquivo se o arquivo não existir."
+    },
+    {
+      "path": "huggingface__transformers/utils/fetch_hub_objects_for_ci.corrigido.py",
+      "linha": 22,
+      "severidade": "bug",
+      "comentario": "A função `hf_hub_download` não retorna o nome do arquivo se o arquivo não existir."
+    },
+    {
+      "path": "huggingface__transformers/utils/fetch_hub_objects_for_ci.corrigido.py",
+      "linha": 32,
+      "severidade": "bug",
+      "comentario": "A função `is_mistral_common_available` não retorna o nome do arquivo se o objeto não existir."
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/computed_attribute/models.py",
+      "linha": 204,
+      "severidade": "bug",
+      "comentario": "A classe `ComputedAttrPythonTriggerDefinition` está incorreta. A propriedade `computed_attribute` deve ser uma instância de `PythonTransformComputedAttribute`."
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/computed_attribute/models.corrigido.py",
+      "linha": 204,
+      "severidade": "bug",
+      "comentario": "A classe `ComputedAttrPythonTriggerDefinition` está incorreta. A propriedade `computed_attribute` deve ser uma instância de `PythonTransformComputedAttribute`."
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/config.corrigido.py",
+      "linha": 365,
+      "severidade": "bug",
+      "comentario": "O campo `tls_enabled` deve ser configurado para habilitar TLS para a conexão."
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/trace.corrigido.py",
+      "linha": 21,
+      "severidade": "bug",
+      "comentario": "A função `get_traceid()` deve retornar o identificador de trace do contexto atual."
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/migrations/schema/node_remove.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O método `render_node_remove_query` deve ser implementado para remover um nó de um banco de dados."
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/migrations/schema/node_remove.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O método `render_node_remove_query` deve ser implementado para remover um nó de um relatório de grafo."
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/diff/calculator.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A classe `DiffCalculator` está usando um método `run_diff_calculation_query` que não está implementado corretamente. O método deve ser chamado com um objeto `DiffQueryParser` e um objeto `DiffCalculationRequest` como argumentos."
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/diff/calculator.py",
+      "linha": 13,
+      "severidade": "bug",
+      "comentario": "O método `run_diff_calculation_query` está chamando `diff_query.execute(db=self.db)` antes de executar a query. Isso pode causar um erro se a query não for executada corretamente."
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/diff/calculator.py",
+      "linha": 14,
+      "severidade": "bug",
+      "comentario": "O método `run_diff_calculation_query` está chamando `diff_query.get_results()` antes de processar os resultados. Isso pode causar um erro se os resultados não forem processados corretamente."
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/node/ipam.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O método `to_graphql` deve ser chamado antes de retornar o response do método pai."
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/node/ipam.corrigido.py",
+      "linha": 49,
+      "severidade": "bug",
+      "comentario": "O método `get_resource_weight` deve ser chamado após o método `get_resource_weight` para garantir que o atributo `utilization` seja carregado."
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/graphql/mutations/repository.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "Verifique se o schema passado é uma instância de `NodeSchema`."
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/graphql/mutations/repository.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O método `mutate_create` deve ser chamado com um objeto `InputObjectType` e um `Branch`."
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/graphql/resolvers/resolver.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O resolver deve ser capaz de lidar com o caso de um perfil de conta não existente."
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/result.py",
+      "linha": 30,
+      "severidade": "bug",
+      "comentario": "O método `stream_output` deve ser chamado após a conclusão da saída do agente."
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/result.corrigido.py",
+      "linha": 30,
+      "severidade": "bug",
+      "comentario": "O método `stream_output` deve ser chamado após a streamamento de (unvalidated) model responses."
+    },
+    {
+      "path": "pydantic__pydantic-ai/.github/scripts/semantic_owner_router.py",
+      "linha": 390,
+      "severidade": "bug",
+      "comentario": "O método `decision_for` foi adicionado para garantir que o número de um item seja único e não seja repetido."
+    },
+    {
+      "path": "pydantic__pydantic-ai/.github/scripts/semantic_owner_router.corrigido.py",
+      "linha": 390,
+      "severidade": "bug",
+      "comentario": "O método `decision_for` foi adicionado para garantir que o número de um item seja único e não seja repetido."
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/models/test.py",
+      "linha": 139,
+      "severidade": "bug",
+      "comentario": "O método `request_stream` deve ser usado para gerar um fluxo de dados de resposta."
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/models/test.corrigido.py",
+      "linha": 89,
+      "severidade": "bug",
+      "comentario": "O campo `_model_name` deve ser adicionado para garantir que o nome do modelo seja armazenado corretamente."
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_clai2/pydantic_clai2/cli/self_update.py",
+      "linha": 290,
+      "severidade": "bug",
+      "comentario": "O método `self_update.py` deve ser chamado após a atualização do botão de atualização."
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/ui/_adapter.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O arquivo `ui/_adapter.py` deve ser adicionado para implementar a interface `UIAdapter`."
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/ui/_adapter.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "Aqui está a correção do arquivo."
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_clai2/pydantic_clai2/prompt_transcript.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O arquivo `prompt_transcript.py` deve ser adicionado ao projeto Pydantic."
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_clai2/pydantic_clai2/prompt_transcript.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O arquivo `prompt_transcript.corrigido.py` deve ser adicionado para corrigir problemas de estilo e estilo de controle."
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/_run_context.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A linha 12 está incorreta, pois o import `dataclasses` deve ser adicionado antes do import `from collections.abc import Sequence`."
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/_run_context.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O arquivo está incorreto e não está sendo usado corretamente."
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_ai_harness/pydantic_ai_harness/experimental/overflow/_capability.py",
+      "linha": 473,
+      "severidade": "bug",
+      "comentario": "O método `read_tool_result` deve ser chamado com um número específico de linhas para garantir que o resultado seja limitado a um número específico de linhas."
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_clai2/pydantic_clai2/runtime/tasks.py",
+      "linha": 189,
+      "severidade": "bug",
+      "comentario": "O método `view` deve retornar a sessão atual."
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/ui/vercel_ai/request_types.py",
+      "linha": 315,
+      "severidade": "bug",
+      "comentario": "O tipo de partícula de entrada deve ser `DynamicToolUIPart` para evitar problemas de entrada."
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/ui/vercel_ai/request_types.corrigido.py",
+      "linha": 315,
+      "severidade": "bug",
+      "comentario": "O tipo de partícula `DynamicToolUIPart` deve ser usado para representar a parte dinâmica do UI de output-denied."
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/models/gemini.py",
+      "linha": 222,
+      "severidade": "bug",
+      "comentario": "O método `process_response` deve ser chamado antes de retornar o objeto `r`."
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/torchft/checkpoint.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O método `_ft_save` e `_ft_load` não funcionam corretamente para o checkpointamento da TorchFT."
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/torchft/checkpoint.corrigido.py",
+      "linha": 13,
+      "severidade": "bug",
+      "comentario": "O método `_ft_manager.set_state_dict_fns` não funciona corretamente para o checkpointamento da TorchFT."
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/distributed/flex_shard/dist_muon.py",
+      "linha": 34,
+      "severidade": "bug",
+      "comentario": "O método `build_dist_muon` deve receber uma lista de parâmetros de forma correta."
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/torchft/optimizer.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O método `step` deve ser chamado diretamente para evitar reentrar hooks do container."
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/torchft/optimizer.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O método `init_cache_state_dict` deve ser chamado antes de `state_dict()` para garantir que o cache e os tensors sejam inicializados corretamente."
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/torchft/optimizer.corrigido.py",
+      "linha": 13,
+      "severidade": "bug",
+      "comentario": "O método `state_dict()` deve ser chamado após `init_cache_state_dict()` para garantir que o cache e os tensors sejam inicializados corretamente."
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/util.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "Importação de `numpy`, `pandas`, e `pyarrow` deve ser feita antes de usar os recursos de dados."
+    },
+    {
+      "path": "ray-project__ray/rllib/env/single_agent_env_runner.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "Aqui está uma correção para o método `__init__` da classe `SingleAgentEnvRunner`."
+    },
+    {
+      "path": "ray-project__ray/rllib/env/single_agent_env_runner.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O arquivo `SingleAgentEnvRunner` deve ser uma classe que herde de `EnvRunner` e implemente a interface `SingleAgentEnvRunner`."
+    },
+    {
+      "path": "ray-project__ray/python/ray/train/v2/_internal/callbacks/placement_group_callback.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O método `after_controller_start` deve ser chamado antes de iniciar o detached `PlacementGroupCleaner` actor."
+    },
+    {
+      "path": "ray-project__ray/python/ray/train/v2/_internal/callbacks/placement_group_callback.py",
+      "linha": 13,
+      "severidade": "bug",
+      "comentario": "O método `after_worker_group_start` deve ser chamado após a worker group ser iniciada."
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/execution/operators/task_pool_map_operator.py",
+      "linha": 50,
+      "severidade": "bug",
+      "comentario": "O argumento `ray_remote_args` deve ser uma função que retorna um dicionário com parâmetros de `ray.remote`."
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/execution/operators/task_pool_map_operator.corrigido.py",
+      "linha": 50,
+      "severidade": "bug",
+      "comentario": "O argumento `ray_remote_args` deve ser uma função que retorna um dicionário com os parâmetros de `ray.remote` para cada task."
+    },
+    {
+      "path": "ray-project__ray/rllib/env/multi_agent_env_runner.py",
+      "linha": 247,
+      "severidade": "bug",
+      "comentario": "O método `sample` deve ser chamado com `num_episodes` e `num_timesteps` como parâmetros."
+    },
+    {
+      "path": "ray-project__ray/python/ray/dashboard/modules/job/cli.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A função `get_or_create_event_loop` deve ser chamada antes de criar o cliente."
+    },
+    {
+      "path": "ukaea__PROCESS/process/pulse.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O método `run` deve ser chamado antes de executar o pulso."
+    },
+    {
+      "path": "ukaea__PROCESS/process/pulse.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A linha 12 está incorreta. A função `calculate_burn_time` deve ser chamada após a inicialização da classe Pulse."
+    },
+    {
+      "path": "ukaea__PROCESS/documentation/scripts/plotting_scripts/profile_peng_qbar.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O script está incorreto na linha 12, onde a função `plot.line` é chamada com um argumento `source` que não é um objeto ColumnDataSource."
+    },
+    {
+      "path": "vllm-project__vllm/vllm/models/step5/nvidia/mtp.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O arquivo `step5/nvidia/mtp.py` deve ser adicionado com a função `replace` para substituir o valor de `model_config` com o valor de `speculative_config.draft_model_config`."
+    },
+    {
+      "path": "vllm-project__vllm/vllm/models/step5/nvidia/mtp.corrigido.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O arquivo está incorreto na linha 12, onde há um erro de sintaxe."
+    },
+    {
+      "path": "vllm-project__vllm/vllm/model_executor/layers/fused_moe/experts/cutlass_moe.py",
+      "linha": 342,
+      "severidade": "bug",
+      "comentario": "A função `apply` deve lidar com o uso de experts no formato CUTLASS FP8."
+    },
+    {
+      "path": "vllm-project__vllm/vllm/model_executor/layers/fused_moe/experts/cutlass_moe.corrigido.py",
+      "linha": 342,
+      "severidade": "bug",
+      "comentario": "A função `apply` deve lidar com o uso de experts na CUTLASS MoE."
+    },
+    {
+      "path": "vllm-project__vllm/vllm/scalar_type.corrigido.py",
+      "linha": 267,
+      "severidade": "bug",
+      "comentario": "O método `uint` deve ser usado para criar tipos de escalar uint."
+    },
+    {
+      "path": "vllm-project__vllm/vllm/tool_parsers/utils.py",
+      "linha": 271,
+      "severidade": "bug",
+      "comentario": "O método `find_tool_name` deve verificar se o `tools` é nulo antes de tentar encontrar um tool pelo nome."
+    },
+    {
+      "path": "vllm-project__vllm/vllm/tool_parsers/utils.corrigido.py",
+      "linha": 271,
+      "severidade": "bug",
+      "comentario": "O método `find_tool_name` deve verificar se o `tools` é nulo antes de tentar encontrar o tool pelo nome."
+    }
+  ],
+  "arquivos": [
+    {
+      "path": "DataDog__integrations-core/postgres/datadog_checks/postgres/schemas.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "DataDog__integrations-core/postgres/datadog_checks/postgres/schemas.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado a nova linha 32 para definir o tipo de tabela (schema_id) e o nome da tabela (table_name) na consulta de tabelas PostgreSQL.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/kafka_consumer/datadog_checks/kafka_consumer/kafka_consumer.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `kafka_consumer` para deserializar mensagens de Kafka usando protobuf e avro.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/kafka_consumer/datadog_checks/kafka_consumer/kafka_consumer.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método para deserializar um Protobuf message usando google.protobuf, incluindo suporte para indices de confluent.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/kafka_consumer/datadog_checks/kafka_consumer/cluster_metadata.py",
+      "pulado": null,
+      "resumo": "Adicionado a função `_get_events_to_send` para determinar quais itens devem emitir eventos baseados na mudança de conteúdo ou expiração.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "DataDog__integrations-core/kafka_consumer/datadog_checks/kafka_consumer/cluster_metadata.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um método para gerenciar metadados de brokers, incluindo a leitura e escrita de cache persistente.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "DataDog__integrations-core/sqlserver/datadog_checks/sqlserver/sqlserver.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `SQLServer` na classe `DatabaseCheck` para integrar com o SQL Server.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "DataDog__integrations-core/sqlserver/datadog_checks/sqlserver/sqlserver.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo de integração SQL Server para o DataDog.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "DataDog__integrations-core/spark/datadog_checks/spark/spark.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "DataDog__integrations-core/spark/datadog_checks/spark/spark.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `_should_suppress_connection_error` para supressir conexões de Kubernetes apenas durante o shutdown de pods.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/kafka_actions/datadog_checks/kafka_actions/kafka_client.py",
+      "pulado": null,
+      "resumo": "Adicionado o método `get_admin_client` para obter um cliente de administração Kafka.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/kafka_actions/datadog_checks/kafka_actions/kafka_client.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `get_admin_client` para gerenciar a administração de Kafka.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/ibm_mq/datadog_checks/ibm_mq/metrics.py",
+      "pulado": null,
+      "resumo": "Adicionado novos métodos para monitoramento de mensagens de MQ, incluindo `channel_stats_metrics` e `queue_stats_metrics`. Além disso, foram adicionados métodos para calcular a última data de envio e recebimento de mensagens.",
+      "problemas": [
+        "linha_fora_do_diff",
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "DataDog__integrations-core/ibm_mq/datadog_checks/ibm_mq/metrics.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado novos métodos para obter estatísticas de mensagens e filas de mensagens do IBM MQ.",
+      "problemas": [
+        "linha_fora_do_diff",
+        "linha_fora_do_diff",
+        "linha_fora_do_diff",
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "DataDog__integrations-core/postgres/datadog_checks/postgres/explain_parameterized_queries.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "DataDog__integrations-core/postgres/datadog_checks/postgres/explain_parameterized_queries.corrigido.py",
+      "pulado": null,
+      "resumo": "O arquivo `DataDog__integrations-core/postgres/datadog_checks/postgres/explain_parameterized_queries.corrigido.py` adicionou uma nova função `explain_statement` que tenta usar um workaround para explicar uma query parametrizada. Essa função é chamada no método `agent_check_getter` do integrador.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/ibm_mq/datadog_checks/ibm_mq/collectors/channel_metric_collector.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "DataDog__integrations-core/ibm_mq/datadog_checks/ibm_mq/collectors/channel_metric_collector.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado a função `get_pcf_channel_metrics` para obter métricas de canal de fala (PCF) de um manager de mensagens.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/citrix_hypervisor/datadog_checks/citrix_hypervisor/check.py",
+      "pulado": null,
+      "resumo": "Adicionado um método para verificar a conectividade com o Citrix Hypervisor e atualizar métricas de saúde.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/citrix_hypervisor/datadog_checks/citrix_hypervisor/check.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado a função `_safely_process_metrics_response` para garantir que as respostas do servidor de hypervisor sejam parseadas corretamente.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/ddev/src/ddev/plugin/external/hatch/environment_collector.py",
+      "pulado": null,
+      "resumo": "Adicionado uma nova propriedade `package_directory` na classe `EnvironmentCollector` para definir o diretório do pacote da integração.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/ddev/src/ddev/plugin/external/hatch/environment_collector.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado uma nova propriedade `package_directory` na classe `EnvironmentCollector` para fornecer a pasta de diretório do projeto.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/llm_d/datadog_checks/llm_d/check.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "DataDog__integrations-core/llm_d/datadog_checks/llm_d/check.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `get_default_config` na classe `LlmDCheck` para ajustar as configurações padrões do check.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/ddev/src/ddev/cli/env/start.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "DataDog__integrations-core/ddev/src/ddev/cli/env/start.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método para iniciar o Agent, que verifica se o ambiente é CI e se o integrador não suporta CI. Além disso, o método também configura o Agent com base no metadata fornecido e envia os dados para o ambiente.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/ops/op_math/pow2.py",
+      "pulado": null,
+      "resumo": "Adicionado um método para calcular o gerador de uma operação, que é a z vezes o gerador do base.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/ops/op_math/pow2.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um método `compute_diagonalizing_gates` para calcular os gates diagonalizadores de um operador.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/templates/subroutines/select.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/templates/subroutines/select.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/capture/dynamic_shapes.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/capture/dynamic_shapes.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/workflow/get_best_diff_method.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método de comparação de diferentes métodos de diferentes gradiente para a função `get_best_diff_method`.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/workflow/get_best_diff_method.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método de comparação de diferentes métodos de diferentes gradientes para a função `get_best_diff_method`.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/devices/qubit/initialize_state.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método para preparar uma state no PennyLane.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/devices/qubit/initialize_state.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/pauli/pauli_arithmetic.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `pauli_arithmetic.py` que contém funções para operações de Pauli e simplificação de PauliSentences.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/pauli/pauli_arithmetic.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `operation` para a classe `PauliSentence` que retorna uma `Operation` representando a soma de PauliWords com a mesma estrutura.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/drawer/mpldrawer.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/drawer/mpldrawer.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método para adicionar notches ao diagrama de condicionalmente operações.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/math/interface_utils.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/math/interface_utils.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `pennylane/math/interface_utils.corrigido.py` que corrige algumas problemas reais na linha 80 do arquivo original.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/ops/op_math/condition.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `custom_staging_rule` para adicionar novas equações à jaxpr_trace e retornar novos tracers.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/ops/op_math/condition.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/templates/state_preparations/sum_of_slaters.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/templates/state_preparations/sum_of_slaters.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/templates/state_preparations/partial_unary.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/templates/state_preparations/partial_unary.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/operation.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `has_gen` para verificar se um operador tem um gerador definido.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/operation.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado uma nova função `has_grad_method` para verificar se um operador tem um método gradiente definido.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/backline/decoders/triton/decoder_frontend.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/backline/decoders/triton/decoder_frontend.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/packaging/python/templates/rocm/src/rocm_sdk/_devel.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `rocm/src/rocm_sdk/_devel.py` no arquivo `ROCm__TheRock/build_tools/packaging/python/templates/rocm/src/rocm_sdk/_devel.py`.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/packaging/python/templates/rocm/src/rocm_sdk/_devel.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `rocm/src/rocm_sdk/_devel.corrigido.py` na branch `ROCm__TheRock/build_tools/packaging/python/templates/rocm/src/rocm_sdk/_devel.corrigido.py` para corrigir problemas relacionados ao uso de softlinks e a reconcilição de arquivos.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/github_actions/github_actions_api.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método para armazenar e ler o summary do GitHub Actions job.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/github_actions/github_actions_api.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/install_rocm_from_artifacts.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/install_rocm_from_artifacts.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo parâmetro `extra_artifacts` ao script `install_rocm_from_artifacts.corrigido.py`, que contém os arquivos adicionais necessários para a instalação do ROCm.",
+      "problemas": []
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/github_actions/publish_rocm_to_release_buckets.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/github_actions/publish_rocm_to_release_buckets.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `ROCm__TheRock/build_tools/github_actions/publish_rocm_to_release_buckets.corrigido.py` que copia tarballs de um bucket de artefatos para um bucket de release.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/packaging/python/templates/rocm-sdk-core/setup.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/packaging/python/templates/rocm-sdk-core/setup.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado código para importar o _dist_info.py do pacote rocm_sdk_core e fazer ele disponível no build time.",
+      "problemas": []
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/artifact_manager.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/artifact_manager.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/github_actions/fetch_package_targets.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/github_actions/fetch_package_targets.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/github_actions/fetch_test_configurations.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `ROCm__TheRock/build_tools/github_actions/fetch_test_configurations.py` para garantir que os testes sejam executados apenas em plataformas específicas e que não sejam executados em todas as plataformas.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/github_actions/fetch_test_configurations.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `ROCm__TheRock/build_tools/github_actions/fetch_test_configurations.corrigido.py` para garantir que os testes sejam executados apenas em plataformas específicas e que as configurações de família sejam aplicadas de forma opt-in ou opt-out.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ROCm__TheRock/external-builds/pytorch/build_prod_wheels.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ROCm__TheRock/external-builds/pytorch/build_prod_wheels.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado uma opção para post-processar wheels, setar o manylinux tag e inlining system deps.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/github_actions/test_executable_scripts/pytest_runner.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/github_actions/test_executable_scripts/pytest_runner.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo script de execução do pytest_runner para executar testes de tensilelite e rocisa em um ambiente minimalizado.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/packaging/linux/build_package.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/packaging/linux/build_package.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/inference/data_writer/file_writer.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/inference/data_writer/file_writer.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/stepper/derived_forcings.py",
+      "pulado": null,
+      "resumo": "Adicionado um método `build` para construir uma instância de `ForcingDeriver` com base no tempo e coordenadas horizontais fornecidas.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/stepper/derived_forcings.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um método `update_requirements` para adicionar ou remover nomes de requisições associadas com forçamentos derivados.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/stepper/single_module.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `accumulate_loss` na classe `single_module.py` para calcular a soma dos losses acumulados durante o treinamento.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/stepper/single_module.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `accumulate_loss` na classe `Stepper` para calcular a soma dos losses de cada passo.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ai2cm__ace/fme/downscaling/models.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `ai2cm__ace/fme/downscaling/models.py` com a implementação de modelos de downscaling.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ai2cm__ace/fme/downscaling/models.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `ai2cm__ace/fme/downscaling/models.corrigido.py` que contém a implementação de modelos de downscaling para a FME (Fuzzy Multi-Encoder Model). Este arquivo adiciona novas classes e métodos para processamento de dados e normalização.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/stepper/parameter_init.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `build` na classe `ParameterInitializer` para construir um objeto `ParameterInitializer` com base no configurador atual.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/stepper/parameter_init.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `build` à classe `ParameterInitializer` que permite a construção de um `ParameterInitializer` com base no configurador atual.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/inference/data_writer/zarr.py",
+      "pulado": null,
+      "resumo": "Adicionado um método `append_batch` para adicionar novos dados ao ZarrWriter.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/inference/data_writer/zarr.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um método `append_batch` para adicionar novos dados ao ZarrWriter.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/core/histogram.py",
+      "pulado": null,
+      "resumo": "Adicionado um método `_normalize_histogram` para normalizar histogram counts.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ai2cm__ace/fme/core/histogram.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um método `_normalize_histogram` para normalizar histogram counts.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ai2cm__ace/fme/core/dataset/concat.py",
+      "pulado": null,
+      "resumo": "Adicionado um método `__getitem__` para retornar um tuple de tensors e dataarrays de forma concisa.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/core/dataset/concat.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um método `__getitem__` para o dataset `XarrayConcat` que retorna uma tupla de `TensorDict` e `xr.DataArray`.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/data_loading/inference.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `build_inference_config` à classe `InferenceDataset` para construir configurações de dados de inferência.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/data_loading/inference.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um método `build_inference_config` para configurar o modelo de inferência.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ai2cm__ace/fme/fme/core/atmosphere_data.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `ai2cm__ace/fme/fme/core/atmosphere_data.py` com a implementação de uma classe `AtmosphereData` que encapsula dados atmosféricos e oferece acesso a variáveis e views de dados com múltiplas alturas. A classe utiliza um `MappingProxyType` para armazenar os dados e um `Stacker` para integrar dados verticalmente.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/fme/core/atmosphere_data.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ai2cm__ace/fme/downscaling/modules/unets.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ai2cm__ace/fme/downscaling/modules/unets.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/models/ocean/m2lines/samudra.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/models/ocean/m2lines/samudra.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `Samudra` à classe `Ocean` do arquivo `m2lines/samudra.corrigido.py`, que implementa um modelo de Samudra de M2Lines. Este método incorpora um pooling, upsampling, e convoluções para processar dados de entrada. Além disso, ele adiciona um parâmetro `pad` para definir o tipo de padding para as convoluções.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/models/trigger.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/models/trigger.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "apache__airflow/providers/google/src/airflow/providers/google/cloud/triggers/kubernetes_engine.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo parâmetro `should_delete_pod` na classe `GKEStartPodTrigger`, que permite a configuração de como o pod deve ser deletado. Este parâmetro é deprecado e será removido em October 5, 2026.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "apache__airflow/providers/google/src/airflow/providers/google/cloud/triggers/kubernetes_engine.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo parâmetro `should_delete_pod` na classe `GKEStartPodTrigger`, que permite a configuração de como o pod deve ser deletado. A correção também inclui uma correção de estilo para o código.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "apache__airflow/providers/src/airflow/providers/exasol/hooks/exasol.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `execute` na classe `exasol` para executar SQL statements no Exasol DB.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/providers/src/airflow/providers/exasol/hooks/exasol.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `exasol.corrigido.py` para executar SQL com autocommit e processar resultados.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "apache__airflow/airflow/cli/commands/remote_commands/backfill_command.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "apache__airflow/airflow/cli/commands/remote_commands/backfill_command.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/utils/email.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `send_mime_email` na classe `airflow.utils.email.py`, que envia um email MIME usando uma conexão SMTP. O método recebe parâmetros como `e_from`, `e_to`, `mime_msg`, `conn_id`, `dryrun`, e retorna `None`. Além disso, inclui log messages para indicar o sucesso ou falha da enviação do email.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/utils/email.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `send_mime_email` na classe `airflow.utils.email.corrigido.py`, que envia um email MIME usando o SMTP. O método recebe parâmetros como `e_from`, `e_to`, `mime_msg`, `conn_id`, `dryrun`, e retorna `None`. Além disso, inclui a autenticação se o SMTP não for seguro.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "apache__airflow/providers/common/ai/src/airflow/providers/common/ai/utils/usage_budget.py",
+      "pulado": null,
+      "resumo": "Adicionado um método `copy_run_usage` para copiar um `RunUsage`.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "apache__airflow/providers/common/ai/src/airflow/providers/common/ai/utils/usage_budget.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "apache__airflow/providers/google/src/airflow/providers/google/cloud/hooks/cloud_composer.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `apache__airflow/providers/google/src/airflow/providers/google/cloud/hooks/cloud_composer.py` com a implementação de um cliente de serviços de Composer.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/providers/google/src/airflow/providers/google/cloud/hooks/cloud_composer.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "apache__airflow/providers/cncf/kubernetes/src/airflow/providers/cncf/kubernetes/executors/kubernetes_executor.py",
+      "pulado": null,
+      "resumo": "Adicionado um método para obter IDs de outros SchedulerJobs que estão ativos e não são o próprio scheduler.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "apache__airflow/providers/cncf/kubernetes/src/airflow/providers/cncf/kubernetes/executors/kubernetes_executor.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um método para obter IDs de outros SchedulerJobs que estão ativos e não são o próprio scheduler.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/providers/elasticsearch/src/airflow/providers/elasticsearch/log/es_response.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "apache__airflow/providers/elasticsearch/src/airflow/providers/elasticsearch/log/es_response.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/cli/commands/asset_command.py",
+      "pulado": null,
+      "resumo": "Adicionado a função `asset_list` na classe `AssetCommand` para listar as alias de assets.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/cli/commands/asset_command.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado a função `asset_list` para listar as alias de assets.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/serialization/definitions/notset.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo tipo `ArgNotSet` para ser usado como sentinel value para argumentos default.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/serialization/definitions/notset.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um tipo `ArgNotSet` para ser usado como sentinel value para argumentos default.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/api_fastapi/core_api/datamodels/ui/grid.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo modelo `LightGridTaskInstanceSummary` na classe `GridTISummaries` para o Grid UI.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/api_fastapi/core_api/datamodels/ui/grid.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo modelo `LightGridTaskInstanceSummary` na classe `GridTISummaries` para o Grid UI.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/shared/observability/src/airflow_shared/observability/common.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método para exportar dados de observabilidade em um ambiente OpenTelemetry.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/shared/observability/src/airflow_shared/observability/common.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método para formatar URLs e hostnames em um ambiente de observabilidade Apache Airflow.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/cli/specific/dataset_cli.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo comando `sync` para sincronizar um arquivo de Dataset para o DataHub.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/cli/specific/dataset_cli.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo comando `sync` para sincronizar um arquivo de Dataset para o DataHub.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/configuration/env_vars.py",
+      "pulado": null,
+      "resumo": "Adicionado novas variáveis de ambiente para configuração do Docker e local desenvolvimento.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/configuration/env_vars.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/datahub/datahub_source.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `get_database_workunits` na classe `DatahubSource` para obter aspectos de banco de dados.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/datahub/datahub_source.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/dbt/dbt_core.py",
+      "pulado": null,
+      "resumo": "Adicionado um método para extrair semantic models (dbt 1.6+) do manifest.json.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/dbt/dbt_core.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado a função `extract_semantic_models` para extrair semantic models (dbt 1.6+) do manifest.json.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/sql/sqlalchemy_data_reader.py",
+      "pulado": null,
+      "resumo": "Adicionado um método `create` para criar um objeto `SqlAlchemyTableDataReader` que recebe uma `Inspector` e retorna um objeto `SqlAlchemyTableDataReader`.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/sql/sqlalchemy_data_reader.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/utilities/pkg_resources_shim.py",
+      "pulado": null,
+      "resumo": "Adicionado um shim para a biblioteca `pkg_resources` que substitui o real module quando `setuptools>=82` removeu ele.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/utilities/pkg_resources_shim.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um shim para a biblioteca `pkg_resources` que substitui o real module quando `setuptools>=82` removeu ele.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/schema_inference/json.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/schema_inference/json.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/fabric/onelake/schema_client.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `sql_analytics_endpoint` na classe `SchemaExtractionClient` para criar um cliente de extração de schemas para SQL Analytics Endpoint.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/fabric/onelake/schema_client.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método para criar um cliente de extração de schemas SQL Analytics.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "datahub-project__datahub/datahub-actions/src/datahub_actions/plugin/source/acryl/datahub_cloud_events_consumer.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "datahub-project__datahub/datahub-actions/src/datahub_actions/plugin/source/acryl/datahub_cloud_events_consumer.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion-modules/airflow-plugin/src/datahub_airflow_plugin/airflow3/_athena_openlineage_patch.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion-modules/airflow-plugin/src/datahub_airflow_plugin/airflow3/_athena_openlineage_patch.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `get_openlineage_facets_on_complete` na classe `AthenaOperator` para melhorar a linha de execução do OpenLineage.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/looker/looker_common.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/looker/looker_common.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/sdk/main_client.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `__init__` para inicializar o cliente DataHub.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/sdk/main_client.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `__init__` para inicializar o cliente DataHub.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/frappe/studio/doctype/studio_page/patches/migrate_charts_to_frappe_ui_charts.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "frappe__frappe/frappe/studio/doctype/studio_page/patches/migrate_charts_to_frappe_ui_charts.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `migrate_blocks_json` para migrar charts de config dynamicmente para a propriedade `frappe-ui/charts.props` do Studio Page.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "frappe__frappe/frappe/twofactor.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método para autenticação de dois fatores (2FA) no arquivo `frappe__frappe/frappe/twofactor.py`. Este método permite verificar se a 2FA está habilitada para um usuário e, se for, verificar se o token fornecido é válido.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/frappe/twofactor.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método para autenticação de dois fatores para usuários com enabled.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/flow/harness/src/flow_server/session/store.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `flush_results` na classe `SessionStore` para processar logs de ferramentas e gerar mensagens de erro. Este método atualiza as mensagens de erro com base na sequência de chamadas da ferramenta, permitindo que as mensagens sejam geradas de forma mais eficiente e sem alterar o formato do log original.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "frappe__frappe/flow/harness/src/flow_server/session/store.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "frappe__frappe/flow/harness/src/flow_server/agent/loop.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `flow_server/agent/loop.py` para implementar a lógica de loop de agentes.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "frappe__frappe/flow/harness/src/flow_server/agent/loop.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `resume` à classe `FlowServerAgent` para continuar uma pausa de run.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/frappe/core/doctype/data_import/import_provider.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `data_import_import_provider.py` na branch `master` para implementar um provider de importação. Este arquivo define uma classe `ImportProvider` que encapsula as funcionalidades de importação de documentos do tipo `DocType`. O método `get_import_fields` retorna as propriedades de campos para o picker e colunas de match, ou `None` se o tipo de documento for o mesmo do tipo do documento do modelo. O método `validate` retorna warnings para o arquivo de importação, e o método `import_row` cria os documentos para uma record e retorna uma tupla `(document, import_action)`. O método `get_import_provider` resolve o provider registrado para o tipo de documento, ou `None` se não houver um provider registrado.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/frappe/core/doctype/data_import/import_provider.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo de importador chamado `data_import_import_provider.corrigido.py` no repositório de um pull request.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/frappe/core/doctype/data_import/exporter.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "frappe__frappe/frappe/core/doctype/data_import/exporter.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "frappe__frappe/flow/harness/src/flow_harness/session/config.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo de configuração para o session do Harness, que contém configurações específicas para o session. Este arquivo contém informações sobre o título, a modelagem, a eficiência de resolução, o sistema préambulo, o sistema sufijo, o sistema prompt, o sistema append, os tools disponíveis, os sub-agents disponíveis, o número máximo de sub-agents que podem ser executados simultaneamente, os extensões disponíveis, os schemas registrados pelo cliente, a URL de callback, o token de callback, os headers de callback, o tempo de resposta e a notificação de terminais duráveis. Além disso, o arquivo também contém um validator para garantir que as configurações do session estejam corretamente configuradas.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "frappe__frappe/flow/harness/src/flow_harness/session/config.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "frappe__frappe/frappe/printing/doctype/print_format/classic_converter.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "frappe__frappe/frappe/printing/doctype/print_format/classic_converter.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "frappe__frappe/frappe/flow/assistant/assistant.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método para garantir que o Assistente esteja com o modelo especificado. Se o modelo já existir, não altera o Assistente.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/frappe/flow/assistant/assistant.corrigido.py",
+      "pulado": null,
+      "resumo": "Corrigiu a definição da função ensure_builtin_assistant para garantir que o Assistant tenha o modelo atual ou um novo modelo se o modelo anterior não existir.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/flow/harness/src/flow/agent/loop.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `run` na função `loop.py` para abrir o protocolo, adicionar a mensagem e then tomar turns.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "frappe__frappe/flow/harness/src/flow/agent/loop.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "frappe__frappe/frappe/core/doctype/file/file_v2.py",
+      "pulado": null,
+      "resumo": "Adicionado um método para leitura e escrita de conteúdo de um arquivo blob.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "frappe__frappe/frappe/core/doctype/file/file_v2.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `create_file_from_blob` para criar um novo registro de arquivo para um blob existente, sem reescrever os bytes.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "frappe__frappe/frappe/core/doctype/error_log/error_log.py",
+      "pulado": null,
+      "resumo": "Adicionado novos métodos para o arquivo `error_log.py`.",
+      "problemas": [
+        "comentario_descritivo",
+        "comentario_descritivo",
+        "comentario_descritivo",
+        "comentario_descritivo"
+      ]
+    },
+    {
+      "path": "frappe__frappe/frappe/core/doctype/error_log/error_log.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/serializer.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `getsentry__sentry-python/sentry_sdk/serializer.py` que contém a implementação de serialização de dados em Python.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/serializer.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `getsentry__sentry-python/sentry_sdk/serializer.corrigido.py` que corrige algumas problemas reais na linha 12 do arquivo original.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/openai.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `set_input_data` para integrar OpenAI em um fluxo de sentimento.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/openai.corrigido.py",
+      "pulado": null,
+      "resumo": "O arquivo `getsentry__sentry-python/sentry_sdk/integrations/openai.corrigido.py` foi corrigido para incluir a função `_set_input_data` que configura os dados de entrada para o OpenAI. Essa função é chamada no método `record_token_usage` para registrar os tokens usados durante a execução do código.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/aiohttp.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `aiohttp` para integrar o SDK Sentry AIOHTTP.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/aiohttp.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `aiohttp.corrigido.py` para integrar o SDK AIOHTTP em um projeto de sentry.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/pydantic_ai/patches/agent_run.py",
+      "pulado": null,
+      "resumo": "Adicionado um wrapper para o método `Agent.run` que cria um `invoke_agent_span` antes de executar o método original.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/pydantic_ai/patches/agent_run.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/profiler/continuous_profiler.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `teardown_continuous_profiler` na classe `ContinuousProfiler` para garantir que o scheduler seja finalizado corretamente após a execução de um teste.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/profiler/continuous_profiler.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um método `stop_continuous_profiler` para interromper a contagem de profissionais continuas.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/gcp.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método para integrar Google Cloud Functions com Sentry SDK.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/gcp.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `event_processor` para o integrador GCP para processar eventos de Google Cloud Functions.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/pydantic_ai/__init__.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/pydantic_ai/__init__.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/logger.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `_capture_log` no arquivo `getsentry__sentry-python/sentry_sdk/logger.py`, que captura logs de sentry com base em um template e atributos fornecidos. Este método é útil para personalizar e formatar os logs de sentry.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/logger.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/arq.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/arq.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `_wrap_coroutine` para integrar o ArqIntegration com o SDK Sentry.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/google_genai/utils.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `getsentry__sentry-python/sentry_sdk/integrations/google_genai/utils.py` com a implementação de uma função `extract_usage_data` que extrai dados de uso de uma resposta genética.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/google_genai/utils.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `getsentry__sentry-python/sentry_sdk/integrations/google_genai/utils.corrigido.py` com a correção de um problema de sintaxe. O arquivo contém uma função `extract_usage_data` que extrai dados de uso de uma resposta de GPT-4.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/openai_agents/patches/runner.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/openai_agents/patches/runner.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/_asgi_common.py",
+      "pulado": null,
+      "resumo": "Adicionado a função `_get_ip` para extrair IP Address do ASGI scope.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/_asgi_common.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado a função `_get_ip` para extrair IP Address do ASGI scope baseado na solicitação headers.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/webostv/__init__.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo componente WebOSV no arquivo home-assistant_core/homeassistant/components/webostv/__init__.py",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/webostv/__init__.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/roomba/vacuum.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/roomba/vacuum.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/myuplink/select.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo componente para a Home Assistant para a configuração de um dispositivo myUplink.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/myuplink/select.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo componente para a Home Assistant para o MyUplink. Este componente permite a seleção de um parâmetro do MyUplink.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/yale_smart_alarm/__init__.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/yale_smart_alarm/__init__.corrigido.py",
+      "pulado": null,
+      "resumo": "Corrigiu a linha 12 para incluir a importação do `entity_registry` e a importação do `er` para garantir que as entidades e registros de entidades existam antes de tentar atualizar o estado do componente.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/prosegur/camera.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo componente ProsegurCamera no arquivo home-assistant__core/homeassistant/components/prosegur/camera.py.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/prosegur/camera.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo componente ProsegurCamera para o Home Assistant.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/lyric/sensor.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/lyric/sensor.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/tado/config_flow.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo componente de configuração para o Home Assistant para o Tado.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/tado/config_flow.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo componente de configuração para o Home Assistant para o Tado.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/alexa_devices/coordinator.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo componente para o Amazon Devices Coordinator.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/alexa_devices/coordinator.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `async_update_data` na classe `AmazonDevicesCoordinator` para atualizar os dados de dispositivos.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/sonos/entity.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo componente `sonos.entity.py` para o Home Assistant, que implementa a funcionalidade de falso pollagem do Sonos.",
+      "problemas": [
+        "linha_fora_do_diff",
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/sonos/entity.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo componente `sonos.entity.corrigido.py` para manter a compatibilidade com a versão atual do Home Assistant.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/matter/cover.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo componente de cover para o Home Assistant.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/matter/cover.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo componente de cover para o Home Assistant.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/blebox/light.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/blebox/light.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado a propriedade `rgbw_color` para retornar o valor RGBW.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/esphome/entity.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo componente EsphomeEntity para o arquivo home-assistant__core/homeassistant/components/esphome/entity.py.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/esphome/entity.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/isy994/helpers.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `_is_sensor_a_binary_sensor` na função `isy994/helpers.py`, que verifica se um sensor deve ser um dispositivo binário.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/isy994/helpers.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado uma nova função `_is_sensor_a_binary_sensor` para verificar se um sensor deve ser um dispositivo binário.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/mamba2/modeling_mamba2.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/mamba2/modeling_mamba2.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `prepare_inputs_for_generation` para o modelo MAMBA2.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/dac/modeling_dac.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `from_latents` à classe `DacDecoder` para reconstruir a representação quantizada de latentes de um modelo DAC.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/dac/modeling_dac.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `from_latents` à classe `DacDecoder` para reconstruir a representação quantizada de latentes de forma eficiente.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/qwen2_vl/image_processing_qwen2_vl.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `huggingface__transformers/src/transformers/models/qwen2_vl/image_processing_qwen2_vl.py` que contém a implementação de processamento de imagens para o modelo Qwen2-VL.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/qwen2_vl/image_processing_qwen2_vl.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/tipsv2/modeling_tipsv2.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/tipsv2/modeling_tipsv2.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `tipsv2/modeling_tipsv2.corrigido.py` na branch `huggingface__transformers/src/transformers/models/tipsv2`.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/emu3/modular_emu3.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/emu3/modular_emu3.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/commands/serving.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/commands/serving.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/blt/modeling_blt.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `patch_reduce` no arquivo `blt/modeling_blt.py`, que reduz variáveis length patches para um único embedding por patch. Este método é útil para reduzir o vocabulário de patches e melhorar a eficiência do modelo.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/blt/modeling_blt.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `patch_reduce` no arquivo `transformers/models/blt/modeling_blt.corrigido.py`, que reduz variáveis length patches para um único embedding por patch. Este método é útil para reduzir o vocabulário de patches e melhorar a eficiência do modelo.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/ernie4_5_moe/modular_ernie4_5_moe.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/ernie4_5_moe/modular_ernie4_5_moe.corrigido.py",
+      "pulado": null,
+      "resumo": "O arquivo `huggingface__transformers/src/transformers/models/ernie4_5_moe/modular_ernie4_5_moe.corrigido.py` foi corrigido para incluir uma correção de bias na função `forward` do modelo ERNIE-4-5-MOE.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/reformer/modeling_reformer.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `ReformerOnlyLMHead` à classe `ReformerPreTrainedModel`, que usa Reformer para processar o texto de forma reversible. Este método concatena o mesmo tensor para cada chamada de `forward_chunk` e aplica a layer norm a cada tensor resultante.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/reformer/modeling_reformer.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `ReformerOnlyLMHead` na classe `ReformerPreTrainedModel`, que adiciona uma camada de atenção para o modelo de reformer. Essa camada é aplicada após a concatenação de estados de reformer e o layer norm. Além disso, foi adicionado um método `forward_chunk` para processar chunks de estados de reformer.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/mistral/configuration_mistral.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo de configuração para o modelo Mistral.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/mistral/configuration_mistral.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo atributo `head_dim` à classe `MistralConfig`.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/generation/streamers.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/generation/streamers.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo tipo de streamer chamado `TextStreamer` que imprime os tokens ao stdout.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/inkling/feature_extraction_inkling.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `extract_fbank_features` na classe `InklingFeatureExtractor` para extrair features de log-mel spectrogram de um ou vários áudio clips.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/inkling/feature_extraction_inkling.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `extract_fbank_features` para o modelo Inking.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/utils/fetch_hub_objects_for_ci.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `huggingface__transformers/utils/fetch_hub_objects_for_ci.py` que contém funções para download de objetos do Hugging Face Hub para testes de CI.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/utils/fetch_hub_objects_for_ci.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `huggingface__transformers/utils/fetch_hub_objects_for_ci.corrigido.py` que contém funções para download de objetos do Hugging Face Hub. Essas funções são usadas em testes de CI para garantir que os objetos estão disponíveis e não estão sendo carregados de forma incorreta.",
+      "problemas": [
+        "excesso_de_comentarios"
+      ]
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/computed_attribute/models.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo tipo de trigger para a classe `ComputedAttrPythonTriggerDefinition`.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/computed_attribute/models.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo tipo de trigger para a classe `ComputedAttrPythonTriggerDefinition`.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/branch/tasks.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `check_remote_heads_imported` na função `branch/tasks.py` para verificar se um repositório Git possui um head que não foi importado pelo grafo. Este método é chamado antes da lógica de merge global, permitindo que um repositório que está lento a responder delays a merge apenas.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/branch/tasks.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/config.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/config.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um campo `tls_enabled` para habilitar TLS para a conexão.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/trace.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/trace.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado uma nova função `get_traceid()` para obter o identificador de trace do contexto atual.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/migrations/schema/node_remove.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `NodeRemoveMigrationQueryIn` na classe `NodeRemoveMigrationBaseQuery` para remover um nó de um banco de dados.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/migrations/schema/node_remove.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um método `render_node_remove_query` para remover um nó de um relatório de grafo.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/diff/calculator.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `run_diff_calculation_query` na classe `DiffCalculator` para executar uma query de calculadora de diferenças.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/diff/calculator.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/convert_object_type/object_conversion.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/convert_object_type/object_conversion.corrigido.py",
+      "pulado": null,
+      "resumo": "O arquivo `opsmill__infrahub/backend/infrahub/core/convert_object_type/object_conversion.corrigido.py` foi adicionado para converter um objeto de um tipo específico para um outro tipo. O arquivo contém funções para obter os peer IDs de um node, obter os peer IDs de um node que está conectado a um relação, obter os peer IDs de um node que está conectado a um relação de forma unidireta, e validar a conversão de um objeto de um tipo para um outro tipo. As funções adicionadas foram testadas e funcionaram corretamente.",
+      "problemas": [
+        "linha_fora_do_diff",
+        "linha_fora_do_diff",
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/graphql/mutations/ipam.py",
+      "pulado": null,
+      "resumo": "Adicionado método para criar e reconciliar endereços IP para um namespace.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/graphql/mutations/ipam.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um método para criar objetos IPAM com locks",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/node/ipam.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `to_graphql` na classe `BuiltinIPPrefix` para retornar informações sobre o prefixo IP.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/node/ipam.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um método `get_resource_weight` para o objeto `BuiltinIPPrefix`.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/api/admission/middleware.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/api/admission/middleware.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/graphql/mutations/repository.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `mutate_create` na classe `InfrahubRepositoryMutation` para criar um novo repositório.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/graphql/mutations/repository.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `mutate_create` na classe `InfrahubRepositoryMutation` para criar um novo repositório.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/graphql/resolvers/resolver.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/graphql/resolvers/resolver.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo resolver para resolver a consulta de perfil de conta.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/result.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `stream_output` na classe `AgentStream` para streamar os resultados da saída do agente.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/result.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `stream_output` para a classe `AgentStream` que permite a streamamento de (validados) agent outputs.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/.github/scripts/semantic_owner_router.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método para decidir o número de um item em um repositório GitHub.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/.github/scripts/semantic_owner_router.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método para decidir o número de um item em um repositório GitHub.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/models/test.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `request_stream` à classe `TestModel`.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/models/test.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo campo `_model_name` no modelo `TestModel` para armazenar o nome do modelo.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_clai2/pydantic_clai2/cli/self_update.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `self_update.py` na pasta `pydantic_clai2/pydantic_clai2/cli` para atualizar o botão de atualização e o comando `/update`.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_clai2/pydantic_clai2/cli/self_update.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/ui/_adapter.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `ui/_adapter.py` na branch `pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/ui`.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/ui/_adapter.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `ui/_adapter.corrigido.py` para implementar a interface `UIAdapter` do Pydantic AI.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_ai_harness/pydantic_ai_harness/dynamic_workflow/_capability.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_ai_harness/pydantic_ai_harness/dynamic_workflow/_capability.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_clai2/pydantic_clai2/prompt_transcript.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `pydantic__pydantic-ai/src/pydantic_clai2/pydantic_clai2/prompt_transcript.py` que contém a implementação de uma interface de transcrição de texto que pode ser usada para repintar o viewport após uma resize.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_clai2/pydantic_clai2/prompt_transcript.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `prompt_transcript.corrigido.py` na branch `pydantic__pydantic-ai/src/pydantic_clai2/pydantic_clai2/prompt_transcript.corrigido.py` para corrigir problemas de estilo e estilo de controle.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/_run_context.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo chamado `pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/_run_context.py`.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/_run_context.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo chamado `pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/_run_context.corrigido.py`.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_ai_harness/pydantic_ai_harness/experimental/overflow/_capability.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `_capability.py` na pasta `pydantic_ai_harness/pydantic_ai_harness/experimental/overflow/_capability.py` para limitar o número de linhas retornadas por uma chamada `read_tool_result`. Este método é útil para evitar overflow de memória e garantir que o resultado seja limitado a um número específico de linhas.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_ai_harness/pydantic_ai_harness/experimental/overflow/_capability.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_clai2/pydantic_clai2/runtime/tasks.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `view` na classe `Tasks` para obter a sessão atual.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_clai2/pydantic_clai2/runtime/tasks.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um método `view` para obter a sessão corrigida.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/ui/vercel_ai/request_types.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo tipo de partícula de entrada para a interface de usuário (UI) do Vercel AI Elements.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/ui/vercel_ai/request_types.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo tipo de partícula `DynamicToolUIPart` para representar a parte dinâmica do UI de output-denied.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/models/gemini.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `process_response` na classe `Gemini` para processar a resposta do gemini.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/models/gemini.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/simple_fsdp/llama3/parallelize.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/simple_fsdp/llama3/parallelize.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/torchft/checkpoint.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/torchft/checkpoint.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionou suporte para checkpointamento da TorchFT com per-replica dataloader.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/rl/models/vllm_wrapper.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `rl/models/vllm_wrapper.py` para implementar a interface de wrapper para o modelo VLLM.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/rl/models/vllm_wrapper.corrigido.py",
+      "pulado": null,
+      "resumo": "O arquivo `rl/models/vllm_wrapper.corrigido.py` foi corrigido para incluir a correção de um problema de bug relacionado ao uso de `PlainToDTensorStateDictAdapter` em modelos de VLLM.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/graph_trainer/simple_fsdp.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/graph_trainer/simple_fsdp.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/models/common/rope.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/models/common/rope.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `rope` à classe `RoPE` que verifica se as posições de entrada são dentro do limite máximo permitido. Este método é usado para garantir que as posições de entrada não ultrapassam o limite máximo permitido, mantendo a qualidade da rotina de aprendizado.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/config/configs.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `config/configs.py` para definir configurações de pipeline e expertização.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/config/configs.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/models/common/moe/token_dispatcher.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/models/common/moe/token_dispatcher.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/distributed/fsdp.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método para aplicar data parallelism (via FSDP2) a um modelo de decoders da biblioteca PyTorch-Titan.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/distributed/fsdp.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado a função `apply_fsdp_to_decoder` para aplicar dados paralelismos (via FSDP2) a um modelo de decodificador-style transformer.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/distributed/flex_shard/dist_muon.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `build_dist_muon` no arquivo `dist_muon.py`.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/distributed/flex_shard/dist_muon.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/torchft/optimizer.py",
+      "pulado": null,
+      "resumo": "Adicionado um método `step` para o container de optimizers.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/torchft/optimizer.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um método `init_cache_state_dict` para inicializar o estado do cache do optimizador.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/components/optim/ema.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/components/optim/ema.corrigido.py",
+      "pulado": null,
+      "resumo": "O arquivo `pytorch__torchtitan/torchtitan/components/optim/ema.corrigido.py` foi adicionado para corrigir um problema de stall na EMA (Estimativa de Mapeamento de Aprendizado) em um modelo de otimização de rede.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/config_manager.py",
+      "pulado": null,
+      "resumo": "Adicionado um método `_merge_configs` para merge duas configurações baseadas em um arquivo de configuração.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/config_manager.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/torchft/manager.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/torchft/manager.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um método `maybe_semi_sync_training` para o manager do TorchFT, que pode ser usado para controlar a semisync durante o treinamento. Este método permite que o manager use o método `semi_sync_method` se estiver configurado e se o treinamento for semisync.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/util.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `ray-project__ray/python/ray/data/_internal/util.py` com a importação de `numpy`, `pandas`, e `pyarrow`. Este arquivo é crucial para a integração do Ray com os recursos de dados e análise de dados.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/util.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ray-project__ray/python/ray/llm/_internal/batch/processor/base.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ray-project__ray/python/ray/llm/_internal/batch/processor/base.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "ray-project__ray/python/ray/_private/runtime_env/working_dir.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "ray-project__ray/python/ray/_private/runtime_env/working_dir.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ray-project__ray/rllib/env/single_agent_env_runner.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `ray-project__ray/rllib/env/single_agent_env_runner.py` que extende a classe `EnvRunner` do Raylib.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/rllib/env/single_agent_env_runner.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `ray-project__ray/rllib/env/single_agent_env_runner.corrigido.py` que implementa a interface `SingleAgentEnvRunner` de um ambiente single-agent.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/serve/_private/replica.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `handler` na classe `Replica` para processar solicitações de streaming.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ray-project__ray/python/ray/serve/_private/replica.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `handler` na classe `Replica` para processar solicitações de streaming.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/execution/operators/map_operator.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `map_operator.py` para o arquivo `ray-project__ray/python/ray/data/_internal/execution/operators/map_operator.py`, que adiciona uma opção de limites para a execução de map tasks.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/execution/operators/map_operator.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `map_operator.corrigido.py` para permitir a especificação de `num_cpus` e `num_gpus` para map tasks.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ray-project__ray/python/ray/train/v2/_internal/callbacks/placement_group_callback.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo callback para a classe `PlacementGroupCleanerCallback` no arquivo `ray-project__ray/python/ray/train/v2/_internal/callbacks/placement_group_callback.py`. Este callback cuida de manter a disposição de um `PlacementGroupCleaner` para a execução do controlador, garantindo que as placas de grupos de trabalho sejam limpas se o controlador for morto inesperadamente.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/train/v2/_internal/callbacks/placement_group_callback.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/execution/operators/task_pool_map_operator.py",
+      "pulado": null,
+      "resumo": "Adicionado um argumento para a função `task_pool_map_operator.py` que customiza os parâmetros de `ray.remote` para cada operação.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/execution/operators/task_pool_map_operator.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um argumento para a função `task_pool_map_operator` que customiza os parâmetros de `ray.remote` para cada task.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/planner/plan_expression/expression_evaluator.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/planner/plan_expression/expression_evaluator.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ray-project__ray/rllib/env/multi_agent_env_runner.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `sample` na classe `MultiAgentEnvRunner` para permitir a reprodução de experiências de forma aleatória.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/rllib/env/multi_agent_env_runner.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ray-project__ray/python/ray/dashboard/modules/job/cli.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "ray-project__ray/python/ray/dashboard/modules/job/cli.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado a função `_get_sdk_client` para criar um cliente de submissão de job.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/datasource/parquet_datasink.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `write` para o datasource ParquetDatasink que escreve dados em um arquivo parquet.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/datasource/parquet_datasink.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ray-project__ray/python/ray/serve/_private/grpc_util.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "ray-project__ray/python/ray/serve/_private/grpc_util.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ukaea__PROCESS/process/models/physics/physics.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ukaea__PROCESS/process/models/physics/physics.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ukaea__PROCESS/process/input.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "ukaea__PROCESS/process/input.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "ukaea__PROCESS/process/core/io/plot/summary.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo elemento ao plot de summary para mostrar a altura interna do coil.",
+      "problemas": [
+        "comentario_descritivo"
+      ]
+    },
+    {
+      "path": "ukaea__PROCESS/process/core/io/plot/summary.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo elemento para o gráfico de plotagem de summary corrigido.",
+      "problemas": [
+        "comentario_descritivo"
+      ]
+    },
+    {
+      "path": "ukaea__PROCESS/process/pulse.py",
+      "pulado": null,
+      "resumo": "Adicionado um método `run` na classe `Pulse` para executar o pulso reactor model.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/process/pulse.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado a classe Pulse com métodos para calcular a burn time e a central solenoid resistance.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/process/pfcoil.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ukaea__PROCESS/process/pfcoil.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "ukaea__PROCESS/process/models/physics/current_drive.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ukaea__PROCESS/process/models/physics/current_drive.corrigido.py",
+      "pulado": null,
+      "resumo": "O arquivo `ukaea__PROCESS/process/models/physics/current_drive.corrigido.py` foi adicionado com a nova linha que calcula a cross-section do stopping cross-section (m²) para um hydrogen beam em uma fusão plasma. Esta nova linha adiciona um novo parâmetro `rnhe` que representa a densidade de alphan, que é usada para calcular a cross-section. Além disso, a função `sigbeam` foi modificada para incluir o novo parâmetro `rnhe`.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ukaea__PROCESS/process/caller.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ukaea__PROCESS/process/caller.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ukaea__PROCESS/process/power.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ukaea__PROCESS/process/power.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ukaea__PROCESS/process/tf_coil.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método para calcular a distância entre os pontos de arco da TF coil.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ukaea__PROCESS/process/tf_coil.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método para calcular a distância entre os pontos de arco da TF coil.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ukaea__PROCESS/process/models/cs_fatigue.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ukaea__PROCESS/process/models/cs_fatigue.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ukaea__PROCESS/documentation/scripts/plotting_scripts/profile_peng_qbar.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ukaea__PROCESS/documentation/scripts/plotting_scripts/profile_peng_qbar.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo script para plotar a média de segurança factor (SAF) em diferentes escala de aspecto (Aspect Ratio) e a média de valor de STAR (STAR Value) para o perfil de Peng.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/process/io/plot_solutions.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "ukaea__PROCESS/process/io/plot_solutions.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "vllm-project__vllm/vllm/models/step5/nvidia/mtp.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `step5/nvidia/mtp.py` na branch `vllm-project__vllm/vllm/models/step5/nvidia/mtp.py`.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/models/step5/nvidia/mtp.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `vllm-project__vllm/vllm/models/step5/nvidia/mtp.corrigido.py` que corrige um erro de sintaxe e implementação.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/transformers_utils/processors/deepseek_ocr.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo processador de OCR para o modelo VLLM.",
+      "problemas": [
+        "comentario_descritivo"
+      ]
+    },
+    {
+      "path": "vllm-project__vllm/vllm/transformers_utils/processors/deepseek_ocr.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "vllm-project__vllm/vllm/model_executor/layers/quantization/compressed_tensors/schemes/compressed_tensors_w4a8_fp8.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "vllm-project__vllm/vllm/model_executor/layers/quantization/compressed_tensors/schemes/compressed_tensors_w4a8_fp8.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método para a classe `QuantizationCompressedTensorsW4A8Fp8` que verifica se a configuração de quantização é válida e se o kernel requer grupo quantização. Além disso, foi adicionado um método para criar os pesos com base na configuração fornecida. Este método também adiciona um logging para informar se o kernel foi usado corretamente.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "vllm-project__vllm/vllm/model_executor/layers/fused_moe/experts/cutlass_moe.py",
+      "pulado": null,
+      "resumo": "Adicionado a função `apply` na classe `CutlassExpertsFp8` para lidar com o uso de experts no formato CUTLASS FP8.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/model_executor/layers/fused_moe/experts/cutlass_moe.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado a função `apply` para lidar com o uso de experts na CUTLASS MoE.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/scalar_type.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "vllm-project__vllm/vllm/scalar_type.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `uint` para criar um tipo de escalar uint.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/distributed/kv_events.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "vllm-project__vllm/vllm/distributed/kv_events.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "vllm-project__vllm/vllm/entrypoints/openai/responses/serving.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "vllm-project__vllm/vllm/entrypoints/openai/responses/serving.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `vllm-project__vllm/vllm/entrypoints/openai/responses/serving.corrigido.py` que contém a implementação de funções para processamento de solicitações de servidores OpenAI.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "vllm-project__vllm/examples/offline_inference/audio_language.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo arquivo `offline_inference/audio_language.py` para o pull request.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "vllm-project__vllm/examples/offline_inference/audio_language.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "vllm-project__vllm/vllm/distributed/kv_transfer/kv_connector/v1/offloading/scheduler.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "vllm-project__vllm/vllm/distributed/kv_transfer/kv_connector/v1/offloading/scheduler.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um método para calcular a quantidade de chunks de SWA que podem participar em um hit externo-cache.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "vllm-project__vllm/vllm/renderers/hf.py",
+      "pulado": null,
+      "resumo": "O arquivo `hf.py` foi adicionado para incluir a funcionalidade de processamento de prompt embeddings.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "vllm-project__vllm/vllm/renderers/hf.corrigido.py",
+      "pulado": null,
+      "resumo": "O arquivo `hf.corrigido.py` foi adicionado para corrigir um problema de sintaxe em um arquivo de um pull request. O problema ocorreu na linha 12, onde a função `build_prompt_embeds_updates` foi chamada sem passar os argumentos `prompt_embeds_tensors` e `placeholder_token_id`. A correção foi feita para garantir que os argumentos são passados corretamente.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "vllm-project__vllm/vllm/config/speculative.py",
+      "pulado": null,
+      "resumo": "Adicionado novas opções para o arquivo `speculative.py`.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "vllm-project__vllm/vllm/config/speculative.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    },
+    {
+      "path": "vllm-project__vllm/vllm/tool_parsers/utils.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `find_tool_name` para encontrar um tool por nome e retornar suas propriedades.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/tool_parsers/utils.corrigido.py",
+      "pulado": null,
+      "resumo": "Adicionado um novo método `find_tool_name` para encontrar um tool por nome e retornar suas propriedades.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/v1/attention/backends/flashinfer.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    },
+    {
+      "path": "vllm-project__vllm/vllm/v1/attention/backends/flashinfer.corrigido.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "resposta_cortada"
+      ]
+    }
+  ],
+  "chamadas": 398,
+  "tokens_entrada": 504910,
+  "tokens_saida": 85340,
+  "segundos_no_modelo": 42307.3
+}

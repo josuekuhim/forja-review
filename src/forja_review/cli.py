@@ -127,6 +127,39 @@ def serve(
 
 
 @app.command()
+def pr(
+    repo: Annotated[str, typer.Argument(help="dono/repositório")],
+    numero: Annotated[int, typer.Argument(help="número do PR")],
+    base_url: Annotated[str | None, typer.Option()] = None,
+    model: Annotated[str | None, typer.Option()] = None,
+) -> None:
+    """Revisa um PR sob demanda, sem webhook (sem túnel): o App precisa estar instalado no repositório."""
+    from forja_review.github import GitHubApp
+    from forja_review.store import Store
+    from forja_review.worker import Worker, enqueue_pr
+
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
+    s = _settings(base_url, model, None)
+    s.require_app(webhook=False)
+    store = Store(s.db)
+    provider, tracer = telemetry.setup(s.traces)
+    gh = GitHubApp(s.app_id, s.private_key())
+
+    async def go() -> None:
+        job, novo = await enqueue_pr(gh, store, repo, numero)
+        if not novo:
+            typer.echo(f"{repo}#{numero}: este commit já está na fila ou já foi revisado (job {job})")
+        w = Worker(store, gh, LLM(s.llm), s.review, tracer)
+        while await w.run_once():
+            pass
+        await gh.aclose()
+
+    asyncio.run(go())
+    provider.shutdown()
+    typer.echo(json.dumps(store.stats(), indent=2, ensure_ascii=False))
+
+
+@app.command()
 def feedback(max_age_days: float = 30) -> None:
     """Busca 👍/👎 dos comentários publicados (reação não gera webhook). Rode num cron."""
     from forja_review.github import GitHubApp

@@ -96,6 +96,8 @@ class FakeGitHub:
         if m := re.fullmatch(r"/app/installations/(\d+)/access_tokens", path):
             self.token_requests += 1
             return httpx.Response(201, json={"token": f"ghs_{m[1]}", "expires_at": "2099-01-01T00:00:00Z"})
+        if re.fullmatch(r"/repos/[^/]+/[^/]+/installation", path):
+            return httpx.Response(200, json={"id": 42})
         if re.fullmatch(r"/repos/[^/]+/[^/]+/pulls/\d+", path):
             return httpx.Response(
                 200, json={"number": 7, "state": "open", "title": "Média", "head": {"sha": self.head_sha}}

@@ -1,0 +1,3116 @@
+{
+  "modelo": "review-misto-t4",
+  "endpoint": "http://127.0.0.1:8000/v1",
+  "comentarios": [
+    {
+      "path": "DataDog__integrations-core/kafka_consumer/datadog_checks/kafka_consumer/cluster_metadata.py",
+      "linha": 204,
+      "severidade": "bug",
+      "comentario": "A lógica de atualização do cache está incompleta. Se o conteúdo de um item for alterado, o cache pode não ser atualizado corretamente. É necessário verificar se o conteúdo do cache é o mesmo que o conteúdo do broker antes de atualizar o cache, garantindo que o evento seja emitido apenas se o conteúdo for diferente."
+    },
+    {
+      "path": "DataDog__integrations-core/spark/datadog_checks/spark/spark.corrigido.py",
+      "linha": 739,
+      "severidade": "bug",
+      "comentario": "A função `_get_pod_phase` está retornando `None` para todas as tags de pod phase que não correspondem a um estado terminal (succeeded, failed, etc.). Isso causará um erro de execução (RuntimeError) se o método for chamado em um pod que não estiver no estado correto. Além disso, a lógica de tratamento de erro está incompleta. É necessário adicionar uma verificação para garantir que o pod esteja no estado correto antes de tentar extrair o phase."
+    },
+    {
+      "path": "DataDog__integrations-core/ibm_mq/datadog_checks/ibm_mq/metrics.py",
+      "linha": 158,
+      "severidade": "bug",
+      "comentario": "A função `depth_percent` está retornando o percentual de um valor que não existe no dicionário `queue_info`. Isso causará um `KeyError` quando o código tentar acessar o valor correspondente. Além disso, o uso de `ensure_unicode` na string pode causar problemas de formatação ou comportamento inesperado, pois o método `get` de dicionários em Python não tratará valores nulos corretamente. O correto é retornar `None` caso o valor não seja encontrado, garantindo que o código não falhe ao tentar acessar um campo que não existe."
+    },
+    {
+      "path": "DataDog__integrations-core/postgres/datadog_checks/postgres/explain_parameterized_queries.py",
+      "linha": 20,
+      "severidade": "bug",
+      "comentario": "A query PARAM_TYPES_COUNT_QUERY está incorreta para o contexto de estatísticas. O objetivo desse comando é contar os tipos de parâmetros de uma query preparada, mas o código está tentando executar uma query SQL que pode causar erros de segurança ou performance se o objetivo for exibir a estrutura do plano. Além disso, a query está limitada a um único parâmetro, o que é ineficiente e inseguro para o propósito de estatísticas. O correto é utilizar o método EXECUTE para obter o número de parâmetros da query preparada e realizar a contagem manual, sem tentar executar uma query SQL que pode causar problemas de segurança ou performance."
+    },
+    {
+      "path": "DataDog__integrations-core/citrix_hypervisor/datadog_checks/citrix_hypervisor/check.corrigido.py",
+      "linha": 41,
+      "severidade": "bug",
+      "comentario": "A lógica de verificação de `self.instance.get('url') is None` está incorreta. Se o campo `url` não for fornecido, o código tentará acessar `self.instance['url'].rstrip('/')` em vez de `self.instance.get('url')`, o que causará um `AttributeError`. Além disso, o uso de `self.instance.get` pode falhar ou retornar valores inesperados se o campo for nulo, o que pode causar erros de lógica ou de dados. O correto é verificar se o valor é nulo ou se o campo existe antes de tentar acessar o valor."
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/templates/subroutines/select.py",
+      "linha": 1018,
+      "severidade": "bug",
+      "comentario": "A função `_select_decomp_unary` está incompleta. Ela não trata corretamente o caso de operações de controle (CNOT) em vez de aplicar o operador de controle ao resultado final. Isso pode causar erros de execução ou comportamentos inesperados se o objetivo for aplicar o operador de controle ao resultado final. É necessário adicionar uma verificação para verificar se o último operador é um CNOT e aplicá-lo ao resultado final caso seja."
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/templates/subroutines/select.corrigido.py",
+      "linha": 1018,
+      "severidade": "bug",
+      "comentario": "A função `_unary_condition` está definida incorretamente para o tipo `int`. Para o propósito de reduzir o número de operações de um único operador para o número de operações de seus operandos, o correto é utilizar `num_work_wires` (o número de operações de seus operandos) para garantir a consistência com o comportamento esperado do sistema."
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/devices/qubit/initialize_state.py",
+      "linha": 26,
+      "severidade": "bug",
+      "comentario": "O parâmetro `prep_operation` está sendo passado como `None`, o que causará um erro de tipo ou comportamento inesperado ao tentar chamar o método `state_vector` de `prep_operation`. Além disso, o uso de `None` como valor padrão para `like` pode causar inconsistências em tipos de dados ou comportamentos inesperados em circuitos quânticos, pois o TensorFlow não suporta o uso de `None` para o tipo de dados de entrada."
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/math/interface_utils.py",
+      "linha": 28,
+      "severidade": "bug",
+      "comentario": "A lista de interfaces está incompleta. O campo 'JAX' não está incluído na lista de 'JAX_JIT'. Isso impedirá que o usuário insira 'jax-jit' para garantir a compatibilidade com o autoray."
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/math/interface_utils.corrigido.py",
+      "linha": 28,
+      "severidade": "bug",
+      "comentario": "A classe Interface não está definida como uma enumérica. Para manter a consistência com o padrão de enumeração do autoray, você deve importar `Enum` de `enum`."
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/operation.corrigido.py",
+      "linha": 2394,
+      "severidade": "bug",
+      "comentario": "A função `is_measurement` está retornando `True` para instâncias de `MeasurementProcess` que não são instâncias de `qml.ops.qubit.ops`, o que é inconsistente com o padrão de verificação de operações quânticas. É necessário adicionar uma verificação para garantir que a instância seja de `qml.ops.qubit.ops` antes de retornar `True`."
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/github_actions/github_actions_api.py",
+      "linha": 480,
+      "severidade": "bug",
+      "comentario": "A função `gha_append_step_summary` não está abrindo o arquivo de saída no `with` sem fechar. Isso pode causar problemas de escrita ou erros de permissão se o arquivo já existir. Além disso, o uso de `f.write(block)` dentro do bloco `with` pode causar problemas de contexto ou erros de escrita se o arquivo for criado em outro lugar do código. É necessário fechar o arquivo após o bloco `with` para garantir que o arquivo seja fechado corretamente mesmo se houver exceções."
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/github_actions/fetch_package_targets.py",
+      "linha": 16,
+      "severidade": "bug",
+      "comentario": "A lista `family_matrix` está sendo inicializada com o conteúdo de `amdgpu_family_info_matrix` sem validar se o argumento `amdgpu_families` é fornecido. Isso pode causar erro de execução se o usuário não fornecer uma lista de famílias, o que impedirá a execução correta do script. É necessário adicionar uma verificação para garantir que `amdgpu_families` não é nulo antes de tentar acessar seus elementos."
+    },
+    {
+      "path": "ROCm__TheRock/external-builds/pytorch/build_prod_wheels.py",
+      "linha": 164,
+      "severidade": "bug",
+      "comentario": "A lista de preloads para Linux está incompleta. É necessário incluir também o preload 'rocm_sysdeps_liblzma' para garantir que o wheel seja compatível com o sistema de arquivos LZMA, o que é necessário para o funcionamento do PyTorch."
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/stepper/derived_forcings.py",
+      "linha": 44,
+      "severidade": "bug",
+      "comentario": "A função `validate_replacement` está incompleta. Ela não verifica se o nome do insolation da nova configuração é compatível com o nome da configuração atual. Isso pode causar erros de runtime se o nome for incorreto, pois o objeto `ForcingDeriver` não terá acesso a métodos de validação de configuração de forma segura. É necessário adicionar uma chamada para `self.insolation.validate_replacement(replacement)` antes de tentar atualizar os dados."
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/stepper/derived_forcings.corrigido.py",
+      "linha": 55,
+      "severidade": "bug",
+      "comentario": "A lógica de comparação de nomes de insolação está incorreta. Se o nome original do insolation for 'original_insolation', o código tenta comparar com 'replacement.insolation.insolation_name', que pode falhar ou causar erro se o nome for um alias ou se o nome original não for encontrado na configuração. O correto é comparar apenas o nome original do insolation para garantir a compatibilidade."
+    },
+    {
+      "path": "ai2cm__ace/fme/downscaling/models.py",
+      "linha": 51,
+      "severidade": "bug",
+      "comentario": "A classe `PairedNormalizationConfig` está incompleta. Ela não define um método `build` para construir a configuração de normalização de parâmetro, o que impedirá a inicialização correta do modelo. Além disso, a lógica de renomeio de normalizadores está incompleta. É necessário adicionar um método `build` para gerar a configuração de normalização de parâmetro."
+    },
+    {
+      "path": "ai2cm__ace/fme/core/histogram.py",
+      "linha": 561,
+      "severidade": "bug",
+      "comentario": "A função `_get_percentile_metrics_for_field` está tentando acessar `histogram.bin_edges` sem verificar se o campo existe no dicionário `histograms`. Se o campo não for encontrado, o código lançará um KeyError. Além disso, o uso de `histograms.get` pode falhar ou retornar um valor padrão inesperado se o campo não for encontrado, o que pode causar erros de lógica ou comportamento inesperado. É necessário adicionar uma verificação para garantir que o campo exista antes de acessar seus valores."
+    },
+    {
+      "path": "ai2cm__ace/fme/core/histogram.corrigido.py",
+      "linha": 561,
+      "severidade": "bug",
+      "comentario": "A função `_get_percentile_metrics_for_field` está tentando acessar `histogram.bin_edges` sem verificar se o campo existe no dicionário `histograms`. Se o campo não estiver presente, o código lançará um KeyError. Além disso, o uso de `histograms.get` pode falhar ou retornar um valor padrão inesperado se o campo não for encontrado, o que pode causar erros de lógica ou comportamento inesperado. É necessário adicionar uma verificação para garantir que o campo exista antes de acessar seus valores."
+    },
+    {
+      "path": "ai2cm__ace/fme/core/dataset/concat.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "O parâmetro `datasets` está sendo passado diretamente como `XarrayDataset | XarraySubset` em vez de `Sequence[XarrayDataset | XarraySubset]`, o que causará um erro de execução (TypeError) ao tentar iterar sobre o conjunto. Além disso, o uso de `torch.utils.data.ConcatDataset` sem garantir a compatibilidade com o padrão de argumentos de `torch.utils.data.Dataset` pode causar comportamentos inesperados ou erros de execução se o dataset for um objeto que não implementa o método `__len__` corretamente."
+    },
+    {
+      "path": "ai2cm__ace/fme/core/dataset/concat.corrigido.py",
+      "linha": 14,
+      "severidade": "bug",
+      "comentario": "A inicialização da classe `XarrayConcat` está incompleta. É necessário passar o argumento `shuffle=True` para garantir que os dados sejam embaralhados antes de serem passados para o `ConcatDataset`, o que é necessário para garantir a consistência das amostras durante o treinamento."
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/data_loading/inference.py",
+      "linha": 238,
+      "severidade": "bug",
+      "comentario": "A lógica de resolução de datasets está incompleta. Se o dataset for um MergeNoConcatDatasetConfig, o método _resolve_merged_datasets deve ser chamado com o parâmetro 'requirements' para garantir que o dataset seja resolvido corretamente, evitando erros de lógica de processamento de dados."
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/data_loading/inference.corrigido.py",
+      "linha": 238,
+      "severidade": "bug",
+      "comentario": "A linha 238 está tentando acessar o 'properties' de um objeto XarrayDataset, mas o método 'properties' não existe no tipo de dados Xarray. Além disso, o uso de 'as_indices' na linha 256 pode causar erro de execução ou comportamento inesperado se o dataset não for instanciado corretamente. O correto é utilizar 'as_index' para garantir a compatibilidade com o método 'validate_inference_length'."
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/models/ocean/m2lines/samudra.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "A lista `n_layers` está sendo definida incorretamente. O valor de `n_layers` deve ser uma lista de `n_layers`, mas o código está tentando iterar sobre uma lista de tuplas, o que causará um erro de execução. Corrija para `n_layers=[n_layers]`."
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/models/ocean/m2lines/samudra.corrigido.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "A lista `n_layers` está sendo definida incorretamente. O parâmetro `n_layers` deve ser uma lista de `int`, mas o código está tentando definir uma lista de tuplas, o que causará erro de execução ao tentar iterar sobre ela. Corrija para `List[int]`."
+    },
+    {
+      "path": "apache__airflow/airflow/cli/commands/remote_commands/backfill_command.py",
+      "linha": 28,
+      "severidade": "bug",
+      "comentario": "A importação de `create_session` está incompleta. É necessário importar também `get_airflow_home` para garantir que o home do Airflow seja acessível para a criação do session, o que é necessário para o funcionamento correto do comando de backfill."
+    },
+    {
+      "path": "apache__airflow/airflow/cli/commands/remote_commands/backfill_command.corrigido.py",
+      "linha": 29,
+      "severidade": "bug",
+      "comentario": "A importação de `create_session` está incompleta. É necessário importar também `get_airflow_home` para garantir que o home do Airflow seja acessível para a criação do session, o que é necessário para o funcionamento correto do comando de backfill."
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/utils/email.py",
+      "linha": 260,
+      "severidade": "bug",
+      "comentario": "A mensagem de log está incompleta. É necessário incluir o nome do host SMTP (`smtp_host`) para que o usuário possa identificar corretamente o erro de conexão."
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/utils/email.corrigido.py",
+      "linha": 260,
+      "severidade": "bug",
+      "comentario": "A mensagem de log está incompleta. É necessário incluir o nome do host do servidor SMTP para que o usuário possa identificar corretamente o erro de conexão."
+    },
+    {
+      "path": "apache__airflow/providers/common/ai/src/airflow/providers/common/ai/utils/usage_budget.py",
+      "linha": 118,
+      "severidade": "bug",
+      "comentario": "A função `copy_run_usage` está retornando uma cópia de `usage` (que é uma instância de `RunUsage`), mas ela não está tratando o caso de `None` para `details`. Se `usage.details` for `None`, o código lançará um erro de tipo ou um `ValueError` ao tentar acessar `base.details.get(name, 0)`, o que pode causar inconsistências ou comportamentos inesperados. É necessário verificar se `details` é `None` antes de realizar a operação de subtração para evitar que o uso de `None` seja tratado como um delta válido."
+    },
+    {
+      "path": "apache__airflow/providers/elasticsearch/src/airflow/providers/elasticsearch/log/es_response.py",
+      "linha": 38,
+      "severidade": "bug",
+      "comentario": "A função __getitem__ está implementando a lógica de acesso direto ao objeto, o que é perigoso e ineficiente para objetos complexos. Se o objeto for um dicionário, o código deve chamar o método __getitem__ do dicionário para garantir que o método __getattr__ seja chamado corretamente, evitando a execução de atributos de forma inesperada."
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/cli/commands/asset_command.py",
+      "linha": 28,
+      "severidade": "bug",
+      "comentario": "A importação de `AirflowConsole` está incompleta. Para o comando de lista de assets, é necessário importar também `AirflowConsole` para permitir a execução de comandos de linha de comando via terminal."
+    },
+    {
+      "path": "apache__airflow/shared/observability/src/airflow_shared/observability/common.corrigido.py",
+      "linha": 51,
+      "severidade": "bug",
+      "comentario": "A assinatura da função `get_otel_data_exporter` está incompleta. É necessário adicionar um parâmetro `otel_exporter_name` para permitir o uso de diferentes exportadores (como `OTLPMetricExporter` ou `OTLPSpanExporter`) em vez de apenas `otel_env_config`. Isso permitirá que o usuário especifique o nome do exportador preferido, o que é crucial para manter a consistência com a configuração do ambiente."
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/cli/specific/dataset_cli.corrigido.py",
+      "linha": 198,
+      "severidade": "bug",
+      "comentario": "A variável 'fg' está sendo utilizada incorretamente como um atributo de um objeto de texto (como 'red' ou 'green'), o que causará erro de execução. O correto é utilizar 'fg' para definir o estilo de fundo (vermelho ou verde) e 'bg' para definir o estilo de fundo (azul ou branco) para manter a consistência com o estilo de terminal."
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/datahub/datahub_source.py",
+      "linha": 120,
+      "severidade": "bug",
+      "comentario": "A chamada para `reader.get_aspects` está passando `self.report.stop_time` como um argumento, mas não está passando o parâmetro `self.report.start_time`. Isso causará erro de execução se o tempo de reportagem for menor que o tempo de início do processo de ingestão. Corrija passando `self.report.start_time` para a chamada."
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/datahub/datahub_source.corrigido.py",
+      "linha": 120,
+      "severidade": "bug",
+      "comentario": "A chamada para `reader.get_all_aspects` está passando `self.report.stop_time` como parâmetro, mas não está passando `self.report.current_time` para o reader. Isso causará erro de execução se o tempo de reportamento for diferente do tempo atual do sistema, pois o reader não terá acesso a dados de tempo atual durante o processamento de aspectos. Corrija passando `self.report.current_time` para o reader."
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/dbt/dbt_core.py",
+      "linha": 554,
+      "severidade": "bug",
+      "comentario": "A lista `upstream_nodes` está sendo atribuída diretamente como `depends_on.get('nodes', [])`, o que pode causar inconsistências se o `depends_on` não for um dicionário. Além disso, a lógica de extração de nós semânticos está incompleta. É necessário garantir que a lista seja composta por nós originais (sem o prefixo de tag) e que o método `extract_semantic_models` retorne uma lista de nós originais para que o processamento de tags possa ser realizado corretamente."
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/schema_inference/json.corrigido.py",
+      "linha": 2,
+      "severidade": "bug",
+      "comentario": "A importação de 'logging' está incompleta. É necessário importar também 'pathlib' para lidar com caminhos de arquivos e arquivos JSON, garantindo que o código funcione corretamente em diferentes situações de arquivos."
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/fabric/onelake/schema_client.py",
+      "linha": 189,
+      "severidade": "bug",
+      "comentario": "A mensagem de erro está incompleta. É necessário incluir o nome do endpoint (endpoint_url) para que o usuário possa identificar corretamente o problema de URL. Além disso, o uso de 'Fabric expects name, not GUID' é redundante e pode causar confusão. Corrija para 'The endpoint URL must be obtained from the Fabric API and cannot be constructed. See: https://learn.microsoft.com/en-us/fabric/data-warehouse/what-is-the-sql-analytics-endpoint-for-a-lakehouse'."
+    },
+    {
+      "path": "datahub-project__datahub/datahub-actions/src/datahub_actions/plugin/source/acryl/datahub_cloud_events_consumer.corrigido.py",
+      "linha": 20,
+      "severidade": "bug",
+      "comentario": "A importação de `DataHubGraph` está incompleta. Para o funcionamento correto do consumidor, é necessário importar também `get_default_graph` para garantir a inicialização correta do grafo, o que é necessário para o funcionamento do `DataHubEventsConsumer`."
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/sdk/main_client.corrigido.py",
+      "linha": 1,
+      "severidade": "bug",
+      "comentario": "A importação de `from __future__ import annotations` está incompleta para o uso de tipos genéricos (como `Optional`) em funções de classe. É necessário importar também `typing.Optional` para permitir a tipagem genérica de argumentos."
+    },
+    {
+      "path": "frappe__frappe/frappe/studio/doctype/studio_page/patches/migrate_charts_to_frappe_ui_charts.py",
+      "linha": 63,
+      "severidade": "bug",
+      "comentario": "A lógica de migração de componentes de gráficos está incompleta. Atualmente, o código tenta extrair o nome do componente de forma estática, o que pode causar erros de lógica se o componente for um componente de gráfico customizado. É necessário extrair o nome do componente de forma dinâmica através de um método de busca ou de um campo específico para garantir a integridade do processo de migração."
+    },
+    {
+      "path": "frappe__frappe/frappe/studio/doctype/studio_page/patches/migrate_charts_to_frappe_ui_charts.corrigido.py",
+      "linha": 63,
+      "severidade": "bug",
+      "comentario": "A lógica de migração de componentes de gráficos está incompleta. Atualmente, o código tenta extrair o nome do componente de forma estática, o que pode causar erros de lógica se o componente for um componente de gráfico customizado. É necessário extrair o nome do componente de forma dinâmica através de um método de busca ou de um campo específico para garantir a integridade do processo de migração."
+    },
+    {
+      "path": "frappe__frappe/frappe/core/doctype/data_import/import_provider.corrigido.py",
+      "linha": 16,
+      "severidade": "bug",
+      "comentario": "A definição de `get_import_fields` está incompleta. É necessário incluir um campo de controle (control_field) para permitir a validação de campos de controle (como 'is_active') durante o import, caso contrário, o import pode falhar ou retornar inconsistências no banco de dados."
+    },
+    {
+      "path": "frappe__frappe/frappe/core/doctype/data_import/exporter.py",
+      "linha": 1,
+      "severidade": "bug",
+      "comentario": "A importação de 'frappe' está incompleta. É necessário importar também 'frappe.utils' para garantir a funcionalidade de conversão de datas e formatos de dados, que são necessários para o processamento de CSV e XLSX."
+    },
+    {
+      "path": "frappe__frappe/frappe/core/doctype/data_import/exporter.corrigido.py",
+      "linha": 1,
+      "severidade": "bug",
+      "comentario": "A importação de 'frappe' está incompleta. É necessário importar também 'frappe.utils' para garantir a funcionalidade de conversão de datas e formatos de dados, que são necessários para o processamento de CSV e XLSX."
+    },
+    {
+      "path": "frappe__frappe/frappe/printing/doctype/print_format/classic_converter.py",
+      "linha": 55,
+      "severidade": "bug",
+      "comentario": "A lógica de verificação de campos customizados está incorreta. Se o campo 'print_heading_template' estiver presente no 'options', ele deve ser adicionado ao layout 'header' com 'custom': 1, mas se o campo não estiver presente, ele deve ser adicionado ao layout 'footer' com 'custom': 1. Isso causará inconsistências no layout final. Além disso, o campo 'print_heading_template' deve ser tratado como um campo de texto (string) para evitar que o layout 'header' possua campos de texto customizados, quebrando a estrutura do layout."
+    },
+    {
+      "path": "frappe__frappe/frappe/flow/assistant/assistant.corrigido.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "A variável ASSISTANT_MAX_ITERATIONS está definida como 500, mas o escopo do código permite que ela seja definida como um valor global (global) ou como um parâmetro de função (local). Isso causará erros de execução se o agente tentar acessar ou modificar o limite de iterações de forma insegura. Além disso, a lógica de validação de erros está incompleta. O ideal é definir o limite como um parâmetro de função (local) para evitar que o agente altere o limite de iterações de forma insegura."
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/aiohttp.py",
+      "linha": 187,
+      "severidade": "bug",
+      "comentario": "A chamada para `start_transaction` está incompleta. É necessário passar o `custom_sampling_context` para garantir que o contexto de amostragem seja aplicado corretamente ao novo span, evitando que o contexto de amostragem do fluxo de requisições seja perdido ou incorreto."
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/aiohttp.corrigido.py",
+      "linha": 187,
+      "severidade": "bug",
+      "comentario": "A variável `parent_span` está sendo inicializada com `None` e não é tratada corretamente para o fluxo de rastreamento. Se o `span_ctx` for um `NoOpStreamedSpan`, o código tentará acessar `span.parent_span` sem verificar se o `parent_span` existe, o que pode causar erros de rastreamento ou comportamentos inesperados. É necessário garantir que o `parent_span` seja tratado como um `NoOpStreamedSpan` caso o `span_ctx` seja nulo."
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/pydantic_ai/patches/agent_run.py",
+      "linha": 99,
+      "severidade": "bug",
+      "comentario": "A assinatura da função `wrapper` está incompleta. Ela não aceita o parâmetro `is_streaming`, o que impedirá que o wrapper seja utilizado corretamente em métodos assíncronos. É necessário adicionar o parâmetro `is_streaming` à assinatura da função."
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/pydantic_ai/patches/agent_run.corrigido.py",
+      "linha": 109,
+      "severidade": "bug",
+      "comentario": "A variável `user_prompt` está sendo definida como `kwargs.get(\"user_prompt\")` em vez de `kwargs.get(\"user_prompt\", None)`. Se o parâmetro não for fornecido, o valor padrão é `None`, o que causará um `AttributeError` ao tentar acessar o valor. Além disso, o uso de `kwargs.get` pode falhar ou retornar `None` se o parâmetro não for passado, o que é um comportamento inesperado. Corrija para `kwargs.get(\"user_prompt\", None)`."
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/profiler/continuous_profiler.corrigido.py",
+      "linha": 233,
+      "severidade": "bug",
+      "comentario": "O uso de `self.interval = 1.0 / frequency` na linha 233 causará um erro de atributo (AttributeError) se `frequency` for 0.0 (nenhum intervalo definido). O intervalo deve ser definido como um valor real (ex: `1.0 / frequency`), evitando que o objeto seja criado com um intervalo de zero."
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/logger.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "A lista OTEL_RANGES está incompleta. É necessário incluir também o nível de severidade 20 (critical) para que o log de erros seja capturado corretamente."
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/logger.corrigido.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "A lista OTEL_RANGES está incompleta. É necessário incluir o nível 'critical' para garantir que o log de erros seja capturado corretamente."
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/arq.corrigido.py",
+      "linha": 198,
+      "severidade": "bug",
+      "comentario": "A lógica de iteração na linha 198 está incorreta. Se `settings_cls.cron_jobs` estiver definido, o loop deve iterar sobre `settings_cls.cron_jobs` (incluindo o valor padrão), mas se não houver `cron_jobs`, o loop deve iterar sobre `settings_cls.functions` (excluindo o valor padrão). Isso causará um erro de execução ou comportamento inesperado. Corrija para iterar sobre `settings_cls.cron_jobs` ou `settings_cls.functions`."
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/_asgi_common.py",
+      "linha": 108,
+      "severidade": "bug",
+      "comentario": "A função `_get_request_attributes` está incompleta. Ela não trata corretamente o caso de requisições WebSocket, que não possui o atributo `client` e nem o método `should_send_default_pii()`. É necessário adicionar uma verificação para garantir que o atributo `attributes` seja populado corretamente para o WebSocket."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/webostv/__init__.py",
+      "linha": 120,
+      "severidade": "bug",
+      "comentario": "A chamada de `discovery.async_load_platform` está incompleta. É necessário passar o parâmetro `DATA_HASS_CONFIG` para garantir que o platform seja carregado corretamente no contexto do Home Assistant, mesmo que ele não seja necessário para o funcionamento do componente."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/webostv/__init__.corrigido.py",
+      "linha": 122,
+      "severidade": "bug",
+      "comentario": "O parâmetro 'service' está sendo passado como 'service' em vez de 'service_name'. Isso causará um erro de assinatura (TypeError) ao tentar chamar o método 'async_service_handler' no 'hass.services.async_register'. Corrija para 'service_name'."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/roomba/vacuum.corrigido.py",
+      "linha": 133,
+      "severidade": "bug",
+      "comentario": "A condição de pausa está incorreta. Se o ciclo for 'none', o estado deve ser 'PAUSED' mesmo que o estado atual seja 'IDLE', pois o sistema de pausa pode ser configurado para 'none' em vez de 'idle'. Além disso, o código está tentando acessar 'STATE_MAP[phase]' apenas para garantir a consistência com o estado atual, mas o correto é verificar se o ciclo é 'none' e, caso positivo, retornar 'PAUSED'."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/myuplink/select.py",
+      "linha": 52,
+      "severidade": "bug",
+      "comentario": "A classe MyUplinkSelect não está herdando de SelectEntity, o que causará erros de runtime ao tentar instanciar o objeto. É necessário importar SelectEntity e herdar de ele para garantir a compatibilidade com o padrão de herança de entidades."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/yale_smart_alarm/__init__.py",
+      "linha": 19,
+      "severidade": "bug",
+      "comentario": "A chamada para `await coordinator.async_config_entry_first_refresh()` pode falhar se o `coordinator` não estiver disponível (ex: se o `coordinator` for um objeto de instância, o `async_setup_entry` não será executado corretamente). É necessário verificar se o `coordinator` existe antes de tentar chamar o método `async_config_entry_first_refresh`."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/yale_smart_alarm/__init__.corrigido.py",
+      "linha": 29,
+      "severidade": "bug",
+      "comentario": "A função `async_migrate_entry` está incompleta. Ela não trata o caso de versão 3, que inclui a migração de identificadores de dispositivo (unique_id). Isso causará erros de runtime ou inconsistências no sistema de configuração. É necessário adicionar uma condição para verificar se o versão é 3 e realizar a migração de `unique_id` caso a versão atual seja 2."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/tado/config_flow.corrigido.py",
+      "linha": 52,
+      "severidade": "bug",
+      "comentario": "A chamada para `get_me` está sendo feita sem garantir que o objeto `tado` seja instanciado. Isso pode causar erro de execução se o objeto não for passado como argumento para a função `validate_input`, o que impedirá a validação de autenticação correta. É necessário chamar `await hass.async_add_executor_job(tado.get_me)` antes de acessar `tado_me`."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/alexa_devices/coordinator.py",
+      "linha": 57,
+      "severidade": "bug",
+      "comentario": "A variável `self.previous_devices` está sendo inicializada como um conjunto vazio, mas não é tratada para evitar duplicatas ou comportamentos inesperados se o dispositivo já estiver na lista. Além disso, a lógica de remoção de dispositivos está incompleta; você deve verificar se o dispositivo já existe no registro antes de tentar remover para evitar erros de chave."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/sonos/entity.py",
+      "linha": 80,
+      "severidade": "bug",
+      "comentario": "A propriedade 'device_info' está sendo definida como 'DeviceInfo', mas o método 'device_info' está sendo implementado como 'override'. Isso causará um erro de execução (NameError) se o método não for definido corretamente. Além disso, a assinatura do método deve ser alterada para 'async def device_info(self) -> DeviceInfo', para que o decorador de assinatura funcione corretamente."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/sonos/entity.corrigido.py",
+      "linha": 80,
+      "severidade": "bug",
+      "comentario": "A propriedade 'device_info' está sendo definida como 'DeviceInfo', mas o método 'device_info' está sendo implementado como 'override'. Isso causará um erro de execução (NameError) se o método não for definido corretamente. Além disso, a assinatura da propriedade deve ser alterada para 'DeviceInfo' para manter a consistência com o padrão de design da classe base."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/matter/cover.py",
+      "linha": 48,
+      "severidade": "bug",
+      "comentario": "A enumeração CoverDeviceClass está definida incorretamente para o tipo de cover WAGO Blind. O correto é utilizar CoverDeviceClass.BLIND para representar o estado de blindagem de rotação (tilt) e CoverDeviceClass.SHADE para representar o estado de shade (shading), pois o WAGO Blind é um dispositivo de shade que suporta ambos os estados de rotação e de shade."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/blebox/light.py",
+      "linha": 184,
+      "severidade": "bug",
+      "comentario": "A chamada para `self.brightness` está incorreta. Se o parâmetro `brightness` for fornecido, ele será usado como valor de cor, mas se não for, o valor de `self.brightness` será usado. Além disso, o uso de `self.brightness` na linha 185 causará um erro de atributo ou comportamento inesperado. O correto é utilizar o valor de `brightness` se ele for fornecido, caso contrário, utilize o valor de `self.brightness`."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/esphome/entity.py",
+      "linha": 242,
+      "severidade": "bug",
+      "comentario": "A atribuição de `_device_info` está incompleta. É necessário passar o `device_info` para o construtor da classe para garantir que o objeto `self._device_info` seja inicializado corretamente, evitando que o estado de dados do dispositivo seja perdido ou incorreto ao criar a entidade."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/esphome/entity.corrigido.py",
+      "linha": 242,
+      "severidade": "bug",
+      "comentario": "A chamada de `_on_entry_data_changed()` está incompleta. É necessário passar o `device_info` para garantir que o estado seja atualizado corretamente e que o dispositivo seja registrado no registro de entidades, caso contrário, o estado pode não ser atualizado corretamente ou o dispositivo não será registrado no registro se o estado não for o mesmo que o esperado."
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/isy994/helpers.py",
+      "linha": 291,
+      "severidade": "bug",
+      "comentario": "A variável `device_info` está sendo inicializada com valores padrão para dispositivos root (nó raiz), mas não está sendo passada para o método `generate_device_info` do objeto `node`. Isso causará erros de validação de dados ou comportamentos inesperados ao tentar gerar a informação de dispositivo para o dispositivo raiz. É necessário passar o objeto `node` para o método para que o `generate_device_info` possa utilizar seus dados."
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/mamba2/modeling_mamba2.py",
+      "linha": 933,
+      "severidade": "bug",
+      "comentario": "A linha 933 está definindo o atributo `_tied_weights_keys` como um dicionário vazio, mas o código está tentando acessar `self.backbone.get_input_embeddings()` em vez de `self.backbone._get_input_embeddings()`. Isso causará um erro de atributo ou comportamento inesperado. Além disso, o uso de `self.backbone._get_input_embeddings()` é desnecessário e pode causar inconsistências em versões mais recentes do Hugging Face Transformers. Corrija para `self.backbone._get_input_embeddings()`."
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/dac/modeling_dac.py",
+      "linha": 393,
+      "severidade": "bug",
+      "comentario": "A lógica de decodificação está incorreta. O código está tentando acessar `latents[:, hidden_dim_j:hidden_dim_k, :]` sem garantir que o índice de `hidden_dim_j` seja válido. Isso pode causar erros de índice ou comportamentos inesperados se o `hidden_dim_j` for maior que o tamanho do tensor `latents`. Além disso, o uso de `torch.tensor([0] + [q.codebook_dim for q in self.quantizers])` é redundante e perigoso; o ideal é utilizar `torch.cumsum` para obter o tamanho total de cada códigobook."
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/dac/modeling_dac.corrigido.py",
+      "linha": 393,
+      "severidade": "bug",
+      "comentario": "A lógica de extração de `latent_chunk` está incorreta. O código tenta extrair apenas o primeiro dimensão de `latents` (que é o chunk de latentes), mas o problema é que o `torch.cat` não está sendo aplicado corretamente ao `quantized_latents_i`. Além disso, o código está concatenando `quantized_latents_i` com o `latent_chunk` em vez de concatenar o `quantized_latents_i` com o `quantized_representation_i`. O correto é concatenar `quantized_latents_i` com `quantized_representation_i` para garantir a consistência na representação final."
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/tipsv2/modeling_tipsv2.corrigido.py",
+      "linha": 456,
+      "severidade": "bug",
+      "comentario": "A classe Tipsv2VisionPreTrainedModel está incompleta. Ela não implementa o método _forward_with_loss, o que é necessário para o funcionamento do treinamento de perda (loss computation). Além disso, falta o método _forward_with_head_mask, que é necessário para o processamento de heads em modelos de atenção."
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/commands/serving.py",
+      "linha": 399,
+      "severidade": "bug",
+      "comentario": "O campo 'enable_cors' está definido como 'bool', mas o valor padrão é 'False'. Isso causará erro de validação ao tentar carregar o arquivo de configuração. Além disso, o campo deve ser definido como 'bool' para garantir que o servidor funcione corretamente com o parâmetro de configuração."
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/ernie4_5_moe/modular_ernie4_5_moe.py",
+      "linha": 153,
+      "severidade": "bug",
+      "comentario": "O uso de `F.softmax` para o `router_logits` pode causar erros de tipo ou comportamentos inesperados se o tensor de softmax não for do mesmo tipo do tensor de logits. Além disso, o uso de `torch.clamp` na linha 162 pode causar erros de tipo ou comportamentos inesperados se o tensor de clamping não for do mesmo tipo do tensor de logits. É necessário garantir que o tensor de logits seja convertido para o mesmo tipo do tensor de softmax e aplicar os limites de clamping."
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/generation/streamers.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "A docstring está incompleta. É necessário incluir a descrição do propósito do método `end` para que o usuário possa entender o que deve ser feito ao chamar o método de fim da streamagem."
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/generation/streamers.corrigido.py",
+      "linha": 19,
+      "severidade": "bug",
+      "comentario": "A importação de `unicodedata` está incompleta. Para garantir a compatibilidade com diferentes versões do Python, é necessário importar também `ord` para o uso na função `decode`."
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/inkling/feature_extraction_inkling.corrigido.py",
+      "linha": 112,
+      "severidade": "bug",
+      "comentario": "O método `to(device)` está sendo chamado sem passar o argumento `device` explicitamente. Isso causará um erro de runtime (RuntimeError) se o tensor for passado para um dispositivo que não seja o mesmo do modelo. Corrija adicionando `device=device` à assinatura do método."
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/computed_attribute/models.py",
+      "linha": 244,
+      "severidade": "bug",
+      "comentario": "A lógica de filtragem de campos de atualização está incorreta. Se o campo 'display_label' não estiver presente no 'update_fields', o código tentará executar o workflow 'COMPUTED_ATTRIBUTE_PROCESS_TRANSFORM' com um contexto de dados incompleto, o que causará erros de execução ou campos desnecessários no GraphQL. Além disso, a lógica de filtragem de campos está incompleta. O correto é filtrar apenas os campos que possuem o valor 'display_label' para garantir que o workflow seja executado apenas quando o atributo deve ser atualizado."
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/computed_attribute/models.corrigido.py",
+      "linha": 244,
+      "severidade": "bug",
+      "comentario": "A lógica de filtragem de campos de atualização está incorreta. Se o campo de atualização for um campo de atributo, o filtro está sendo aplicado incorretamente ao campo de referência, o que pode causar erros de execução ou comportamentos inesperados. O correto é filtrar apenas os campos de atualização do atributo, não os campos de referência."
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/branch/tasks.corrigido.py",
+      "linha": 599,
+      "severidade": "bug",
+      "comentario": "O uso de `await component_registry.get_component(DiffRepository, db=db, branch=obj)` pode causar um erro de execução (RuntimeError) se o componente `DiffRepository` não estiver disponível no contexto. Além disso, o uso de `await` em vez de `await db.session.execute` pode causar problemas de concorrência ou erros de transação se o componente estiver sendo executado em um contexto que não permite a execução de operações de banco de dados (como um worker). O ideal é utilizar `await db.session.execute` para garantir a integridade do banco de dados durante o ciclo de vida da operação."
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/diff/calculator.corrigido.py",
+      "linha": 1,
+      "severidade": "bug",
+      "comentario": "A importação de `dataclass` está incompleta. Para permitir a serialização de objetos de esta classe, é necessário importar também `field(default_factory=...)` para permitir o uso de `None` como valor padrão."
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/convert_object_type/object_conversion.py",
+      "linha": 105,
+      "severidade": "bug",
+      "comentario": "A função `validate_conversion` está incompleta. Ela não valida se os atributos passados no `mapping` são compatíveis com os atributos do nó original, o que pode causar erros de runtime ou inconsistências na lógica de validação de atributos. É necessário adicionar uma verificação para garantir que os atributos do nó origem sejam compatíveis com os atributos passados no `mapping`."
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/convert_object_type/object_conversion.corrigido.py",
+      "linha": 105,
+      "severidade": "bug",
+      "comentario": "A função `validate_conversion` está incompleta. Ela não valida se os atributos passados no `mapping` são compatíveis com os atributos do nó original, o que pode causar erros de runtime ou inconsistências na lógica de validação de atributos. É necessário adicionar uma verificação para garantir que os atributos do nó origem sejam compatíveis com os atributos passados."
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/graphql/mutations/ipam.py",
+      "linha": 160,
+      "severidade": "bug",
+      "comentario": "A lógica de obtenção de nomes de bloqueio está incorreta. Se o bloco estiver sendo criado, o nome deve ser gerado de forma que não cause conflitos de chave (ex: incluindo o ID do bloco), e se o bloco estiver sendo atualizado, o nome deve ser gerado de forma que não cause conflitos de chave. Além disso, o uso de `InfrahubMultiLock` na linha 162 pode causar problemas de concorrência se o bloco for atualizado simultaneamente por múltiplos nós, o que pode causar erros de sincronização. O ideal é garantir que o nome de cada bloco seja único e que o `InfrahubMultiLock` seja utilizado apenas para o bloco atual."
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_clai2/pydantic_clai2/prompt_transcript.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "A importação de `AnsiDecoder` está incompleta. É necessário importar também `AnsiColor` para garantir a compatibilidade com o padrão de cores do Pydantic CLI2."
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/ui/vercel_ai/request_types.py",
+      "linha": 355,
+      "severidade": "bug",
+      "comentario": "A classe UIMessage não está implementando o método __init__ para permitir o uso de argumentos opcionais (posicional ou nomeados). Isso impedirá o uso de parâmetros opcionais no construtor de SubmitMessage e RegenerateMessage, o que é necessário para o funcionamento correto do componente de mensagens no Vercel AI Elements."
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/ui/vercel_ai/request_types.corrigido.py",
+      "linha": 355,
+      "severidade": "bug",
+      "comentario": "A classe UIMessage não está definida corretamente para o tipo 'CamelBaseModel'. Para que o Pydantic possa validar o tipo de dados de forma robusta, é necessário importar o 'BaseModel' de 'pydantic' e definir o 'type' como 'CamelBaseModel' para garantir que o objeto seja tratado corretamente pelo Pydantic."
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/torchft/checkpoint.corrigido.py",
+      "linha": 21,
+      "severidade": "bug",
+      "comentario": "A importação de `torchvision` está incompleta. Para garantir a compatibilidade com o PyTorch Lightning, é necessário importar também `torchvision.transforms` para o uso de `transforms.RandomHorizontalFlip` no checkpointing."
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/graph_trainer/simple_fsdp.corrigido.py",
+      "linha": 536,
+      "severidade": "bug",
+      "comentario": "A chamada para `disable_active_parametrization()` está incompleta. É necessário passar o argumento `skip_parametrization=True` para garantir que o parâmetro de paralelismo seja desabilitado apenas para o módulo atual, o que é necessário para evitar que o parâmetro de paralelismo seja aplicado a todos os submodules de forma desnecessária, o que pode causar erros de execução ou comportamentos inesperados."
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/config/configs.py",
+      "linha": 255,
+      "severidade": "bug",
+      "comentario": "O valor padrão para `expert_parallel_degree` está definido como 1, mas o escopo do modelo TorchTitan é limitado a modelos de MLOps, o que impede que o usuário defina um `expert_parallel_degree` maior que 1. Isso pode causar inconsistências de paralelismo ou comportamentos inesperados. O ideal é definir um limite de `expert_parallel_degree` de 1 para garantir que o modelo funcione corretamente em ambientes de MLOps."
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/models/common/moe/token_dispatcher.py",
+      "linha": 933,
+      "severidade": "bug",
+      "comentario": "O parâmetro `remat_region_name` está sendo passado como `self.remat_region_name(\"ep_communication.combine\")`, mas o método `remat_region_name` está sendo chamado com `x_TD` como argumento. Isso causará um erro de execução (NameError) se `x_TD` não for passado como argumento para o método. Corrija para `self.remat_region_name(\"ep_communication.combine\", x_TD)`."
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/models/common/moe/token_dispatcher.corrigido.py",
+      "linha": 933,
+      "severidade": "bug",
+      "comentario": "O parâmetro `remat_region_name` está sendo passado como `self.remat_region_name(\"ep_communication\")`, mas o método `remat_region_name` está sendo chamado com `x_TD.shape[0]` como argumento. Isso causará um erro de execução (RuntimeError) porque o nome da região de remat não corresponde ao tamanho do tensor de tokens. Corrija para `x_TD.shape[0]`."
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/distributed/fsdp.py",
+      "linha": 264,
+      "severidade": "bug",
+      "comentario": "O parâmetro `edp_mesh` está sendo passado como `None` em vez de `None`, o que causará um erro de tipo ou comportamento inesperado ao tentar usar o `fully_shard` ou outros métodos de esquema de mesh de dados. Além disso, o uso de `fully_shard` na linha 270 é redundante e perigoso, pois pode causar inconsistências de mesh se o `dp_mesh` não for fornecido. O correto é garantir que o parâmetro seja `None` e evitar a chamada de `fully_shard` se o `dp_mesh` for nulo."
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/distributed/fsdp.corrigido.py",
+      "linha": 264,
+      "severidade": "bug",
+      "comentario": "O parâmetro `edp_mesh` está sendo passado como `None` em vez de `None`, o que causará um erro de tipo ou comportamento inesperado ao tentar usar o `fully_shard` ou outros métodos de paralelismo de dados. Além disso, o uso de `fully_shard` na linha 270 é redundante e perigoso, pois pode causar inconsistências em métricas de performance ou erros de execução. O correto é garantir que o `dp_mesh` seja passado como `None` para evitar que o código falhe ou quebrará a lógica de paralelismo de dados."
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/distributed/flex_shard/dist_muon.py",
+      "linha": 64,
+      "severidade": "bug",
+      "comentario": "O parâmetro `**kwargs` está sendo passado para o construtor `DistMuon`, mas não está sendo utilizado. Isso causará erro de execução ou comportamento inesperado se o usuário não estiver passando parâmetros adicionais. Além disso, o uso de `**kwargs` pode causar conflitos de chave entre os parâmetros de configuração e os parâmetros de entrada, o que pode causar erros de execução ou comportamentos inesperados. O ideal é garantir que todos os argumentos passados para o construtor sejam utilizados, exceto pelo parâmetro `**kwargs`."
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/distributed/flex_shard/dist_muon.corrigido.py",
+      "linha": 64,
+      "severidade": "bug",
+      "comentario": "O parâmetro `**kwargs` está sendo passado para a função `build_dist_muon`, mas não está sendo utilizado. Isso pode causar erros de assinatura de método ou comportamentos inesperados se o objetivo for passar argumentos de forma diferente para o construtor. Remova o parâmetro de forma apropriada para evitar conflitos de argumentos."
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/config_manager.py",
+      "linha": 694,
+      "severidade": "bug",
+      "comentario": "A lógica de verificação de campos sobrescrevendo está incompleta. Se o campo original estiver presente em `c_map` mas não estiver presente em `b_map`, o código tentará sobrescrever o valor do `custom` com o valor do `base`, o que pode causar inconsistências ou comportamentos inesperados. Além disso, a lógica de verificação de tipo está incompleta. O correto é verificar se o campo original existe em `b_map` antes de tentar sobrescrever, garantindo que o `custom` seja aplicado apenas se o `base` tiver o mesmo nome de campo."
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/execution/operators/map_operator.py",
+      "linha": 817,
+      "severidade": "bug",
+      "comentario": "A lógica de incremento de `offset` está incorreta. Se `rem` for maior que 0, o incremento `offset += size` não incrementará o índice corretamente para o próximo bloco. Além disso, o uso de `offset = block.slice(offset, offset + size, copy=False)` pode causar erros de indexação ou comportamentos inesperados se o `offset` for maior que o tamanho do bloco. O correto é incrementar `offset` apenas uma vez (`offset += size`) e garantir que o índice seja sempre o início do próximo bloco (ex: `offset = block.slice(offset, offset + size, copy=False)`), e não `offset = block.slice(offset + size, copy=False)`."
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/execution/operators/map_operator.corrigido.py",
+      "linha": 817,
+      "severidade": "bug",
+      "comentario": "A lógica de incremento de `offset` está incorreta. Se `size` for maior que `block.num_rows()`, o loop nunca será executado, o que pode causar erros de índice ou comportamentos inesperados. Além disso, o uso de `offset += size` pode falhar ou causar erros de indexação se `size` for muito grande. O correto é incrementar `offset` apenas se `size` for menor ou igual a `block.num_rows()`, garantindo que o loop só execute se o tamanho do bloco for válido."
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/execution/operators/task_pool_map_operator.corrigido.py",
+      "linha": 80,
+      "severidade": "bug",
+      "comentario": "A chamada para `_map_task` está passando `self._map_transformer_ref` como argumento, mas o método `cached_remote_fn` não está recebendo esse parâmetro. Isso causará um erro de execução ou comportamento inesperado. Além disso, o uso de `self._map_transformer_ref` pode causar problemas de referência ou de performance se o transformador for um objeto complexo que não for armazenado em um cache, o que pode causar inconsistências na execução do operador."
+    },
+    {
+      "path": "ray-project__ray/python/ray/dashboard/modules/job/cli.py",
+      "linha": 1,
+      "severidade": "bug",
+      "comentario": "A importação de sys é desnecessária e causará um erro de execução se o usuário estiver executando o módulo via script (sem o comando 'python'), pois sys não será importado no ambiente de execução do Ray. Remova essa importação."
+    },
+    {
+      "path": "ray-project__ray/python/ray/dashboard/modules/job/cli.corrigido.py",
+      "linha": 30,
+      "severidade": "bug",
+      "comentario": "O parâmetro `create_cluster_if_needed` está sendo passado como `False`, mas o código não está tratando erros de cluster (como `RayError`). Se o cluster não for criado, o cliente pode falhar ao tentar acessar métodos do Ray. É necessário adicionar um `try-except` para capturar `RayError` e lançar um `click.AbortError` caso o cluster não seja criado."
+    },
+    {
+      "path": "ray-project__ray/python/ray/serve/_private/grpc_util.corrigido.py",
+      "linha": 130,
+      "severidade": "bug",
+      "comentario": "A lógica de tratamento de erros está incompleta. Se o erro for uma exceção de `DeploymentUnavailableError`, o código tenta acessar `exc.message` para obter o detalhe do erro, mas se o erro for um `RayTaskError`, o código tenta acessar `exc` diretamente. Isso causará um erro de execução. Além disso, o uso de `isinstance(exc, DeploymentUnavailableError)` na linha 137 é redundante e perigoso. O correto é verificar se o erro é uma instância de `DeploymentUnavailableError` antes de tentar acessar seus atributos."
+    },
+    {
+      "path": "ukaea__PROCESS/process/input.corrigido.py",
+      "linha": 1089,
+      "severidade": "bug",
+      "comentario": "O valor de 'outgasfactor' está definido como 1e-06, mas o escalar de dados está sendo definido como 1000.0. Isso causará erro de conversão de escala ao tentar converter o valor de 'outgasindex' para float. Corrija o escalar para 1000.0 e ajuste o valor de 'outgasfactor' para 100000000.0."
+    },
+    {
+      "path": "ukaea__PROCESS/process/pulse.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "A importação de 'times_variables' está incompleta. É necessário importar também 'times_variables' para que o método 'calculate_burn_time' possa acessar os valores de 'times_variables' necessários para o cálculo do tempo de queda do plasma."
+    },
+    {
+      "path": "ukaea__PROCESS/process/caller.corrigido.py",
+      "linha": 28,
+      "severidade": "bug",
+      "comentario": "A classe não está implementando o método `__call__` para permitir a execução de modelos, o que é necessário para permitir a execução de chamadas via `Caller.call_models`."
+    },
+    {
+      "path": "ukaea__PROCESS/process/tf_coil.py",
+      "linha": 599,
+      "severidade": "bug",
+      "comentario": "A lógica de soma está incorreta. Ao somar `0.25e0 * self.circumference(aa, bb)`, você está tentando adicionar o perímetro de um segmento de arc (como `z_tf_arc`) ao valor total de `len_tf_coil`, mas o problema é que o `self.circumference` está retornando o cálculo do perimetro de um segmento de arc, não o de toda a figura. Para calcular o perimetro total, você deve multiplicar o valor de `len_tf_coil` por 4 (ou 2 * `self.circumference`), e não somar o perímetro individual de cada segmento."
+    },
+    {
+      "path": "vllm-project__vllm/vllm/model_executor/layers/fused_moe/experts/cutlass_moe.py",
+      "linha": 382,
+      "severidade": "bug",
+      "comentario": "A linha 382 está tentando acessar `self.w1_scale` e `self.w2_scale` sem verificar se `self.w1_zp` e `self.w2_zp` estão definidos. Se `self.w1_zp` ou `self.w2_zp` não estiverem disponíveis, o código causará um erro de atributo ou de execução. É necessário adicionar uma verificação para garantir que esses atributos existam antes de tentar acessá-los."
+    },
+    {
+      "path": "vllm-project__vllm/vllm/model_executor/layers/fused_moe/experts/cutlass_moe.corrigido.py",
+      "linha": 382,
+      "severidade": "bug",
+      "comentario": "A variável `expert_map` está sendo passada como `None` em vez de um objeto `torch.Tensor`, o que causará um erro de tipo durante a execução do código. Além disso, o uso de `None` como valor padrão para `expert_map` pode causar inconsistências na lógica de mapeamento de experts, o que é necessário garantir que o valor seja passado corretamente para o método de aplicação."
+    },
+    {
+      "path": "vllm-project__vllm/vllm/scalar_type.py",
+      "linha": 317,
+      "severidade": "bug",
+      "comentario": "A classe ScalarType não está definida para o tipo 'float16'. Isso causará um erro de execução ao tentar instanciar o objeto 'float16_e5m10' ou qualquer outro tipo de floating point que não seja definido corretamente na classe. É necessário adicionar o método 'from_id' para garantir que o tipo de floating point seja reconhecido corretamente."
+    },
+    {
+      "path": "vllm-project__vllm/vllm/scalar_type.corrigido.py",
+      "linha": 317,
+      "severidade": "bug",
+      "comentario": "A classe ScalarType não está definida para o tipo 'float16'. Isso causará um erro de execução ao tentar instanciar o objeto 'float16_e5m10' ou qualquer outro tipo de floating point que não seja definido corretamente na classe. É necessário adicionar o tipo 'float16' à lista de tipos definidos para o módulo."
+    },
+    {
+      "path": "vllm-project__vllm/vllm/distributed/kv_events.corrigido.py",
+      "linha": 133,
+      "severidade": "bug",
+      "comentario": "A variável `self._socket_setup()` está sendo chamada dentro do construtor, mas não está sendo fechada ou liberada após o método `shutdown()`. Isso pode causar problemas de memória ou de execução se o sistema for interrompido durante a execução do método `shutdown()`. Além disso, a lógica de inicialização de sockets pode falhar ou não ser fechada corretamente, o que pode causar problemas de execução ou de memória."
+    },
+    {
+      "path": "vllm-project__vllm/examples/offline_inference/audio_language.py",
+      "linha": 202,
+      "severidade": "bug",
+      "comentario": "A linha 202 está tentando acessar o atributo 'llm_engine' de 'req_data.engine_args' sem verificar se o objeto é instanciado corretamente. Se 'req_data' for None, o código causará um AttributeError. É necessário adicionar uma verificação para garantir que 'req_data' não seja None antes de acessar os atributos do objeto."
+    },
+    {
+      "path": "vllm-project__vllm/examples/offline_inference/audio_language.corrigido.py",
+      "linha": 192,
+      "severidade": "bug",
+      "comentario": "A verificação de suporte para o modelo 'whisper' está incompleta. Atualmente, ela só trata modelos de linguagem de áudio, mas o código não trata outros modelos de linguagem de texto (como o 'gpt-4'), o que pode causar erros de execução ou comportamentos inesperados. É necessário adicionar uma verificação para o parâmetro 'model_type' e tratar os outros modelos de linguagem de texto como 'text'."
+    },
+    {
+      "path": "vllm-project__vllm/vllm/v1/attention/backends/flashinfer.py",
+      "linha": 2358,
+      "severidade": "bug",
+      "comentario": "A lógica de quantização de saída (bmm1_scale) está incorreta. Se o dtype do query for FP8, o código está tentando usar o scale de FP8, mas o FlashInfer não suporta o FP8 nativo para o bmm1, o que causará erros de execução. O correto é verificar se o dtype do query é FP8 e, caso positivo, aplicar o scale de FP8 para o bmm1."
+    }
+  ],
+  "arquivos": [
+    {
+      "path": "DataDog__integrations-core/postgres/datadog_checks/postgres/schemas.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as esquemas de consultas SQL utilizadas para consultar dados do PostgreSQL, incluindo tabelas, esquemas e índices.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/postgres/datadog_checks/postgres/schemas.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define consultas SQL para coletar e formatar esquemas, tabelas, índices e definições de colunas de uma base de dados PostgreSQL.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/kafka_consumer/datadog_checks/kafka_consumer/kafka_consumer.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de deserialização de mensagens do Kafka para o DataDog, lidando com tipos de dados Protobuf e Avro.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/kafka_consumer/datadog_checks/kafka_consumer/kafka_consumer.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de deserialização de mensagens do Kafka para o DataDog, lidando com tipos de dados protótipos e avro.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/kafka_consumer/datadog_checks/kafka_consumer/cluster_metadata.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de coleta e filtragem de metadados de clusters Kafka para o Datadog.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/kafka_consumer/datadog_checks/kafka_consumer/cluster_metadata.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a coleta e o processamento de metadados de clusters Kafka para o Datadog, incluindo a atualização de cache e a emissão de eventos de alteração.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/sqlserver/datadog_checks/sqlserver/sqlserver.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a integração do DataDog para o SQL Server, gerenciando a coleta de métricas, autodiscovery e monitoramento de instâncias.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/sqlserver/datadog_checks/sqlserver/sqlserver.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a integração do DataDog para o SQL Server, gerenciando a coleta de métricas, autodiscovery e monitoramento de instâncias.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/spark/datadog_checks/spark/spark.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa uma integração do DataDog para o Spark, lidando com a coleta de métricas de performance e o monitoramento de pods.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/spark/datadog_checks/spark/spark.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa uma classe de verificação de integração para o Spark, incluindo suporte a conexões HTTP e proxy.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/kafka_actions/datadog_checks/kafka_actions/kafka_client.py",
+      "pulado": null,
+      "resumo": "Este arquivo define um wrapper para gerenciar a conexão e a comunicação com o Kafka, permitindo a execução de comandos de alta performance (actions) via Kafka.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/kafka_actions/datadog_checks/kafka_actions/kafka_client.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define um wrapper para gerenciar a conexão e a comunicação com o Kafka, permitindo a execução de comandos de alta performance (actions) via Kafka.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/ibm_mq/datadog_checks/ibm_mq/metrics.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as métricas de estatísticas do IBM MQ para o Datadog.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/ibm_mq/datadog_checks/ibm_mq/metrics.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as métricas de estatísticas e percentagens para o IBM MQ, incluindo o cálculo de percentagens de nível de persistência e tempo de envio.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/postgres/datadog_checks/postgres/explain_parameterized_queries.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa uma verificação de estatísticas para o PostgreSQL que utiliza um workaround para exibir consultas parametrizadas.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/postgres/datadog_checks/postgres/explain_parameterized_queries.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa uma classe para realizar a exploração de consultas parametrizadas utilizando o PostgreSQL, incluindo suporte a configurações de cache de planos.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/ibm_mq/datadog_checks/ibm_mq/collectors/channel_metric_collector.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um coletor de métricas para o IBM MQ, coletando e enviando métricas de status e descrição de canais para o Datadog.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/ibm_mq/datadog_checks/ibm_mq/collectors/channel_metric_collector.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um coletor de métricas para o IBM MQ, coletando e enviando métricas de status e descrição de canais para o Datadog.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/citrix_hypervisor/datadog_checks/citrix_hypervisor/check.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa uma integração do Datadog para monitorar o status de um servidor Citrix Hypervisor, incluindo a atualização de métricas e o envio de dados para o Datadog.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/citrix_hypervisor/datadog_checks/citrix_hypervisor/check.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa uma integração do Datadog para monitorar a conectividade e o status de métricas do Citrix Hypervisor.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/ddev/src/ddev/plugin/external/hatch/environment_collector.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um collector de configuração para o integração de pacotes do Datadog, gerenciando a configuração de pacotes base, check types e dependências.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/ddev/src/ddev/plugin/external/hatch/environment_collector.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um collector de configuração para o plugin externo do DataDog, gerenciando a extração de tipos, arquivos de configuração e dependências do pacote.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/llm_d/datadog_checks/llm_d/check.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma classe de verificação para o Datadog que monitora métricas de modelos de linguagem (LLMs) para garantir a integridade e a consistência dos dados.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/llm_d/datadog_checks/llm_d/check.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma classe de verificação para o Datadog que monitora o LLM (Language Model) para garantir a integridade dos dados.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/ddev/src/ddev/cli/env/start.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de inicialização do ambiente do DataDog Agent, incluindo a configuração de agentes e o processamento de variáveis de ambiente.",
+      "problemas": []
+    },
+    {
+      "path": "DataDog__integrations-core/ddev/src/ddev/cli/env/start.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de inicialização do ambiente do ddev, incluindo a configuração de agentes e o processamento de variáveis de ambiente.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/ops/op_math/pow2.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a operação de potência (exponente) para operadores quânticos, incluindo a representação de geradores e representações de diagonalização.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/ops/op_math/pow2.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a classe `Pow2` para representar operações de potência em operadores, incluindo a lógica de decomposição e geradores.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/templates/subroutines/select.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a decomposição de operações binárias (unary) para o subroutines Select no PennyLane.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/templates/subroutines/select.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a decomposição de operações binárias (unary) para o subroutines Select do PennyLane.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/capture/dynamic_shapes.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de regulação de esquemas dinâmicos para primitivas JAX, permitindo que o JAX processe equações com bases em variáveis de saída.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/capture/dynamic_shapes.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de registo de regras de estagio dinâmico para primitivas do PennyLane, permitindo que a jaxpr retorne variáveis de forma dinâmica baseada em parâmetros.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/workflow/get_best_diff_method.py",
+      "pulado": null,
+      "resumo": "Este arquivo fornece uma função para identificar o método de diferenciamento mais adequado para um QNode, baseando-se em suas configurações de dispositivo e operações.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/workflow/get_best_diff_method.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém uma função para determinar o método de diferenciamento mais adequado para um QNode, baseando-se em suas configurações de dispositivo e métricas de gradiente.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/devices/qubit/initialize_state.py",
+      "pulado": null,
+      "resumo": "Este arquivo fornece funções para criar e gerenciar estados iniciais para circuitos quânticos.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/devices/qubit/initialize_state.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define funções para preparar estados iniciais para circuitos quânticos, incluindo suporte a operações de preparação de estado (StatePrepBase) e suporte a interfaces de aprendizado máquina.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/pauli/pauli_arithmetic.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de aritmética de Pauli para o PennyLane, incluindo o cálculo de matrizes esparsas e a soma de palavras de Pauli.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/pauli/pauli_arithmetic.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de aritmética de Pauli para o PennyLane, incluindo o cálculo de matrizes esparsas e a soma de palavras de Pauli.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/drawer/mpldrawer.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de renderização de figuras de gráficos (como barras verticais) para o módulo PennyLane.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/drawer/mpldrawer.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de renderização de diagramas de operações condicionais e de operações de condição (conditional operations) no matplotlib para o PennyLane.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/math/interface_utils.py",
+      "pulado": null,
+      "resumo": "Este arquivo define funções para converter nomes de interfaces e mapear seus nomes originais para o autoray.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/math/interface_utils.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a lógica de interface e a conversão de nomes para objetos do autoray.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/ops/op_math/condition.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de processamento de operações condicionais (cond_prim) para o framework JAX, incluindo a gerenciamento de equações de JAXPR e a validação de valores abstratos.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/ops/op_math/condition.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de processamento de operações condicionais (cond_prim) para o framework JAX, incluindo a adição de regras de staging para equações de forma dinâmica.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/templates/state_preparations/sum_of_slaters.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a preparação de estados sumando slaters (SLO) para o circuito PennyLane, utilizando o algoritmo de preparação de estados de soma de slaters (SLO) do trabalho do trabalho.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/templates/state_preparations/sum_of_slaters.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a preparação de estados sumando slaters (SLO) para o PennyLane, utilizando técnicas de operações de bits e operações de máquinas de estados.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/templates/state_preparations/partial_unary.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a preparação de estados parciais para técnicas de iteradores de parcial, incluindo o uso de isometrias cláudianas e a aplicação de isometrias de afinação.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/templates/state_preparations/partial_unary.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a preparação de estados para operações binárias (partial unary) utilizando técnicas de isometria Clifford e distribuição de estados.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/operation.py",
+      "pulado": null,
+      "resumo": "Este arquivo define funções de verificação e atributos para operações quânticas, incluindo suporte a geradores, parâmetros, unitárias e operações de medição.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/operation.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define funções de verificação de propriedades e atributos para operações quânticas no PennyLane.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/backline/decoders/triton/decoder_frontend.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a construção de decodadores para o Triton, permitindo a execução de funções de decodificação de síntomas (steane) em formatos compatíveis com o Catalyst.",
+      "problemas": []
+    },
+    {
+      "path": "PennyLaneAI__pennylane/pennylane/backline/decoders/triton/decoder_frontend.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a construção de kernels de decodificação para o Triton, incluindo a compilação de bibliotecas de software compatíveis com o Catalyst.",
+      "problemas": []
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/packaging/python/templates/rocm/src/rocm_sdk/_devel.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém utilitários para o processo de packaging do SDK ROCm, incluindo a recuperação de planos de links de desenvolvimento (devel-links) e a verificação de integridade de arquivos.",
+      "problemas": []
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/packaging/python/templates/rocm/src/rocm_sdk/_devel.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém utilitários para o processo de packaging do SDK ROCm, incluindo a verificação de arquivos de links de desenvolvimento e a recuperação de informações de planos de dispositivos.",
+      "problemas": []
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/github_actions/github_actions_api.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém funções para gerenciar o armazenamento de resumos de jobs e o envio de logs via outputs do GitHub Actions.",
+      "problemas": []
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/github_actions/github_actions_api.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo gerencia o armazenamento de resumos de jobs e a captura de logs via GitHub Actions, incluindo a escrita de logs no arquivo de saída do job e a captura de logs via mirror.",
+      "problemas": []
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/install_rocm_from_artifacts.py",
+      "pulado": null,
+      "resumo": "Este script é responsável por construir e executar artefatos de compilação para o ROCm, incluindo arquivos de suporte para benchmarks, testes de integração e ferramentas de profiling.",
+      "problemas": []
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/install_rocm_from_artifacts.corrigido.py",
+      "pulado": null,
+      "resumo": "Este script é responsável por construir e gerenciar os argumentos de linha de comando para instalar o ROCm de forma segura e compatível com diferentes arquiteturas e plataformas.",
+      "problemas": []
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/github_actions/publish_rocm_to_release_buckets.py",
+      "pulado": null,
+      "resumo": "Este script copia arquivos de arquivos de artefatos para buckets de release do TheRock, gerenciando versões de debug (asan) e arquivos de pacotes Python.",
+      "problemas": []
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/github_actions/publish_rocm_to_release_buckets.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de publicação de arquivos de tarballs do ROCm para buckets de release no S3, lidando com variantes de build e versões de ASAN.",
+      "problemas": []
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/packaging/python/templates/rocm-sdk-core/setup.py",
+      "pulado": null,
+      "resumo": "Este arquivo configura o pacote do SDK ROCm para ser instalado via setuptools, exportando dependências de arquitetura e ferramentas de linha de comando.",
+      "problemas": []
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/packaging/python/templates/rocm-sdk-core/setup.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define o setup do pacote ROCm SDK Core, incluindo a importação de arquivos de dist_info e a configuração do pacote para o Python.",
+      "problemas": []
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/artifact_manager.py",
+      "pulado": null,
+      "resumo": "Este arquivo gerencia o gerenciamento de artefatos, incluindo o processamento de arquivos de build, o mapeamento de famílias de GPU e o backend de artefatos.",
+      "problemas": []
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/artifact_manager.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo gerencia o gerenciamento de artefatos (como arquivos de bibliotecas, executáveis e logs) para o build do Rock, permitindo a extração de componentes específicos e a verificação de compatibilidade de arquiteturas.",
+      "problemas": []
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/github_actions/fetch_package_targets.py",
+      "pulado": null,
+      "resumo": "Este arquivo gerencia a geração de um mapeamento de pacotes para famílias de GPU e o envio de resultados para o GitHub Actions.",
+      "problemas": []
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/github_actions/fetch_package_targets.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo gerencia a extração de targets de pacotes para diferentes famílias de GPU e configuração de versão do Docker para o build do pacote.",
+      "problemas": []
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/github_actions/fetch_test_configurations.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a estrutura de configuração de testes para o rocm__TheRock, incluindo filtros de plataforma, tipos de testes e gatilhos de conclusão.",
+      "problemas": []
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/github_actions/fetch_test_configurations.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a estrutura de configurações de execução de testes para o rocm, incluindo filtros de plataforma, tipos de testes e marcas de adiós.",
+      "problemas": []
+    },
+    {
+      "path": "ROCm__TheRock/external-builds/pytorch/build_prod_wheels.py",
+      "pulado": null,
+      "resumo": "Este script realiza o build do PyTorch para wheels no formato Wheel, incluindo suporte para Linux e Windows.",
+      "problemas": []
+    },
+    {
+      "path": "ROCm__TheRock/external-builds/pytorch/build_prod_wheels.corrigido.py",
+      "pulado": null,
+      "resumo": "Este script realiza o build do PyTorch para wheels no formato Wheel, incluindo suporte a múltiplas arquiteturas (Linux e Windows) e suporte a preloads de bibliotecas.",
+      "problemas": []
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/github_actions/test_executable_scripts/pytest_runner.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um runner de execução do pytest para testes de GPU unitários, incluindo suporte a paralelismo via xdist e suporte a timeout.",
+      "problemas": []
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/github_actions/test_executable_scripts/pytest_runner.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um runner de execução do pytest para testes de GPU unitários, incluindo suporte a paralelismo via xdist ou timeout.",
+      "problemas": []
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/packaging/linux/build_package.py",
+      "pulado": null,
+      "resumo": "Este arquivo é responsável por construir pacotes de software para o ROCm, gerenciando arquiteturas, versões e variantes de build.",
+      "problemas": []
+    },
+    {
+      "path": "ROCm__TheRock/build_tools/packaging/linux/build_package.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo é responsável por construir pacotes de compilação para o ROCm, gerenciando arquivos de artefatos, destinos e configurações de build.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/inference/data_writer/file_writer.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um escritor de arquivos para o processamento de dados de alta resolução (ACE) que permite filtragem de regiões e seleção de tempo, além de suporte a escrita parcial.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/inference/data_writer/file_writer.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um escritor de arquivos para o processamento de dados de alta resolução (ACE) que permite filtragem de regiões e seleção de tempo, além de suporte a escrita parcial.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/stepper/derived_forcings.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa uma classe para gerenciar a computação de forçamentos (derivadas) baseadas em insolação.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/stepper/derived_forcings.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa uma classe para gerenciar e computar forçamentos (forcing) baseados em configurações de insolação.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/stepper/single_module.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o módulo de passo (stepper) para o treinamento de modelos de IA, gerenciando o processamento de dados, o cálculo de perdas e o acumulamento de métricas.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/stepper/single_module.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o módulo de passo (stepper) para o treinamento de modelos de IA, gerenciando o processamento de dados, o cálculo de perdas e o acumulamento de métricas.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/downscaling/models.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as configurações de modelos de downsampling, incluindo normalizações de medição e configurações de parâmetros.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/downscaling/models.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as configurações de modelos de downsampling, incluindo normalizações de temperatura e configurações de normalização de dados.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/stepper/parameter_init.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe `ParameterInitializer` para inicializar pesos de modelos de aprendizado profundo, permitindo a sobrescrita de pesos de modelos pré-treinados ou exclusão de parâmetros.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/stepper/parameter_init.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe `ParameterInitializer` para inicializar pesos de modelos de aprendizado profundo, permitindo a sobrescrita de pesos de modelos pré-treinados ou exclusão de parâmetros.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/inference/data_writer/zarr.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o escritor de arquivos Zarr para o modelo ACE, gerenciando o salvamento de metadados, dados e coordenadas de tempo e espacial.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/inference/data_writer/zarr.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o escritor de arquivos Zarr para o modelo ACE, gerenciando o carregamento de dados, o posicionamento de batches e o salvamento dos resultados.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/core/histogram.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a classe Histogram para gerenciar e calcular métricas de distribuição de percentiles de histogramas.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/core/histogram.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a classe Histogram para gerenciar e calcular métricas de distribuição de percentiles e estatísticas de histogramas.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/core/dataset/concat.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma classe para concatenar múltiplos datasets Xarray em um único conjunto de dados.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/core/dataset/concat.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma classe para concatenar múltiplos datasets Xarray em um único conjunto de dados.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/data_loading/inference.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe InferenceDataset para carregar e processar dados de inferência para o modelo de IA.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/data_loading/inference.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe InferenceDataset para carregar e processar dados de inferência para o modelo ACE.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/fme/core/atmosphere_data.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma classe para gerenciar e acessar dados atmosféricos, permitindo a criação de objetos que permitem a visualização de variáveis em diferentes níveis verticais.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/fme/core/atmosphere_data.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma classe para gerenciar e acessar dados atmosféricos, permitindo a criação de objetos que permitem a visualização de variáveis em diferentes níveis verticais.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/downscaling/modules/unets.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o modelo UNet para o processo de downsampling e decodificação de imagens, incluindo a lógica de convolução, camadas residual e suporte a múltiplas resoluções.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/downscaling/modules/unets.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o modelo UNet para o processo de downsampling e decodificação de imagens, incluindo a lógica de validação de dimensões e a implementação do ADM (Adaptive Diffusion Model) para o processo de sintaxe de imagens.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/models/ocean/m2lines/samudra.py",
+      "pulado": null,
+      "resumo": "Implementação do modelo Samudra para o dataset M2Lines.",
+      "problemas": []
+    },
+    {
+      "path": "ai2cm__ace/fme/ace/models/ocean/m2lines/samudra.corrigido.py",
+      "pulado": null,
+      "resumo": "Implementação da arquitetura Samudra para o modelo M2Lines.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/models/trigger.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de trigger para o Airflow, gerenciando o envio de callbacks e o push de XComs para tarefas que devem ser executadas novamente.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/models/trigger.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de processamento de triggers do Airflow, incluindo o envio de callbacks e o push de XComs para o banco de dados.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/providers/google/src/airflow/providers/google/cloud/triggers/kubernetes_engine.py",
+      "pulado": null,
+      "resumo": "Este arquivo define o comportamento e a lógica de um trigger do Airflow para monitorar o status de pods no Google Kubernetes Engine (GKE).",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/providers/google/src/airflow/providers/google/cloud/triggers/kubernetes_engine.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define o comportamento e a serialização de um trigger do Airflow para monitorar o status de pods no Google Kubernetes Engine (GKE).",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/providers/src/airflow/providers/exasol/hooks/exasol.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um hook para execução de comandos SQL no banco de dados Exasol, permitindo o split de statements e o processamento de resultados.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/providers/src/airflow/providers/exasol/hooks/exasol.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um hook para execução de comandos SQL no banco de dados Exasol, permitindo o split de statements e o processamento de resultados.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/airflow/cli/commands/remote_commands/backfill_command.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa comandos de linha de comando para gerenciar o processo de backfill de DAGs no Airflow.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/airflow/cli/commands/remote_commands/backfill_command.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa comandos de linha de comando para gerenciar o processo de backfill de tarefas do Airflow.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/utils/email.py",
+      "pulado": null,
+      "resumo": "Este arquivo fornece utilitários para enviar e validar e-mails via SMTP.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/utils/email.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo fornece uma função para enviar e-mails via protocolo MIME utilizando conexões SMTP.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/providers/common/ai/src/airflow/providers/common/ai/utils/usage_budget.py",
+      "pulado": null,
+      "resumo": "Este arquivo fornece utilitários para processar e gerenciar o uso de recursos (budget) de tarefas no Apache Airflow.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/providers/common/ai/src/airflow/providers/common/ai/utils/usage_budget.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém utilitários para processar e manipular dados de uso de tarefas (budget) de forma robusta, incluindo a serialização de estados de tarefas e a lógica de cópia de dados.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/providers/google/src/airflow/providers/google/cloud/hooks/cloud_composer.py",
+      "pulado": null,
+      "resumo": "Este arquivo define um hook para interagir com a API do Google Cloud Composer, permitindo a criação de clientes de serviços e a execução de comandos Airflow.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/providers/google/src/airflow/providers/google/cloud/hooks/cloud_composer.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define um hook para interagir com a API do Google Cloud Composer, permitindo a execução de comandos Airflow.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/providers/cncf/kubernetes/src/airflow/providers/cncf/kubernetes/executors/kubernetes_executor.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o executor do Airflow para o provedor CNCF Kubernetes, gerenciando o ciclo de vida de jobs e o relabeling de pods para garantir a integridade dos jobs e o controle de ciclo de vida de executores.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/providers/cncf/kubernetes/src/airflow/providers/cncf/kubernetes/executors/kubernetes_executor.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o executor do Airflow para o provedor CNCF Kubernetes, gerenciando o ciclo de vida de jobs e o relabeling de pods completos.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/providers/elasticsearch/src/airflow/providers/elasticsearch/log/es_response.py",
+      "pulado": null,
+      "resumo": "Este arquivo define classes para gerenciar e acessar elementos de objetos de dicionário e lista em um motor de ElasticSearch.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/providers/elasticsearch/src/airflow/providers/elasticsearch/log/es_response.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de resolução de tipos e navegação de campos de dados (nested hits) para documentos no Elasticsearch.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/cli/commands/asset_command.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa comandos de linha de comando para listar as alias e os assets do Airflow.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/cli/commands/asset_command.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa comandos de linha de comando para listar as alias e os assets do Airflow, permitindo filtragem por nome ou URI.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/serialization/definitions/notset.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma classe de tipo para representar o valor \"NOTSET\" (não definido) e uma função auxiliar para verificar se um valor é do tipo \"NOTSET\".",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/serialization/definitions/notset.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma classe de tipo especial para representar o valor \"NOTSET\" em arquivos de definição de definições de argumentos (como JSON), permitindo que o valor seja serializado e comparado corretamente.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/api_fastapi/core_api/datamodels/ui/grid.py",
+      "pulado": null,
+      "resumo": "Este arquivo define os modelos de dados para a API FastAPI do Airflow, incluindo modelos para representar o summary de instâncias de tarefas e o summary de execuções de DAG.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/airflow-core/src/airflow/api_fastapi/core_api/datamodels/ui/grid.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define os modelos de dados para a API do Airflow Grid, incluindo a representação de instâncias de tarefas e o resumo de execuções de DAG.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/shared/observability/src/airflow_shared/observability/common.py",
+      "pulado": null,
+      "resumo": "Este arquivo define funções utilitárias para gerenciar exportadores de métricas e spans do OpenTelemetry, lidando com configurações de exportação de protocolos e endpoints.",
+      "problemas": []
+    },
+    {
+      "path": "apache__airflow/shared/observability/src/airflow_shared/observability/common.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém utilitários para formatar URLs de hosts IPv6 e gerenciar exportadores do OpenTelemetry para o Apache Airflow.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/cli/specific/dataset_cli.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa comandos de linha de comando para sincronizar metadados de datasets entre o DataHub e o sistema local.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/cli/specific/dataset_cli.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa comandos de linha de comando para sincronizar metadados de datasets entre o DataHub e o arquivo.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/configuration/env_vars.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as variáveis de ambiente utilizadas para a configuração do DataHub, incluindo configurações de Docker, localização de projetos Docker Compose e configurações de integração de metadados.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/configuration/env_vars.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém configurações de variáveis de ambiente utilizadas pelo DataHub para gerenciar o comportamento do sistema, como mapeamento de portas, autenticação e configurações de integração de dados.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/datahub/datahub_source.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de ingestão de aspectos do DataHub, incluindo suporte a bancos de dados e Kafka.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/datahub/datahub_source.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o processamento de aspectos de banco de dados e Kafka para o ingestão de metadados no DataHub.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/dbt/dbt_core.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica para extrair e processar os nós semanticos de modelos do manifest DBT.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/dbt/dbt_core.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo extrai e transforma os nós semanticos de um manifest JSON do DBT para o formato DBTNode, permitindo a ingestão de modelos de métricas e dimensões.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/sql/sqlalchemy_data_reader.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um leitor de metadados para o SQL, permitindo a recuperação de dados de tabelas do banco de dados.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/sql/sqlalchemy_data_reader.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um leitor de metadados para o SQLAchemy, permitindo a recuperação de dados de tabelas para fins de amostragem.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/utilities/pkg_resources_shim.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um shim para o módulo `pkg_resources` que fornece a API de instalação, verificação de versão e manipulação de distribuições para projetos de metadados.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/utilities/pkg_resources_shim.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um shim para o módulo `pkg_resources` que fornece a mesma API de distribuição que o real, mas que utiliza apenas a API do `importlib` para resolver dependências.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/schema_inference/json.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa uma inferência de esquema para o formato JSON, convertendo arquivos JSON em esquemas de metadados.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/schema_inference/json.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa uma inferência de esquema para o formato JSON, permitindo inferência de tipos e campos de dados.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/fabric/onelake/schema_client.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma classe para extrair esquemas de tabelas de um workspace/Lakehouse/Warehouse utilizando a API do SQL Analytics no Fabric.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/fabric/onelake/schema_client.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma classe para extrair esquemas de tabelas de um servidor SQL Analytics via API, utilizando um cliente de API compatível com o Fabric.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/datahub-actions/src/datahub_actions/plugin/source/acryl/datahub_cloud_events_consumer.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um consumidor de eventos do DataHub para o Cloud Events, gerenciando a leitura de offsets e a recuperação de eventos.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/datahub-actions/src/datahub_actions/plugin/source/acryl/datahub_cloud_events_consumer.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um consumidor de API para o DataHub Events, permitindo a recuperação de eventos e offsets.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion-modules/airflow-plugin/src/datahub_airflow_plugin/airflow3/_athena_openlineage_patch.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa uma extensão do Airflow que adiciona suporte para o OpenLineage, permitindo a extração de linhagem de consultas SQL via DataHub.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion-modules/airflow-plugin/src/datahub_airflow_plugin/airflow3/_athena_openlineage_patch.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa uma extensão do Airflow que corrige a lógica de obtenção de facetas do OpenLineage para operadores do Athena, adicionando suporte a parsing de consultas SQL via DataHub.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/looker/looker_common.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém utilitários para a ingestão de metadados do Looker, incluindo a identificação de tipos de campos, a extração de metadados de esquemas e a definição de tags para campos dimensionais.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/ingestion/source/looker/looker_common.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém utilitários para a ingestão de metadados do Looker, incluindo a extração de tipos de campos, definição de metadados de esquema e tags.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/sdk/main_client.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe principal para gerenciar a conexão com o DataHub, permitindo a inicialização de clientes de graph, resolver e buscar dados.",
+      "problemas": []
+    },
+    {
+      "path": "datahub-project__datahub/metadata-ingestion/src/datahub/sdk/main_client.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe principal para gerenciar a conexão com o DataHub, permitindo a inicialização de clientes de graph, resolver e buscar dados.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/frappe/studio/doctype/studio_page/patches/migrate_charts_to_frappe_ui_charts.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa patches para migrar configurações de gráficos do Studio para a interface de visualização do Frappe.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/frappe/studio/doctype/studio_page/patches/migrate_charts_to_frappe_ui_charts.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa patches para migrar configurações de gráficos do Studio para a interface de visualização do Frappe.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/frappe/twofactor.py",
+      "pulado": null,
+      "resumo": "Este arquivo gerencia a autenticação de usuários com 2f, incluindo a geração de tokens de verificação e a verificação de capacidade de 2f.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/frappe/twofactor.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de autenticação de dois fatores (2FA) para usuários no sistema, incluindo a geração de tokens de verificação e validação de senhas.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/flow/harness/src/flow_server/session/store.py",
+      "pulado": null,
+      "resumo": "Este arquivo gerencia o armazenamento e o processamento de mensagens de sessão (messages) e de erros de ferramentas (ToolResult) para o servidor de sessão do framework.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/flow/harness/src/flow_server/session/store.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo gerencia o armazenamento e o processamento de mensagens de ferramentas (tool messages) e resultados de chamadas de assistente (assistant messages) para o servidor de sessão do framework.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/flow/harness/src/flow_server/agent/loop.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de agente (loop) para gerenciar o ciclo de vida de um servidor de ferramentas (tool server) que permite a execução de chamadas de ferramentas em batches assíncronos.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/flow/harness/src/flow_server/agent/loop.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de agente para gerenciar o ciclo de vida de um servidor de ferramentas (agent) que permite a execução de chamadas de ferramentas em batches suspensos.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/frappe/core/doctype/data_import/import_provider.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma classe base para gerenciar o processamento de importação de DocTypes, permitindo a validação e a criação de documentos para cada registro.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/frappe/core/doctype/data_import/import_provider.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma classe de importador que implementa o processamento de documentos para DocTypes, permitindo a validação e a criação de registros.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/frappe/core/doctype/data_import/exporter.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe Exporter, responsável por exportar dados de um DocType para importação.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/frappe/core/doctype/data_import/exporter.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe Exporter, responsável por exportar dados de um DocType para importação.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/flow/harness/src/flow_harness/session/config.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a configuração de sessões do framework, incluindo parâmetros de interface, ferramentas e limites de processamento de tokens.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/flow/harness/src/flow_harness/session/config.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a configuração de sessões do framework, incluindo parâmetros de interface, ferramentas e limites de turnos.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/frappe/printing/doctype/print_format/classic_converter.py",
+      "pulado": null,
+      "resumo": "Este arquivo converte layouts de impressão (flat JSON array) em formatos de layout beta do Frappe.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/frappe/printing/doctype/print_format/classic_converter.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo converte uma estrutura de layout de formato builder (flat JSON array) para o formato beta do Frappe, convertendo campos de cabeçalho e de folha em objetos de layout.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/frappe/flow/assistant/assistant.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as instruções e as regras de comportamento para o assistente do site, incluindo a lógica de escrita, delegação e gerenciamento de DocTypes e campos.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/frappe/flow/assistant/assistant.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as instruções de agente e ferramentas de assistência para o site Frappe.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/flow/harness/src/flow/agent/loop.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o agente de loop para o framework de ferramentas, gerenciando o ciclo de vida de um run, o processamento de mensagens e a compreensão de decisões.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/flow/harness/src/flow/agent/loop.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o agente de loop para o framework de ferramentas (frappe), gerenciando o ciclo de vida de um run, o processamento de mensagens e a compreensão de decisões.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/frappe/core/doctype/file/file_v2.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a lógica de persistência de arquivos no banco de dados, incluindo a leitura de arquivos armazenados via blob e a criação de novos registros para representar esses arquivos no sistema.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/frappe/core/doctype/file/file_v2.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de manipulação de arquivos, incluindo a leitura de arquivos armazenados em blobs e a criação de novos registros de arquivo para documentos.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/frappe/core/doctype/error_log/error_log.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a lógica de validação, limpeza de logs de erros e geração de estatísticas de frequência de erro para o sistema.",
+      "problemas": []
+    },
+    {
+      "path": "frappe__frappe/frappe/core/doctype/error_log/error_log.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo gerencia o processamento de logs de erros, incluindo validação de tipos, limpeza de logs antigos e contagem de logs agendados.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/serializer.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a lógica de serialização e processamento de valores para o SDK do Sentry, incluindo suporte a tipos de dados complexos e limites de tamanho de eventos.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/serializer.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a lógica de serialização e processamento de valores para o SDK do Sentry, incluindo suporte a tipos de dados complexos e limites de tamanho de eventos.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/openai.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a integração do Sentry com o OpenAI para monitorar e registrar dados de entrada e saída de requisições de IA.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/openai.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a integração do Sentry com o OpenAI para coletar e normalizar dados de entrada e saída de requisições.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/aiohttp.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a integração do Sentry com o framework AIOHTTP para monitorar requisições HTTP.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/aiohttp.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a integração do Sentry com o framework AIOHTTP para rastrear requisições HTTP.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/pydantic_ai/patches/agent_run.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a integração do Sentry com o Pydantic para gerenciar o agente de execução de métodos assíncronos.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/pydantic_ai/patches/agent_run.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um wrapper para o método `Agent.run` que cria um span de invocação para monitorar o agente Pydantic-AI.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/profiler/continuous_profiler.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o scheduler e o profiler contínuo para o SDK do Sentry, gerenciando o ciclo de vida, a detecção de amostragem e o armazenamento de perfis.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/profiler/continuous_profiler.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de gerenciamento de profilers contínuos e o controle de sessão de amostragem de perfis.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/gcp.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a integração do Sentry com o Google Cloud Functions para coletar e processar eventos de requisições HTTP e logs de eventos.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/gcp.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o processamento de eventos do Google Cloud Functions para o Sentry, incluindo o envio de métricas de execução e logs de requisições.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/pydantic_ai/__init__.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a integração do Pydantic AI para o Sentry, permitindo o registro de spans para invocações de agentes, chamadas de modelos e execuções de ferramentas.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/pydantic_ai/__init__.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a integração do Pydantic AI para o Sentry, permitindo o registro de spans para chamadas de agentes, requisições de modelos e execuções de ferramentas.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/logger.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de captura de logs do Sentry, incluindo suporte para o OpenTelemetry.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/logger.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de captura de logs para o Sentry, incluindo suporte a otel.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/arq.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a integração do Sentry com o Arq, permitindo o monitoramento de eventos e a captura de exceções em worker corrotinas.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/arq.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a integração do Sentry com o Arq, permitindo o envio de eventos e monitoramento de jobs via Arq.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/google_genai/utils.py",
+      "pulado": null,
+      "resumo": "Este arquivo fornece utilitários para extrair e formatar dados de uso de respostas de APIs do Google GenAI para o Sentry SDK.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/google_genai/utils.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém utilitários para extrair e normalizar dados de uso de tokens de uma resposta de API do Google GenAI para o Sentry.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/openai_agents/patches/runner.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um wrapper para o método `agent_workflow_run` do `agents.Runner` que cria um span de execução para o ciclo de vida da agentia.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/openai_agents/patches/runner.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um wrapper para o método `run` da classe `agents.Runner` que cria um span de execução para gerenciar o ciclo de vida de workflows agendados.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/_asgi_common.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a integração do Sentry com o protocolo ASGI para extrair dados de requisições HTTP e atributos do cliente.",
+      "problemas": []
+    },
+    {
+      "path": "getsentry__sentry-python/sentry_sdk/integrations/_asgi_common.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a integração do Sentry com o padrão ASGI (Application-Side Information Gathering), extruindo dados de requisições HTTP e clientes para o registro.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/webostv/__init__.py",
+      "pulado": null,
+      "resumo": "Este arquivo inicializa o componente WebOsTV, gerenciando a conexão com TVs LG e a configuração de serviços e notificações.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/webostv/__init__.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo inicializa o componente WebOsTV, gerenciando a conexão com o dispositivo LG e a configuração de serviços e notificações.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/roomba/vacuum.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe base para o controle de um dispositivo de vacuuma (RoboVacuum) do iRobot, incluindo suporte a capacidades de carpete e estado de atividade.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/roomba/vacuum.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe base para dispositivos de vacuânicos do iRobot, lidando com a lógica de estado e atributos visuais.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/myuplink/select.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de entidades de seleção (select) para dispositivos do MyUplink no Home Assistant.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/myuplink/select.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a integração de dispositivos do myUplink para o Home Assistant, gerenciando a seleção de parâmetros e valores.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/yale_smart_alarm/__init__.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o componente Yale para gerenciar alarmes inteligentes via API.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/yale_smart_alarm/__init__.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o componente Yale para gerenciar alarmes inteligentes via Yale.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/prosegur/camera.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a integração de câmeras do Prosegur no Home Assistant, permitindo a captura de imagens via serviço.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/prosegur/camera.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a integração de câmeras Prosegur para o Home Assistant, permitindo a captura de imagens via serviço.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/lyric/sensor.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as entidades de sensores para o componente Lyric no Home Assistant, permitindo a leitura de status de dispositivos e a conversão de datas para formatos legíveis.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/lyric/sensor.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as descrições de entidades de sensores para o componente Lyric no Home Assistant, incluindo entidades de temperatura e um accessory para monitorar o status do dispositivo.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/tado/config_flow.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o fluxo de configuração (config flow) para o componente Tado no Home Assistant, permitindo a autenticação e a obtenção de informações de espaços de conforto.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/tado/config_flow.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o fluxo de configuração (config flow) para o componente Tado no Home Assistant.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/alexa_devices/coordinator.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe base para o gerenciamento de dispositivos do Amazon, gerenciando a sincronização de dados e a autenticação.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/alexa_devices/coordinator.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe base para o gerenciamento de dispositivos do Amazon, implementando o ciclo de vida de atualização de dados e autenticação.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/sonos/entity.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a implementação de entidades de dispositivo para dispositivos Sonos, incluindo suporte a faltas de subscrição.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/sonos/entity.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a implementação de entidades de dispositivo para dispositivos Sonos, incluindo suporte a fallback e atualização via falso.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/matter/cover.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a integração de dispositivos de cobertura (cover) para o Home Assistant utilizando a biblioteca Matter.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/matter/cover.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a integração de dispositivos de coberta (cover) para o Matter no Home Assistant, lidando com a leitura de status operacional e a configuração de dispositivos.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/blebox/light.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de controle de um dispositivo de luz (light) para o componente BLEbox no Home Assistant.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/blebox/light.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de controle de um dispositivo de luz BLEBox, permitindo a configuração de cores RGB, RGBW e a aplicação de efeitos.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/esphome/entity.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe base para entidades do ESPHome, gerenciando informações de dispositivo e estados.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/esphome/entity.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe base para entidades do ESPHome, gerenciando informações de dispositivo e estados.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/isy994/helpers.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém funções auxiliares para identificar dispositivos sensor e auxiliares de backlight no protocolo ISY994.",
+      "problemas": []
+    },
+    {
+      "path": "home-assistant__core/homeassistant/components/isy994/helpers.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém funções utilitárias para identificar dispositivos sensor e auxiliares de luz (backlight) no protocolo ISY994.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/mamba2/modeling_mamba2.py",
+      "pulado": null,
+      "resumo": "Implementação do modelo MAMBA2 com camadas de linguagem.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/mamba2/modeling_mamba2.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a arquitetura do modelo MAMBA2, incluindo o bloco de atenção e o processamento de saída para o motor de linguagem.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/dac/modeling_dac.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a arquitetura do modelo DAC, incluindo o processamento de codificação e decodificação de dados.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/dac/modeling_dac.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a arquitetura do modelo DAC, incluindo o processamento de codigos e decodificação de latentes.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/qwen2_vl/image_processing_qwen2_vl.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o processamento de imagens para o modelo Qwen2-VL, incluindo configurações de resolução, normalização e normalização de patches.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/qwen2_vl/image_processing_qwen2_vl.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o processamento de imagens para o modelo Qwen2-VL, incluindo configurações de rescaling, normalização e formatação de imagens.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/tipsv2/modeling_tipsv2.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a implementação do modelo Tipsv2Vision, incluindo a arquitetura de camadas de atenção e o processamento de imagens.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/tipsv2/modeling_tipsv2.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a implementação do modelo Tipsv2Vision, incluindo o processo de atenção e a arquitetura de camadas.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/emu3/modular_emu3.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a implementação do modelo Emu3, incluindo a arquitetura de decoders e a integração com o Flash Attention.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/emu3/modular_emu3.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a implementação do modelo Emu3, incluindo a arquitetura de decoders e a integração com o Flash Attention.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/commands/serving.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe ServeCommand para gerenciar os argumentos de comando do servidor do Transformers.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/commands/serving.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as configurações de comando para o servidor do Transformers, incluindo suporte a arquiteturas LoRA, quantização e configurações de tempo de execução.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/blt/modeling_blt.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a arquitetura do modelo BltLocalDecoder, incluindo o processamento de patches e a aplicação de camadas de atenção local.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/blt/modeling_blt.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a arquitetura do modelo BltLocalDecoder, incluindo o processamento de patches e a aplicação de camadas de atenção.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/ernie4_5_moe/modular_ernie4_5_moe.py",
+      "pulado": null,
+      "resumo": "Implementação do modelo MoE para o modelo Ernie4-5.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/ernie4_5_moe/modular_ernie4_5_moe.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a arquitetura do modelo MoE (Multi-Output Encoder) para o modelo Ernie 4.5, incluindo o processamento de roteadores e seleção de experts.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/reformer/modeling_reformer.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a arquitetura do modelo Reformer, incluindo o processamento de estados de atenção e o suporte a modelos de pre-trained.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/reformer/modeling_reformer.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a arquitetura do modelo Reformer, incluindo o processamento de estados de atenção e o suporte a modelos de pre-trained.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/mistral/configuration_mistral.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a configuração do modelo Mistral, incluindo parâmetros de atenção, hiperparâmetros de atenção e parâmetros de rope.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/mistral/configuration_mistral.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe de configuração para o modelo Mistral, incluindo parâmetros de atenção, hiperparâmetros de atenção e parâmetros de inicialização.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/generation/streamers.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma classe base para streamers de geração de tokens, permitindo a impressão de tokens em tempo real.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/generation/streamers.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma classe base para streamers de geração de tokens, permitindo a impressão de tokens para o usuário.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/inkling/feature_extraction_inkling.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o extrator de características para o modelo Inkling, gerenciando o processamento de espectrogramas de áudio para o cálculo de mel-frequency spectrograms.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/src/transformers/models/inkling/feature_extraction_inkling.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o extrator de características para o modelo Inkling, incluindo o processamento de espectrogramas de mel e log-mel.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/utils/fetch_hub_objects_for_ci.py",
+      "pulado": null,
+      "resumo": "Este arquivo fornece utilitários para realizar o download de objetos de repositórios do Hugging Face, incluindo downloads de fixtures e URLs para testes de integração.",
+      "problemas": []
+    },
+    {
+      "path": "huggingface__transformers/utils/fetch_hub_objects_for_ci.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém utilitários para carregar objetos de repositórios do Hugging Face, como datasets, fixtures e tokens, para testes de integração ou staging.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/computed_attribute/models.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as definições de triggers Python e de queries para atributos computados no backend do Infrahub.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/computed_attribute/models.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as definições de triggers Python para atributos computados no backend do Infrahub.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/branch/tasks.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as tarefas de merge e exclusão de branches no core do Infrahub, incluindo o processamento de remotes, a execução de operações de merge e a validação de branches para conflitos.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/branch/tasks.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa tarefas de merge, incluindo a verificação de heads remotos e a exclusão de branches.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/config.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as configurações de conexão e limites para o driver de infrahub, incluindo parâmetros de segurança, limites de conexão e timeout de queries.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/config.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as configurações de integração do backend do Infrahub, incluindo parâmetros de conexão, limites de transações e limites de conexões.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/trace.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa funções para gerenciar spans, exportadores de rastreamento e gerenciamento de certificados TLS para o Infrahub.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/trace.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém funções para gerenciar spans do OpenTelemetry e exportar dados para diferentes formatos de comunicação (como console, otlp ou grpc).",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/migrations/schema/node_remove.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a lógica de migração para remover nós de um grafo, utilizando um sub-query para encontrar nós ativos e um retorno único.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/migrations/schema/node_remove.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a lógica de migração para remover nós de um grafo, permitindo filtrar e definir propriedades de remoção de relacionamentos.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/diff/calculator.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um gerenciador de calculos de diferenças (diff) para o core do Infrahub, permitindo a execução de queries de diff entre branches e campos de nós.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/diff/calculator.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma classe para realizar a execução de consultas de diff entre branches e calculações de diferenças entre nós.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/convert_object_type/object_conversion.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém funções para converter tipos de objetos, validar atributos passados e validar a integridade de relacionamentos entre nós.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/convert_object_type/object_conversion.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém funções para converter tipos de objetos, validar atributos passados e validar a integridade de relacionamentos entre nós.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/graphql/mutations/ipam.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as mutações GraphQL para gerenciar objetos IP no sistema, incluindo a reconciliação de dados e atualização de endereços.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/graphql/mutations/ipam.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as mutações GraphQL para gerenciar o ciclo de vida de endereços IP no sistema, incluindo a reconciliação e a exclusão de objetos.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/node/ipam.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe BuiltinIPPrefix, que representa um nó de rede de IP com suporte a atributos de espaço de prefixos (utilização) e peso.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/core/node/ipam.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de renderização GraphQL para o nó IPAM, incluindo o cálculo de uso de espaço de prefixos e a recuperação de atributos de utilização.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/api/admission/middleware.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma classe Middleware para adicionar um limite de tentativas (admission) e um controle de carga (shedding) que impede o processamento de requisições excessivamente lentas.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/api/admission/middleware.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um middleware para adicionar um cabeçalho de prioridade (X-Priority) que garante o controle de carga de requisições via admission, limitando o número de tentativas de requisição a um limite definido.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/graphql/mutations/repository.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a mutação GraphQL para criar repositórios no sistema, permitindo a importação de objetos, pull de repositórios e conectividade do Git.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/graphql/mutations/repository.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a mutação GraphQL para criar um repositório no sistema, incluindo suporte a branches e conexão com o Git.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/graphql/resolvers/resolver.py",
+      "pulado": null,
+      "resumo": "Este arquivo define os resolvers GraphQL para resolver informações de usuários, incluindo um resolver padrão para retornar o perfil do usuário.",
+      "problemas": []
+    },
+    {
+      "path": "opsmill__infrahub/backend/infrahub/graphql/resolvers/resolver.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define os resolvers GraphQL para resolver informações de usuários, incluindo um resolver padrão para retornar o perfil do usuário.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/result.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe AgentStream para gerenciar o fluxo de saída de um agente, permitindo o streaming de respostas de modelos e respostas de texto.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/result.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe AgentStream para gerenciar o fluxo de saída de um agente, permitindo o streaming de respostas de modelos e respostas de texto.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/.github/scripts/semantic_owner_router.py",
+      "pulado": null,
+      "resumo": "Este script implementa um roteador semantic para gerenciar decisões de itens no GitHub, incluindo a lógica de rastreamento de pull requests e participantes.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/.github/scripts/semantic_owner_router.corrigido.py",
+      "pulado": null,
+      "resumo": "Este script implementa um router de decisões para itens no GitHub, realizando refleitos de metadados, validando a capacidade de aprovação de pull requests e identificando participantes de pull requests.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/models/test.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe TestModel, que implementa um modelo para testes, permitindo a execução de mensagens de chat com configurações e parâmetros de requisição.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/models/test.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe TestModel para gerenciar o fluxo de requisições e o processamento de respostas de um modelo, permitindo a configuração de parâmetros de chamada, configuração de estatísticas e controle de fluxo de requisições.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_clai2/pydantic_clai2/cli/self_update.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de atualização do Pydantic CLI, permitindo a verificação de novas versões do PyPI e a execução do comando `/update`.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_clai2/pydantic_clai2/cli/self_update.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de atualização do Pydantic CLI, incluindo o processamento de mensagens de erro, a execução de checks de atualização e a gerenciamento de progressos.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/ui/_adapter.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a interface de protocolo (protocol) para o adaptador de UI do Pydantic AI, permitindo a integração de ferramentas de IA com o Pydantic.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/ui/_adapter.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a interface de protocolo (protocol) para o adaptador de UI do Pydantic AI, permitindo a integração de ferramentas de IA com o Pydantic.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_ai_harness/pydantic_ai_harness/dynamic_workflow/_capability.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe `DynamicWorkflow` para permitir a execução de sub-agents via script Python, permitindo a integração de ferramentas de processamento de código (como o OpenAI GPT-5) em modelos de IA.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_ai_harness/pydantic_ai_harness/dynamic_workflow/_capability.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe `DynamicWorkflow` para permitir a execução de sub-agents através de scripts Python, permitindo a integração de ferramentas de análise de código.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_clai2/pydantic_clai2/prompt_transcript.py",
+      "pulado": null,
+      "resumo": "Este arquivo define classes para gerenciar o tail de transcrição e o buffer de saída do Pydantic CLI2.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_clai2/pydantic_clai2/prompt_transcript.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define classes de transcrição e funções utilitárias para renderizar e capturar saídas de console em formatos legíveis.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/_run_context.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe RunContext para gerenciar e armazenar informações sobre o contexto de execução de um agente, incluindo dependências, o modelo utilizado, o uso de mensagens e parâmetros de prompt.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/_run_context.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe `RunContext` para gerenciar e armazenar informações sobre o contexto de execução de um agente, incluindo dependências de modelos, aíndice de chamadas de tools e configurações de instrumentação.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_ai_harness/pydantic_ai_harness/experimental/overflow/_capability.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a lógica de captação de buffers (overflow) para o Pydantic AI Harness, permitindo limitar o número de linhas ou caracteres que podem ser lidas de um resultado de execução.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_ai_harness/pydantic_ai_harness/experimental/overflow/_capability.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de processamento de cabeçalhos e fios de um armazenamento de dados que permite filtragem e cortagem de linhas de um arquivo de texto.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_clai2/pydantic_clai2/runtime/tasks.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a lógica de gerenciamento de sessões de tarefas (Tasks) para o runtime do Pydantic CLI2, gerenciando o ciclo de vida de sessões abertas e o monitoramento de progressos de tarefas.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/src/pydantic_clai2/pydantic_clai2/runtime/tasks.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o ciclo de vida de tarefas (Tasks) para o runtime do Pydantic CLI2, gerenciando o estado de sessão e o monitoramento de tarefas de execução.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/ui/vercel_ai/request_types.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as tipagens de dados e partes de interface (UI) para o componente de entrada de mensagens do Vercel AI Elements.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/ui/vercel_ai/request_types.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as tipagens de dados e partes de interface (UI) para o componente de entrada de mensagens do Vercel AI Elements.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/models/gemini.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de processamento de respostas do Gemini para o modelo Gemini, incluindo o processamento de candidatos, partículas e respostas de ferramentas.",
+      "problemas": []
+    },
+    {
+      "path": "pydantic__pydantic-ai/pydantic_ai_slim/pydantic_ai/models/gemini.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de processamento de respostas do Gemini para modelos do gemini, incluindo o tratamento de streams e a validação de JSON.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/simple_fsdp/llama3/parallelize.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de paralelismo de modelos Llama3 utilizando PyTorch Distributed, incluindo suporte a FP16, quantização de dados e checkpointing de ativação.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/simple_fsdp/llama3/parallelize.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de paralelismo de modelos Llama3 utilizando PyTorch Distributed, incluindo suporte a FP16, checkpointing de ativação e suporte a buckets de bloco.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/torchft/checkpoint.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma classe de gerenciamento de checkpoints para o TorchFT, incluindo suporte a per-replica e salvamento de dados persistentes.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/torchft/checkpoint.corrigido.py",
+      "pulado": null,
+      "resumo": "Implementação de um gerenciador de checkpoints para o TorchFT com suporte a per-replica e salvamento persistente.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/rl/models/vllm_wrapper.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um wrapper para modelos VLLM, gerenciando o carregamento de pesos, o carregamento de layouts de sharding e o carregamento de estados de dados.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/rl/models/vllm_wrapper.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o wrapper para modelos VLLM, gerenciando o carregamento de estados de modelos, o carregamento de layouts de SPMD e o processamento de estados de buffers.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/graph_trainer/simple_fsdp.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o treinamento de modelos paralelos usando o método de paralelismo de dados (data parallel) com o framework PyTorch.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/graph_trainer/simple_fsdp.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o treinamento de modelos paralelos usando o método de dados paralelo (FSDP) do PyTorch.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/models/common/rope.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a implementação de componentes de rope (ComplexRoPE, CosSinRoPE e Rope) para o modelo Common, incluindo funções de transformação de posições e cálculos de frequências de rotação.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/models/common/rope.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a implementação de componentes de rope (ComplexRoPE, CosSinRoPE e Rope) para o modelo TorchTitan, incluindo funções de cálculo de frequências de rotação e transformações de atenção.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/config/configs.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as configurações de paralelismo, checkpointing e parâmetros para o modelo TorchTitan.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/config/configs.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as configurações de paralelismo e checkpointing para modelos de treinamento, incluindo suporte a GPU SPMD e suporte a múltiplas dimensões de contexto.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/models/common/moe/token_dispatcher.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o dispatcher de tokens para o modelo MoE, utilizando o HybridEP para otimizar o dispatch e o combinação de tokens.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/models/common/moe/token_dispatcher.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o dispatcher de tokens para o modelo MoE, utilizando o HybridEP para otimizar o dispatch e a combinação de tokens.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/distributed/fsdp.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a aplicação de paralelismo de dados (data parallelism) para modelos de decoders utilizando o framework FSDP.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/distributed/fsdp.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a aplicação de paralelismo de dados (data parallelism) para modelos de decoders utilizando o framework FSDP.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/distributed/flex_shard/dist_muon.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a implementação do optimizer DistMuon com suporte a redistribuição FlexShard para múltiplos nós.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/distributed/flex_shard/dist_muon.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe DistMuon para implementar o Redistribuindo por Bloco (FlexShard) em modelos de distribuição.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/torchft/optimizer.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe TorchFTOptimizersContainer, que gerencia o carregamento, o salvamento e o controle de estados de otimização (como o quorum) para modelos do tipo TorchFT.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/torchft/optimizer.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma classe para gerenciar e armazenar o estado de otimizadores de uma rede neural, incluindo suporte a sincronização de quorum.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/components/optim/ema.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o otimizador EMA (Exponential Moving Average) para o PyTorch, utilizando o método de desempenho de armazenamento (EMA) para garantir a consistência entre o estado local e o estado armazenado no disco.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/components/optim/ema.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o otimizador EMA (Exponential Moving Average) para o PyTorch, incluindo suporte para o offloading de estados em GPUs.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/config_manager.py",
+      "pulado": null,
+      "resumo": "Este arquivo gerencia a configuração de jobs, permitindo a união de estruturas de configuração base e extensões de dados.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/config_manager.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um gerenciador de configurações para o PyTorch Titan, permitindo a união de estruturas de configuração baseada em dados e a conversão de dicionários para objetos de dadosclass.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/torchft/manager.py",
+      "pulado": null,
+      "resumo": "Este arquivo gerencia o gerenciamento de processos de GPU (process group) e o sincronismo de métricas de erro (loss) para o treinamento de modelos com o TorchFT.",
+      "problemas": []
+    },
+    {
+      "path": "pytorch__torchtitan/torchtitan/experiments/torchft/manager.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o gerenciamento de processos (process groups) e o suporte a sincronização de métricas (loss sync) para o experimento TorchFT.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/util.py",
+      "pulado": null,
+      "resumo": "Este arquivo fornece utilitários para o módulo de dados do Ray, incluindo importações de bibliotecas, classes e funções de processamento de dados.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/util.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define utilitários para o processamento de dados do Ray, incluindo importações de módulos, tipos e funções de utilitários.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/llm/_internal/batch/processor/base.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a configuração base para o processador de batch, incluindo configurações de tamanho de lotes, recursos de bundle, tipo de acelerador e limites de concorrência.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/llm/_internal/batch/processor/base.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a configuração base para o processador de batch, incluindo parâmetros de tamanho, recursos e parâmetros de paralelismo.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/_private/runtime_env/working_dir.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica para carregar e gerenciar o diretório de trabalho (working_dir) do Ray, permitindo a upload de arquivos via URI ou diretórios locais.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/_private/runtime_env/working_dir.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica para carregar e gerenciar o diretório de trabalho (working_dir) do Ray, permitindo a upload de arquivos via URI ou diretórios locais.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/rllib/env/single_agent_env_runner.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe base para o runner de envíos de um agente único, implementando a lógica de processamento de passos e callbacks para o Ray.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/rllib/env/single_agent_env_runner.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe base para o runner de envíos de um agente único, implementando a lógica de processamento de passos e callbacks.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/serve/_private/replica.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de inicialização, o processamento de requisições assíncronas e o parsing de cabeçalhos de requisição para gerenciar o servidor de replicas do Ray Serve.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/serve/_private/replica.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de inicialização, o processamento de requisições assíncronas e o parsing de cabeçalhos para o servidor de replicas do Ray Serve.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/execution/operators/map_operator.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o operador de mapeamento (map) para o Ray Data, gerenciando limites de processamento por blocos.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/execution/operators/map_operator.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa operadores de execução para o Ray, incluindo suporte a split de blocos e limites de processamento.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/train/v2/_internal/callbacks/placement_group_callback.py",
+      "pulado": null,
+      "resumo": "Este arquivo define um callback para gerenciar o ciclo de vida de grupos de placar (Placement Groups) de treinamento, garantindo que eles sejam excluídos corretamente quando o controle de execução do Ray for interrompido.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/train/v2/_internal/callbacks/placement_group_callback.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um callback para gerenciar o ciclo de vida de um cluster de treinamento, incluindo a detecção e a limpeza de grupos de placaramento.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/execution/operators/task_pool_map_operator.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um operador de execução para executar tarefas em blocos de dados distribuídos, permitindo a execução de tarefas em paralelo utilizando Ray.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/execution/operators/task_pool_map_operator.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um operador de execução para executar tarefas em bundles de dados distribuídos utilizando Ray.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/planner/plan_expression/expression_evaluator.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um evaluator de expressões para o plano de execução do Ray Data, lidando com diferentes tipos de nós de AST (Abstract Syntax Tree) e operações de atribuição e atribuição de lista.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/planner/plan_expression/expression_evaluator.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um evaluator de expressões para o plano de execução do Ray Data, lidando com diferentes tipos de nós do AST (Abstract Syntax Tree) e operações aritméticas.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/rllib/env/multi_agent_env_runner.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o runner de envio multi-agente para o Ray RLlib, gerenciando o sampling de épocas e agentes, incluindo a lógica de aleatoriedade e a execução de modelos de aprendizado por reforço.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/rllib/env/multi_agent_env_runner.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o runner de envios para agentes múltiplos, gerenciando a inicialização, a reprodução e o processamento de épocas de treinamento.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/dashboard/modules/job/cli.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a interface de linha de comando (CLI) para o módulo de job do Ray Dashboard.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/dashboard/modules/job/cli.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a interface de linha de comando (CLI) para o módulo de job do Ray Dashboard.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/datasource/parquet_datasink.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o suporte para o escrita de dados em formato Parquet no Ray Data, lidando com o processamento de blocos, o resgatamento de arquivos e a escrita de tabelas em partições.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/data/_internal/datasource/parquet_datasink.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o suporte para o escrita de dados em formato Parquet, lidando com o processamento de blocos, o resgatamento de arquivos e a escrita de tabelas em partições.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/serve/_private/grpc_util.py",
+      "pulado": null,
+      "resumo": "Este arquivo fornece utilitários para gerenciar o servidor gRPC do Ray Serve, incluindo a configuração de endpoints, suporte a erros e a conversão de exceções para status de resposta.",
+      "problemas": []
+    },
+    {
+      "path": "ray-project__ray/python/ray/serve/_private/grpc_util.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de inicialização e o processamento de erros para o servidor gRPC do Ray Serve.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/process/models/physics/physics.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém o cálculo de potências de energia e a balanceamento de potências entre diferentes componentes do sistema de energia, incluindo o processo de ignição de plasma.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/process/models/physics/physics.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo calcula e exporta métricas de potência de energia e de balanceamento de potência para o modelo de física de Plasma.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/process/input.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as variáveis de entrada para o processamento de dados, incluindo variáveis de física, mecânica de construção e variáveis de controle.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/process/input.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as variáveis de entrada para o processamento de dados de um sistema de corrigimento de poluição.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/process/core/io/plot/summary.py",
+      "pulado": null,
+      "resumo": "Este arquivo gerencia o plot de resumo de dados, incluindo linhas de estrelas e labels para métricas de temperatura e comprimento de coil.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/process/core/io/plot/summary.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo gerencia o plot de resumo de dados, incluindo linhas de estrelas e labels de medição de comprimento.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "ukaea__PROCESS/process/pulse.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe Pulse, responsável por executar o modelo pulso de um reactor elétrico.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/process/pulse.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma classe para gerenciar o processo de um reactor pulso, incluindo a lógica de ramp-up de currents e a leitura de dados de tempo.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/process/pfcoil.py",
+      "pulado": null,
+      "resumo": "Este arquivo calcula e armazena as áreas de concentração de campo (CS) e áreas de área void para diferentes tipos de coisas de coil de pressão (coils de pressão), incluindo o perfil de turn e o campo de alta tensão.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/process/pfcoil.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo calcula e armazena as áreas de geometria e o campo de alta tensão (peak field) de diferentes tipos de coisas de coil para o processamento.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/process/models/physics/current_drive.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica para o cálculo da cross-section de curva de potência (current) para um fluxo de energia de um bom plasma de fusão.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/process/models/physics/current_drive.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica para o cálculo da cross-section de estabilidade de um bombeiro de energia de um plasma fusionado.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/process/caller.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma classe para executar modelos de física e engenharia, permitindo a inicialização e a verificação de agilidade entre modelos.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/process/caller.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma classe para executar modelos de física e engenharia, garantindo a consistência de valores entre passos de optimização.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/process/power.py",
+      "pulado": null,
+      "resumo": "Este arquivo calcula e armazena as potências e resistências de circuitos de coletor de bussing (PF) para o sistema de energia energética.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/process/power.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo calcula e armazena as potências e resistências de circuitos de coletor de bussing (PF) para o sistema de energia energética.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/process/tf_coil.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a parametrização de um coil de tecido de coil (TF coil) para o processamento de dados.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/process/tf_coil.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a correção de dados para o cálculo de comprimento, arco e coordenadas de arcos de um coil de tecido de coil (TF coil) em um sistema de coordenadas.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/process/models/cs_fatigue.py",
+      "pulado": null,
+      "resumo": "Este arquivo calcula o stress-Intensity Factor (SIF) e o fator de pressão (f) de uma forma geométrica para um corpo de bateria, baseando-se em dados de stress e a forma de abertura de um círculo.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/process/models/cs_fatigue.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo calcula o stress-impact factor (SIF) e o fator de intensidade de tensão (FIS) para componentes críticos de uma forma geométrica, baseada em dados de stress e ângulos de propriedade.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/documentation/scripts/plotting_scripts/profile_peng_qbar.py",
+      "pulado": null,
+      "resumo": "Este script contém funções para criar gráficos de linha de perfil (line plot) e sliders para visualizar a média de segurança (average safety factor) entre PROCESS e STAR.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/documentation/scripts/plotting_scripts/profile_peng_qbar.corrigido.py",
+      "pulado": null,
+      "resumo": "Este script contém a criação de gráficos para visualizar a média de segurança (average safety factor) entre PROCESS e STAR.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/process/io/plot_solutions.py",
+      "pulado": null,
+      "resumo": "Este arquivo processa e prepara os dados para o plot de soluções, realizando separação de valores de função objetiva e parâmetros de otimização.",
+      "problemas": []
+    },
+    {
+      "path": "ukaea__PROCESS/process/io/plot_solutions.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo realiza o processamento de soluções e o plot de gráficos para visualizar parâmetros de otimização e métricas de erro.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/models/step5/nvidia/mtp.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de configuração, o mapeamento de embeddings de vocabulário e o processamento de norma para o modelo MTP.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/models/step5/nvidia/mtp.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de configuração, o mapeamento de embeddings de vocabulário e o processamento de norma para o modelo MTP (Multi-Task Parallel Transformer) do vLLM.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/transformers_utils/processors/deepseek_ocr.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o processador de tokenização para o processor Deepseek OCR, lidando com o tokenização de imagens e o processamento de tokens de texto para OCR.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/transformers_utils/processors/deepseek_ocr.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o processador de tokenização para o processor Deepseek OCR, incluindo a lógica de tokenização de imagens e tokenização de tokens de texto.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/model_executor/layers/quantization/compressed_tensors/schemes/compressed_tensors_w4a8_fp8.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o esquema de quantização de kernels compactos para o modelo W4A8, incluindo suporte a grupos e configurações de paralelismo.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/model_executor/layers/quantization/compressed_tensors/schemes/compressed_tensors_w4a8_fp8.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o esquema de quantização de kernels compactos para o modelo W4A8, incluindo suporte a grupos e configurações de paralelismo.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/model_executor/layers/fused_moe/experts/cutlass_moe.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de aplicação de experts para modelos utilizando o formato de moe fusions do CUTLASS.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/model_executor/layers/fused_moe/experts/cutlass_moe.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de aplicação de experts para modelos utilizando o formato de moe fusions do CUTLASS.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/scalar_type.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as classes de tipos de escalar para o módulo vllm.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/scalar_type.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as classes de tipos de escalar para o módulo vllm.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/distributed/kv_events.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a classe `KVEvents` para gerenciar o envio de eventos para um ZMQ broker, permitindo o registro de múltiplos batches de dados em um topic específico.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/distributed/kv_events.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um sistema de eventos distribuído utilizando ZeroMQ para armazenar e publicar batches de eventos.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/entrypoints/openai/responses/serving.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as respostas de servidores para o endpoint de OpenAI, incluindo funções para extrair metadados de ferramentas e processar eventos de resposta.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/entrypoints/openai/responses/serving.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as respostas de endpoint do OpenAI para o vLLM, incluindo funções para extrair metadados de contexto, harmonies e eventos de resposta.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/examples/offline_inference/audio_language.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um exemplo de inferência de linguagem offline utilizando modelos de linguagem de áudio via vLLM.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/examples/offline_inference/audio_language.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa um exemplo de inferência de linguagem offline utilizando modelos de linguagem de áudio via vLLM.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/distributed/kv_transfer/kv_connector/v1/offloading/scheduler.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o scheduler de transferência de chave-valor (KV) para o vLLM, gerenciando o desempenho de offloading de grupos de cache e a lógica de ajuste de tamanho de alinhamento para grupos Mamba.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/distributed/kv_transfer/kv_connector/v1/offloading/scheduler.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de desempenho e controle de armazenamento (offloading) para grupos KV, incluindo o cálculo de chunks de armazenamento e a verificação de compatibilidade de grupos Mamba.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/renderers/hf.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o processamento de modelos multimodal para renderizar prompts e embeddings, incluindo a expansão de placeholders e a aplicação de modificações de modelos.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/renderers/hf.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o processamento de modelos multimodal para renderizar prompts e expandir o tensor de tokens de forma correta para o motor de inferência.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/config/speculative.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as configurações de speculativa (speculative) para modelos de linguagem, incluindo configurações de rope e checkpoints DSpark.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/config/speculative.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo define as configurações de speculativa e parâmetros específicos para o vLLM, incluindo rope e checkpoints do MiniMax-M3.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/tool_parsers/utils.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém utilitários para extrair e validar informações de ferramentas, incluindo seus nomes, parâmetros e definições de esquemas.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/tool_parsers/utils.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém utilitários para buscar, validar e extrair esquemas de ferramentas (tools) de diferentes tipos, incluindo informações de parâmetros.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/v1/attention/backends/flashinfer.py",
+      "pulado": null,
+      "resumo": "Implementação do backend FlashInfer para o treinamento de atenção.",
+      "problemas": []
+    },
+    {
+      "path": "vllm-project__vllm/vllm/v1/attention/backends/flashinfer.corrigido.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa a lógica de fusão de ativação (fusion of attention) para o backend FlashInfer, incluindo suporte a quantização de pesos e processamento de camadas de atenção.",
+      "problemas": []
+    }
+  ],
+  "chamadas": 398,
+  "tokens_entrada": 504910,
+  "tokens_saida": 32495,
+  "segundos_no_modelo": 20966.3
+}

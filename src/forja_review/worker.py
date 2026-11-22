@@ -142,3 +142,15 @@ class Worker:
                             }
                         )
         return changed
+
+
+async def enqueue_pr(gh: GitHubApp, store: Store, repo: str, number: int) -> tuple[int, bool]:
+    """Enfileira um PR sem webhook (revisão sob demanda). O App precisa estar instalado no repositório.
+
+    Mesmo caminho do webhook daí em diante: o job é único por (repo, pr, sha), então pedir de novo o mesmo
+    commit não gera uma segunda review.
+    """
+    inst = await gh.repo_installation(repo)
+    async with await gh.client(inst) as c:
+        sha = (await c.pull(repo, number))["head"]["sha"]
+    return store.enqueue(repo, number, sha, inst)

@@ -1,0 +1,514 @@
+{
+  "modelo": "review-real-t4",
+  "endpoint": "http://127.0.0.1:8000/v1",
+  "comentarios": [
+    {
+      "path": "app/students_jobs.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A função `arredondar` está utilizando `Decimal` para realizar o cálculo de precisão, mas o uso de `quantize` com `ROUND_HALF_UP` pode causar erros de precisão se o valor for muito grande ou muito baixo. Além disso, o uso de `Decimal` pode falhar ou retornar valores incorretos em casos onde o valor é muito próximo de zero ou muito próximo de um número decimal. O ideal é utilizar `round` para arredondar e `Decimal` para garantir a precisão exata."
+    },
+    {
+      "path": "backend/students_utils.py",
+      "linha": 1,
+      "severidade": "bug",
+      "comentario": "A função está retornando uma lista com os IDs negativos, mas o código tenta iterar sobre eles. Se o ID for negativo, o loop falhará. Além disso, a lógica de filtragem está incorreta. O correto é iterar sobre a lista original e filtrar apenas os números positivos."
+    },
+    {
+      "path": "api/leituras_repo.py",
+      "linha": 2,
+      "severidade": "bug",
+      "comentario": "A verificação de `vistos is None` pode causar um erro de tipo (TypeError) se `vistos` for None. Além disso, a lógica de verificação de visão está incorreta. Se `vistos` for None, o código deve retornar `False` ou tratar o comportamento de forma que o usuário não seja considerado como visitado, em vez de retornar `True` ou tratar o comportamento de forma que o sistema não marque o usuário como visitado."
+    },
+    {
+      "path": "src/servicos/faturas_service.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A lógica de filtragem de empresas está incorreta. Se o valor for None, o código tentará acessar o dicionário `extra` com um valor nulo, o que causará um KeyError. Além disso, a lógica de filtragem está incompleta e pode falhar se o valor for um dicionário vazio ou se a chave 'empresa_id' não existe. O correto é verificar se o valor é None antes de tentar acessar o dicionário e garantir que o filtro seja aplicado corretamente."
+    },
+    {
+      "path": "src/servicos/consultas_repo.py",
+      "linha": 5,
+      "severidade": "bug",
+      "comentario": "A função `responde` está tentando executar um comando que não deve ser executado diretamente no terminal (como `ping -c 1`). Para obter a resposta do host, você deve usar `os.system` para executar o comando e capturar o retorno (0 ou 1) para identificar se o host está ou não respondendo."
+    },
+    {
+      "path": "api/viagens.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "A query SQL está incompleta. Para garantir que o filtro de busca seja aplicado corretamente, você deve incluir o parâmetro 'ordem' na lista de parâmetros da query, permitindo que o usuário especifique a ordem das viagens (por exemplo, 'asc' para ordem crescente ou 'desc' para decrescente). Sem isso, o filtro de busca não funcionará como esperado."
+    },
+    {
+      "path": "svc/produtos.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "A função `contar_status` está tentando acessar um dicionário (que parece ser um objeto de lista) através de um iterador (como um objeto de conjunto), o que causará um erro de tipo ou um comportamento inesperado. O correto é iterar sobre o dicionário diretamente para garantir que o acesso seja eficiente e segura."
+    },
+    {
+      "path": "jobs/alunos_jobs.py",
+      "linha": 1,
+      "severidade": "bug",
+      "comentario": "A função não está retornando o valor de `novo` (que é `True` ou `False`) para o caller. Se o usuário já estiver registrado, o retorno pode causar inconsistências no estado do dicionário `vistos`. Além disso, a lógica de verificação de visão está incorreta; o correto é verificar se o usuário já está em `vistos` antes de adicionar, garantindo que o retorno seja o valor esperado."
+    },
+    {
+      "path": "lib/orders_repo.py",
+      "linha": 5,
+      "severidade": "bug",
+      "comentario": "A soma de uma lista de números pode falhar ou retornar um valor incorreto se o tamanho da janela for 0 ou 1. É necessário garantir que a soma não seja zero antes de realizar o cálculo da média."
+    },
+    {
+      "path": "core/pedidos.py",
+      "linha": 1,
+      "severidade": "bug",
+      "comentario": "A importação de 'Counter' está incompleta. Para garantir a consistência com o padrão de forma que a lógica de contagem de status seja aplicada corretamente, é necessário importar também 'defaultdict' para lidar com o caso de um pedido sem status definido."
+    },
+    {
+      "path": "backend/leituras.py",
+      "linha": 11,
+      "severidade": "bug",
+      "comentario": "A lógica de iteração no loop está incorreta. Se o dicionário `dados` for vazio, o `extend` não irá adicionar nada à lista `itens`, o que pode causar inconsistências na estrutura de dados. Além disso, o uso de `range` com um incremento de 1 pode causar erros de iteração ou comportamentos inesperados se o limite for muito grande. O ideal é iterar sobre o range de `len(dados)` e adicionar cada item ao final da lista."
+    },
+    {
+      "path": "lib/consultas_repo_2.py",
+      "linha": 2,
+      "severidade": "bug",
+      "comentario": "A lógica de filtragem está incorreta. Se o médico não for encontrado, o código tentará acessar um índice de um dicionário que não existe, o que causará um KeyError. Além disso, a lógica de soma e divisão está incompleta. O correto é verificar se o médico existe antes de realizar a soma e divisão."
+    },
+    {
+      "path": "backend/viagens.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "A lógica de tratamento de exceção está incompleta. Se o pagamento falhar, o código não captura a exceção e o erro é propagado para o bloco 'except', o que pode causar quebra abrupta ou que o código não seja tratado corretamente. Além disso, a lógica de verificação de duplicidade de viagens está incompleta. É necessário validar se o pagamento foi realizado com sucesso antes de tentar adicionar o usuário ao conjunto de vistos."
+    },
+    {
+      "path": "backend/alunos_service.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "A lógica de remoção de IDs está incorreta. Se o ID for negativo, ele será removido da lista, mas se o ID for zero ou um valor negativo, ele não será removido. Além disso, a lógica de remoção está incompleta e pode causar erros de indexação ou inconsistência na lista se o ID for um valor que não existe na tabela. O correto é verificar se o ID é zero ou negativo e retornar uma lista vazia caso seja, garantindo que o loop de remoção só ocorra se o ID for válido."
+    },
+    {
+      "path": "app/alunos_repo.py",
+      "linha": 1,
+      "severidade": "bug",
+      "comentario": "A importação de 'Counter' está incompleta. Para garantir a consistência com o padrão de forma que a lógica de contagem de status funcione corretamente, é necessário importar também 'defaultdict' para lidar com o caso de um aluno sem status (ex: 'nao informado')."
+    },
+    {
+      "path": "backend/consultas_utils.py",
+      "linha": 1,
+      "severidade": "bug",
+      "comentario": "A função `media_por_medico_id` está incompleta. Ela não trata o caso de consulta sem médico (medico_id = 0), o que pode causar erros de lógica ou resultados incorretos. Além disso, a lógica de soma e divisão está incompleta. É necessário validar se o `valor` é 0 antes de realizar a soma e divisão para evitar erros de divisão por zero."
+    },
+    {
+      "path": "src/servicos/partidas_utils_2.py",
+      "linha": 5,
+      "severidade": "bug",
+      "comentario": "A função `responde` está tentando ler o conteúdo de um arquivo (como um ping) que não existe. Se o arquivo não existir, o `os.popen` falhará. Além disso, o uso de `read()` para ler o conteúdo de um arquivo não é a forma correta de ler o conteúdo de um arquivo. O ideal é utilizar `open(host, 'r')` para abrir o arquivo e `read()` para ler o conteúdo."
+    },
+    {
+      "path": "backend/orders_service_2.py",
+      "linha": 2,
+      "severidade": "bug",
+      "comentario": "A lógica de filtragem está incorreta. Se o valor for 0, o código tentará dividir por 0, o que causará erro de divisão. Além disso, a lógica de filtragem está incompleta. O correto é verificar se o valor é diferente de 0 antes de realizar a soma e a contagem."
+    },
+    {
+      "path": "app/funcionarios_jobs.py",
+      "linha": 2,
+      "severidade": "bug",
+      "comentario": "A lista `selecionados` está sendo criada com uma lista de dicionários, mas o código tenta acessar o valor de um dicionário (ex: `x['salario']`) que não existe. Se o dicionário não existir, o código causará um KeyError. Além disso, a lógica de soma e divisão está incorreta. O correto é iterar sobre o dicionário e somar os valores de 'salario' para garantir a média correta."
+    },
+    {
+      "path": "backend/alunos_service_2.py",
+      "linha": 1,
+      "severidade": "bug",
+      "comentario": "A importação de 'Counter' está incompleta. Para garantir a consistência com o padrão de formatação de números decimais (como o 'ROUND_HALF_UP'), é necessário importar também 'Decimal' para permitir o uso de 'quantize' com precisão de duas casas decimais."
+    },
+    {
+      "path": "backend/pedidos_utils.py",
+      "linha": 5,
+      "severidade": "bug",
+      "comentario": "A lógica de divisão de `total_registros` por `limite` está incorreta. Se `total_registros` for 100 e `limite` for 10, o resultado será 1, o que é o número de páginas corretos. O correto é utilizar `total_registros // limite` para obter o número de páginas exatas."
+    },
+    {
+      "path": "src/servicos/pedidos_service.py",
+      "linha": 1,
+      "severidade": "bug",
+      "comentario": "A função `primeiro_de` está tentando acessar um elemento de um dicionário que não existe, o que causará um `KeyError`. Além disso, a lógica de filtragem está incorreta. O correto é verificar se o cliente existe antes de tentar acessar seus dados ou retornar `None` caso contrário."
+    },
+    {
+      "path": "svc/viagens.py",
+      "linha": 1,
+      "severidade": "bug",
+      "comentario": "A função não está retornando o argumento original (ids) após a chamada da função. Se o retorno for um objeto mutável (como uma lista), o código não garante que o original não seja alterado. É necessário retornar uma cópia da lista original para garantir a consistência do retorno."
+    }
+  ],
+  "arquivos": [
+    {
+      "path": "jobs/invoices_jobs.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma função para pesquisar invoices no banco de dados, utilizando uma consulta SQL para filtrar resultados baseados em um termo.",
+      "problemas": []
+    },
+    {
+      "path": "backend/funcionarios_utils.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém utilitários para operações de busca, comparação de dicionários e execução de comandos via subprocess.",
+      "problemas": []
+    },
+    {
+      "path": "app/students_jobs.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém funções para calcular médias de uma lista de valores e arredondar valores decimais.",
+      "problemas": []
+    },
+    {
+      "path": "backend/students_utils.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém uma função para remover IDs negativos de uma lista.",
+      "problemas": []
+    },
+    {
+      "path": "api/leituras_repo.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a lógica de registro de visitas de usuários para o sistema de leituras.",
+      "problemas": []
+    },
+    {
+      "path": "svc/faturas.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém funções para contar status de faturas, verificar a resposta de um servidor de ping e filtrar e encontrar o primeiro registro de uma empresa com um determinado valor.",
+      "problemas": []
+    },
+    {
+      "path": "jobs/alunos.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém funções utilitárias para processamento de dados, como mesclagem de dicionários, arredondamento de valores e contagem de status de alunos.",
+      "problemas": []
+    },
+    {
+      "path": "backend/orders_service.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa funções para arredondar valores, verificar a recepção de um host via ping e mesclar dados em um dicionário.",
+      "problemas": []
+    },
+    {
+      "path": "src/servicos/faturas_service.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa funções para processar e filtrar faturas por empresas e média de valores por empresa.",
+      "problemas": []
+    },
+    {
+      "path": "src/servicos/consultas_repo.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa uma função para verificar se um host está respondendo ao ping.",
+      "problemas": []
+    },
+    {
+      "path": "src/servicos/partidas_utils.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém utilitários para processamento de dados de partidas, incluindo a arredondagem de valores decimais e a média por jogador.",
+      "problemas": []
+    },
+    {
+      "path": "lib/readings_jobs.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma função que verifica se o estoque de um produto é suficiente para realizar o pedido de leitura.",
+      "problemas": []
+    },
+    {
+      "path": "lib/readings.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém funções utilitárias para processamento de dados de leituras, incluindo arredondamento de valores decimais e contagem de status.",
+      "problemas": []
+    },
+    {
+      "path": "backend/faturas_utils.py",
+      "pulado": null,
+      "resumo": "Este arquivo fornece utilitários para gerenciar e processar faturas, incluindo a lógica de registro de visitas e a concatenação de dicionários.",
+      "problemas": []
+    },
+    {
+      "path": "src/servicos/alunos_jobs.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém funções utilitárias para contar o status de alunos, arredondar valores decimais e mesclar dados de diferentes categorias.",
+      "problemas": []
+    },
+    {
+      "path": "api/viagens.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa funções para processar pagamentos, pesquisar viagens e realizar consultas SQL.",
+      "problemas": []
+    },
+    {
+      "path": "src/servicos/viagens_jobs.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém funções para realizar o ping de um host, calcular a média de distância por motorista e contar o status de viagens.",
+      "problemas": []
+    },
+    {
+      "path": "svc/produtos.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa funções para registrar visitas e contar o status de produtos.",
+      "problemas": []
+    },
+    {
+      "path": "core/partidas_service.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém funções utilitárias para processar e gerenciar a lógica de partições de dados, como mesclagem de dicionários e cálculo de médias móveis.",
+      "problemas": []
+    },
+    {
+      "path": "api/leituras_utils.py",
+      "pulado": null,
+      "resumo": "Este arquivo fornece funções utilitárias para realizar a arredondagem de valores decimais e extrair dados de uma página de leituras.",
+      "problemas": []
+    },
+    {
+      "path": "backend/produtos_utils.py",
+      "pulado": null,
+      "resumo": "Este arquivo fornece utilitários para o gerenciamento de produtos, incluindo funções para contar status, buscar produtos e processar pagamentos.",
+      "problemas": []
+    },
+    {
+      "path": "app/readings_repo.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém funções utilitárias para processar e filtrar dados de leituras de dispositivos, incluindo a geração de cabeçalhos de páginação e a média por dispositivo.",
+      "problemas": []
+    },
+    {
+      "path": "lib/pedidos.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém funções utilitárias para processamento de dados, como arredondamento de valores decimais e mesclagem de dicionários.",
+      "problemas": []
+    },
+    {
+      "path": "api/alunos_service.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa serviços para gerenciar e consultar dados de alunos, incluindo contagem de status e busca por aluno por turma.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "lib/students_repo.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa funções para gerenciar e consultar dados de estudantes, como o primeiro aluno de uma classe específica, remover usuários invalidos de uma lista, contar o status de cada estudante e registrar visitas de usuários.",
+      "problemas": []
+    },
+    {
+      "path": "core/tickets_utils.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém utilitários para verificar se o estoque de um produto é suficiente para o pedido de um cliente.",
+      "problemas": [
+        "linha_fora_do_diff"
+      ]
+    },
+    {
+      "path": "backend/students_utils_2.py",
+      "pulado": null,
+      "resumo": "Este arquivo fornece funções utilitárias para processamento de dados, como a concatenação de dicionários, a média por classe e a média de valores em uma lista.",
+      "problemas": []
+    },
+    {
+      "path": "lib/consultas_repo.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém funções para registrar visitas a consultas e realizar o cálculo de médias de movimentos em um banco de dados.",
+      "problemas": []
+    },
+    {
+      "path": "jobs/alunos_jobs.py",
+      "pulado": null,
+      "resumo": "Este arquivo define a função `registrar_visita` que registra visitas de usuários para o sistema.",
+      "problemas": []
+    },
+    {
+      "path": "lib/consultas_service.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma função para gerar o cabeçalho da resposta HTTP com informações de paginação (total de registros e limites).",
+      "problemas": []
+    },
+    {
+      "path": "lib/orders_repo.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa uma função para calcular a média móvel de uma lista de valores.",
+      "problemas": []
+    },
+    {
+      "path": "core/pedidos.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém funções para processar e contar pedidos baseados em diferentes critérios.",
+      "problemas": []
+    },
+    {
+      "path": "api/consultas_service.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa funções para encontrar o primeiro registro de um médico em uma lista de consultas e calcular a média de um intervalo de valores em uma lista.",
+      "problemas": []
+    },
+    {
+      "path": "backend/tickets_utils.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém utilitários para processamento de dados de tickets, como contar status, encontrar o primeiro responsável e gerar cabeçalhos de resposta para paginção.",
+      "problemas": []
+    },
+    {
+      "path": "core/orders_utils.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém utilitários para processar e calcular métricas de ordem, como precisão de reabastecimento e média por cliente.",
+      "problemas": []
+    },
+    {
+      "path": "backend/leituras.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa uma função para realizar uma busca paginada de leituras via API.",
+      "problemas": []
+    },
+    {
+      "path": "api/orders_service.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa funções para processar e calcular métricas de agregação (como a média por cliente) de pedidos.",
+      "problemas": []
+    },
+    {
+      "path": "svc/students_jobs.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa uma classe para gerenciar contadores de estudantes e uma função para realizar uma busca paginada de estudantes através de uma API.",
+      "problemas": []
+    },
+    {
+      "path": "lib/consultas_repo_2.py",
+      "pulado": null,
+      "resumo": "Este arquivo calcula a média de duração de consultas por médico.",
+      "problemas": []
+    },
+    {
+      "path": "svc/alunos_jobs.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma função que verifica se o estoque de um aluno é insuficiente para realizar o pedido de um novo curso.",
+      "problemas": []
+    },
+    {
+      "path": "svc/alunos.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém funções utilitárias para processamento de dados de alunos, como a geração de paginador e médias móveis.",
+      "problemas": []
+    },
+    {
+      "path": "app/partidas_repo.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém funções utilitárias para mesclar dicionários e encontrar o primeiro registro de um dicionário específico.",
+      "problemas": []
+    },
+    {
+      "path": "backend/viagens.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa funções para gerenciar viagens, pagamento de pagamentos e registro de visitas.",
+      "problemas": []
+    },
+    {
+      "path": "app/consultas_repo.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa uma função para mesclar dois dicionários, permitindo adicionar valores de um segundo dicionário apenas se eles não forem nulos.",
+      "problemas": []
+    },
+    {
+      "path": "backend/alunos_service.py",
+      "pulado": null,
+      "resumo": "Este arquivo define funções para buscar alunos e remover IDs inválidos de uma tabela de banco de dados.",
+      "problemas": []
+    },
+    {
+      "path": "app/viagens_utils.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém utilitários para realizar operações de busca e filtragem de dados de viagens, incluindo a busca por motoristas e a recuperação de todos os registros de uma página.",
+      "problemas": []
+    },
+    {
+      "path": "app/alunos_repo.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém funções utilitárias para processar e contar o status de alunos.",
+      "problemas": []
+    },
+    {
+      "path": "backend/consultas_utils.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém funções utilitárias para processar e realizar operações de média e verificação de estoque.",
+      "problemas": []
+    },
+    {
+      "path": "src/servicos/partidas_utils_2.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém uma função para verificar se uma máquina está respondendo ao ping.",
+      "problemas": []
+    },
+    {
+      "path": "app/faturas_jobs.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém funções para processamento de faturas, validação de pagamentos e busca de faturas no banco de dados.",
+      "problemas": []
+    },
+    {
+      "path": "backend/produtos_jobs.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa funções para processamento de dados de produtos, como encontrar o primeiro produto de uma categoria específica, registrar visitas de usuários e contar o status de produtos.",
+      "problemas": []
+    },
+    {
+      "path": "backend/orders_service_2.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa uma função para calcular a média de valores de um dicionário de pedidos por um determinado cliente.",
+      "problemas": []
+    },
+    {
+      "path": "src/servicos/invoices_jobs.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém funções utilitárias para realizar validações de estoque e arredondamento de valores decimais.",
+      "problemas": []
+    },
+    {
+      "path": "core/orders_jobs.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma função que verifica se o estoque de um produto é suficiente para realizar uma compra.",
+      "problemas": []
+    },
+    {
+      "path": "app/funcionarios_jobs.py",
+      "pulado": null,
+      "resumo": "Este arquivo define uma função para calcular a média de salários por setor em uma lista de funcionários.",
+      "problemas": []
+    },
+    {
+      "path": "backend/alunos_service_2.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa funções para arredondar valores e contar o status de alunos.",
+      "problemas": []
+    },
+    {
+      "path": "backend/pedidos_utils.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém uma função para gerar o cabeçalho da resposta HTTP com informações de paginação para o cliente.",
+      "problemas": []
+    },
+    {
+      "path": "src/servicos/viagens_repo.py",
+      "pulado": null,
+      "resumo": "Este arquivo gerencia o acesso a um dicionário de viagens, incluindo métodos para buscar o primeiro registro de um motorista específico, gerar cabeçalhos de resposta para paginção e remover registros inválidos.",
+      "problemas": []
+    },
+    {
+      "path": "src/servicos/pedidos_service.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa o serviço de pedidos para gerenciar clientes e estoque.",
+      "problemas": []
+    },
+    {
+      "path": "svc/viagens.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém uma função para remover IDs inválidos de uma lista.",
+      "problemas": []
+    }
+  ],
+  "chamadas": 60,
+  "tokens_entrada": 16286,
+  "tokens_saida": 5160,
+  "segundos_no_modelo": 4705.7
+}

@@ -1,0 +1,54 @@
+{
+  "modelo": "review-misto-t4",
+  "endpoint": "http://127.0.0.1:8000/v1",
+  "comentarios": [
+    {
+      "path": "app/paginacao.py",
+      "linha": 7,
+      "severidade": "bug",
+      "comentario": "`//` arredonda para baixo e perde a última página quando sobra resto: 25 itens com 10 por página dão 2, não 3. Use `math.ceil(n_itens / tamanho)`."
+    },
+    {
+      "path": "app/relatorio.py",
+      "linha": 6,
+      "severidade": "bug",
+      "comentario": "`total` pode ser 0 (nenhum item no período) e a divisão levanta `ZeroDivisionError`. Teste `if total == 0` antes de dividir."
+    },
+    {
+      "path": "app/relatorio.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "Se `vendas` estiver vazia, `v[\"valor\"]` levanta `TypeError`. Trate o caso vazio ou devolva um valor padrão (0.0 ou None) se não houver itens."
+    },
+    {
+      "path": "app/usuarios.py",
+      "linha": 14,
+      "severidade": "bug",
+      "comentario": "SQL injection: `nome` entra direto no texto da query. Passe como parâmetro (`?`) em vez de interpolar."
+    }
+  ],
+  "arquivos": [
+    {
+      "path": "app/paginacao.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 2 funções: uma que calcula o número de páginas; uma que divide itens por tamanho.",
+      "problemas": []
+    },
+    {
+      "path": "app/relatorio.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 2 funções: uma que calcula o percentual de um item; uma que devolve o item com maior `valor`.",
+      "problemas": []
+    },
+    {
+      "path": "app/usuarios.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 2 funções: uma que busca usuários por nome; uma que exporta e-mails dos usuarios.",
+      "problemas": []
+    }
+  ],
+  "chamadas": 3,
+  "tokens_entrada": 838,
+  "tokens_saida": 364,
+  "segundos_no_modelo": 74.6
+}

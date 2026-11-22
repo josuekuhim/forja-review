@@ -17,7 +17,7 @@ from forja_review.github import GitHubApp
 from forja_review.llm import LLM, LLMConfig
 from forja_review.review import ReviewConfig, review_files
 from forja_review.store import Store
-from forja_review.worker import Worker
+from forja_review.worker import Worker, enqueue_pr
 from tests.conftest import FakeGitHub, FakeLLM, github_files
 
 SECRET = "segredo-de-teste"
@@ -222,3 +222,14 @@ async def test_resposta_cortada_nao_conta_como_json_invalido(tmp_path):
     rv = await review_files(files, llm, ReviewConfig(), tracer)
     provider.shutdown()
     assert rv.arquivos[0].problemas == ["resposta_cortada"]
+
+
+async def test_pr_sob_demanda_sem_webhook(env):
+    job, novo = await enqueue_pr(env["app"], env["store"], "eu/repo", 7)
+    assert novo
+    # a instalação é descoberta com o JWT do App; o PR é lido com o token da instalação
+    assert env["gh"].auth[0].startswith("Bearer ey") and env["gh"].auth[-1] == "Bearer ghs_42"
+    assert await env["worker"].run_once()
+    assert len(env["gh"].reviews) == 1 and env["gh"].reviews[0]["commit_id"] == "abc1234def"
+    # pedir de novo o mesmo commit não gera outra review
+    assert (await enqueue_pr(env["app"], env["store"], "eu/repo", 7)) == (job, False)

@@ -1,0 +1,30 @@
+{
+  "modelo": "review-real-t4",
+  "endpoint": "http://127.0.0.1:8000/v1",
+  "comentarios": [
+    {
+      "path": "svc/pedidos.py",
+      "linha": 12,
+      "severidade": "bug",
+      "comentario": "A função `aplicar_desconto` está tentando acessar um dicionário vazio `descontos` sem garantir que ele seja inicializado antes de realizar a soma. Se o dicionário estiver vazio, o código causará um KeyError. É necessário inicializar o dicionário antes de realizar a soma."
+    }
+  ],
+  "arquivos": [
+    {
+      "path": "svc/cache.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa uma classe de cache que utiliza um dicionário para armazenar dados e um tempo de expiração para garantir a sincronização de dados.",
+      "problemas": []
+    },
+    {
+      "path": "svc/pedidos.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém funções para calcular o valor total de itens, aplicar descontos e calcular a taxa de frete.",
+      "problemas": []
+    }
+  ],
+  "chamadas": 2,
+  "tokens_entrada": 567,
+  "tokens_saida": 175,
+  "segundos_no_modelo": 44.5
+}

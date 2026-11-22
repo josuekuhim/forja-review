@@ -1,0 +1,31 @@
+{
+  "modelo": "review-real-t4",
+  "endpoint": "http://127.0.0.1:8000/v1",
+  "comentarios": [],
+  "arquivos": [
+    {
+      "path": "app/paginacao.py",
+      "pulado": null,
+      "resumo": "Este arquivo implementa funções para gerar páginas de um dicionário de itens e calcular a quantidade de páginas baseada em um tamanho.",
+      "problemas": []
+    },
+    {
+      "path": "app/relatorio.py",
+      "pulado": null,
+      "resumo": "Este arquivo contém funções utilitárias para o cálculo de média, percentual e o maior valor de vendas.",
+      "problemas": []
+    },
+    {
+      "path": "app/usuarios.py",
+      "pulado": null,
+      "resumo": "",
+      "problemas": [
+        "json_invalido"
+      ]
+    }
+  ],
+  "chamadas": 3,
+  "tokens_entrada": 838,
+  "tokens_saida": 256,
+  "segundos_no_modelo": 84.2
+}

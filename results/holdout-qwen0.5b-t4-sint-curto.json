@@ -1,0 +1,36 @@
+{
+  "modelo": "review-sint-t4",
+  "endpoint": "http://127.0.0.1:8000/v1",
+  "comentarios": [
+    {
+      "path": "svc/cache.py",
+      "linha": 10,
+      "severidade": "bug",
+      "comentario": "Chave vaza: uma chamada HTTP entende a chave como `chave1` e outra como `chave2`. Use `id(chave)` como chave primária (não indexada) e tire o `chave` no corpo."
+    },
+    {
+      "path": "svc/pedidos.py",
+      "linha": 11,
+      "severidade": "bug",
+      "comentario": "O desconto já vale para o pedido atual: a mesma pessoa pode usar o cupom em um pedido antigo e subtrair desconto num pedido atual. Use `cupom=None` e devolva `None` no caso padrão."
+    }
+  ],
+  "arquivos": [
+    {
+      "path": "svc/cache.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo uma função que guarda o valor de um item na cache.",
+      "problemas": []
+    },
+    {
+      "path": "svc/pedidos.py",
+      "pulado": null,
+      "resumo": "Adiciona ao arquivo 2 funções: uma que calcula o desconto de um pedido; uma que busca a cotação de um frete.",
+      "problemas": []
+    }
+  ],
+  "chamadas": 2,
+  "tokens_entrada": 567,
+  "tokens_saida": 216,
+  "segundos_no_modelo": 33.9
+}
