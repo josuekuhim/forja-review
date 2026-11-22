@@ -112,14 +112,23 @@ class FakeGitHub:
             self.reviews.append({"id": rid, **body})
             return httpx.Response(200, json={"id": rid})
         if m := re.fullmatch(r"/repos/[^/]+/[^/]+/pulls/\d+/reviews/(\d+)/comments", path):
+            # Como o GitHub de verdade: este endpoint não traz a linha, só a posição no diff.
             rv = next(r for r in self.reviews if r["id"] == int(m[1]))
             return httpx.Response(
                 200,
                 json=[
-                    {"id": 5000 + i, "path": c["path"], "line": c["line"]}
+                    {"id": 5000 + i, "path": c["path"], "line": None, "position": i + 1}
                     for i, c in enumerate(rv["comments"])
                 ],
             )
+        if re.fullmatch(r"/repos/[^/]+/[^/]+/pulls/\d+/comments", path):
+            comentarios = [
+                {"id": 5000 + i, "pull_request_review_id": rv["id"], "path": c["path"], "line": c["line"]}
+                for rv in self.reviews
+                for i, c in enumerate(rv["comments"])
+            ]
+            comentarios.append({"id": 1, "pull_request_review_id": 1, "path": "outro.py", "line": 4})  # de outra review
+            return httpx.Response(200, json=comentarios)
         if m := re.fullmatch(r"/repos/[^/]+/[^/]+/pulls/comments/(\d+)/reactions", path):
             return httpx.Response(200, json=self.reactions.get(int(m[1]), []))
         return httpx.Response(404, json={"message": f"rota falsa não existe: {method} {path}"})

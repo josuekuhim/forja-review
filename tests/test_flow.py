@@ -231,5 +231,7 @@ async def test_pr_sob_demanda_sem_webhook(env):
     assert env["gh"].auth[0].startswith("Bearer ey") and env["gh"].auth[-1] == "Bearer ghs_42"
     assert await env["worker"].run_once()
     assert len(env["gh"].reviews) == 1 and env["gh"].reviews[0]["commit_id"] == "abc1234def"
+    # o comentário publicado fica ligado ao registro local (antes, a linha vinha nula e nada casava)
+    assert env["store"].stats()["comentarios"] == 1
     # pedir de novo o mesmo commit não gera outra review
     assert (await enqueue_pr(env["app"], env["store"], "eu/repo", 7)) == (job, False)

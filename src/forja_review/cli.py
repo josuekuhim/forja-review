@@ -167,7 +167,7 @@ def feedback(max_age_days: float = 30) -> None:
     from forja_review.worker import Worker
 
     s = Settings.from_env()
-    s.require_app()
+    s.require_app(webhook=False)  # o feedback só lê a API; não precisa do segredo do webhook
     store = Store(s.db)
     provider, tracer = telemetry.setup(s.traces)
     w = Worker(store, GitHubApp(s.app_id, s.private_key()), LLM(s.llm), s.review, tracer)

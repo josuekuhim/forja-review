@@ -122,11 +122,24 @@ class GitHubClient:
         return _check(await self.http.post(f"/repos/{repo}/pulls/{number}/reviews", json=payload))
 
     async def review_comments(self, repo: str, number: int, review_id: int) -> list[dict[str, Any]]:
-        return _check(
-            await self.http.get(
-                f"/repos/{repo}/pulls/{number}/reviews/{review_id}/comments", params={"per_page": 100}
+        """Comentários inline de uma review, com `line`.
+
+        Usa a lista de comentários do PR filtrada pela review: o endpoint
+        `/pulls/{n}/reviews/{id}/comments` devolve `line: null` (só a `position` no diff), e sem a linha
+        não dá para ligar o comentário publicado ao que o modelo gerou.
+        """
+        out: list[dict[str, Any]] = []
+        page = 1
+        while True:
+            batch = _check(
+                await self.http.get(
+                    f"/repos/{repo}/pulls/{number}/comments", params={"per_page": 100, "page": page}
+                )
             )
-        )
+            out += [c for c in batch if c.get("pull_request_review_id") == review_id]
+            if len(batch) < 100:
+                return out
+            page += 1
 
     async def comment_reactions(self, repo: str, comment_id: int) -> list[dict[str, Any]]:
         return _check(
