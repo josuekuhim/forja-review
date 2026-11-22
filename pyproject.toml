@@ -37,7 +37,7 @@ build-backend = "hatchling.build"
 packages = ["src/forja_review"]
 
 # Local. Ao publicar o hub no GitHub, troque por:
-# forja-contracts = { git = "https://github.com/<usuario>/forja", subdirectory = "contracts" }
+# forja-contracts = { git = "https://github.com/josuekuhim/forja", subdirectory = "contracts" }
 [tool.uv.sources]
 forja-contracts = { path = "../forja/contracts", editable = true }
 

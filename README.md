@@ -1,8 +1,8 @@
 # forja-review
 
-**The capstone of [Forja](../forja).** A GitHub App that reviews pull requests in Portuguese: it explains what changes and points out bugs on the diff's lines. It calls the model through [forja-serve](../forja-serve) (or any OpenAI-compatible endpoint) and sends OpenTelemetry traces that [forja-evals](../forja-evals) evaluates as an **online eval**.
+**The capstone of [Forja](https://github.com/josuekuhim/forja).** A GitHub App that reviews pull requests in Portuguese: it explains what changes and points out bugs on the diff's lines. It calls the model through [forja-serve](https://github.com/josuekuhim/forja-serve) (or any OpenAI-compatible endpoint) and sends OpenTelemetry traces that [forja-evals](https://github.com/josuekuhim/forja-evals) evaluates as an **online eval**.
 
-> **Result:** the whole pipeline works: webhook → queue → model → comments anchored to lines → feedback → traces → online eval. **The small model did not, at first.** With Gemma 4 26B running locally as the ceiling, the review finds **4/4 bugs** on a held-out PR (7/8 on the tuning one). With Qwen2.5-Coder 0.5B (through forja-serve) and the 1.5B, it finds **0/4**. Instead of hiding that, it became the number post-training had to move. After training on real bug fixes ([forja-posttrain R2](../forja-posttrain)), the 0.5B finds 25–27 of 199 real bugs with 21–23% precision, and the mixed model finds 4/8 on the planted PR with no wrong comment.
+> **Result:** the whole pipeline works: webhook → queue → model → comments anchored to lines → feedback → traces → online eval. **The small model did not, at first.** With Gemma 4 26B running locally as the ceiling, the review finds **4/4 bugs** on a held-out PR (7/8 on the tuning one). With Qwen2.5-Coder 0.5B (through forja-serve) and the 1.5B, it finds **0/4**. Instead of hiding that, it became the number post-training had to move. After training on real bug fixes ([forja-posttrain R2](https://github.com/josuekuhim/forja-posttrain)), the 0.5B finds 25–27 of 199 real bugs with 21–23% precision, and the mixed model finds 4/8 on the planted PR with no wrong comment.
 
 ![forja-review reviewing a PR with planted bugs](docs/demo.gif)
 
@@ -43,7 +43,7 @@ What the numbers say:
 
 ### After post-training: model + linter
 
-[forja-posttrain](../forja-posttrain) trained the 0.5B with a LoRA and measured it on two PRs: a synthetic one with 60 files from templates never seen in training (53 bugs), and a real one with 199 bugs from 2025–2026 bug-fix commits plus 199 already-fixed files.
+[forja-posttrain](https://github.com/josuekuhim/forja-posttrain) trained the 0.5B with a LoRA and measured it on two PRs: a synthetic one with 60 files from templates never seen in training (53 bugs), and a real one with 199 bugs from 2025–2026 bug-fix commits plus 199 already-fixed files.
 
 | Reviewer | Synthetic PR: bugs found (53) | Extras | Real PR: bugs found (199) | Real PR: wrong comments |
 | --- | --- | --- | --- | --- |
@@ -55,13 +55,13 @@ What the numbers say:
 | ruff (bug/security rules) | **25** | **4** | 1 | 11 |
 | **ruff + SFT (R1)** | **32** | 48 | — | — |
 
-On the synthetic PR, the linter catches the pattern classes (string-built SQL, `shell=True`, mutable default, `requests` without a timeout) with almost no noise, and the model finds what the linter cannot see: inverted condition, division by an empty list, pagination. On real bugs, the linter finds almost nothing (1/199), and only the model trained on real fixes moves the number. The architecture these numbers suggest is **linter first, model for semantics**, with a model trained on real data. On-policy DPO on synthetic data tried to fix precision and only made the model quieter (details in [forja-posttrain](../forja-posttrain#on-policy-dpo)).
+On the synthetic PR, the linter catches the pattern classes (string-built SQL, `shell=True`, mutable default, `requests` without a timeout) with almost no noise, and the model finds what the linter cannot see: inverted condition, division by an empty list, pagination. On real bugs, the linter finds almost nothing (1/199), and only the model trained on real fixes moves the number. The architecture these numbers suggest is **linter first, model for semantics**, with a model trained on real data. On-policy DPO on synthetic data tried to fix precision and only made the model quieter (details in [forja-posttrain](https://github.com/josuekuhim/forja-posttrain#on-policy-dpo)).
 
 [`examples/linters.py`](examples/linters.py) runs ruff or bandit on the same diff, in the same `--json-out` format, so `recall.py`'s yardstick applies to both.
 
 ### The closed loop: online eval
 
-The traces from these tests went through `forja-evals online` with Gemma as the judge: 12 sampled calls, mean score 1.43 for the 1.5B and 1.00 for the 0.5B. Of the small models' 14 comments, the judge marked **one** as useful, which is exactly the only real hit according to the answer key. See [`forja-evals/baselines/online-forja-review-local`](../forja-evals/baselines/online-forja-review-local).
+The traces from these tests went through `forja-evals online` with Gemma as the judge: 12 sampled calls, mean score 1.43 for the 1.5B and 1.00 for the 0.5B. Of the small models' 14 comments, the judge marked **one** as useful, which is exactly the only real hit according to the answer key. See [`forja-evals/baselines/online-forja-review-local`](https://github.com/josuekuhim/forja-evals/tree/main/baselines/online-forja-review-local).
 
 ## What is inside
 
