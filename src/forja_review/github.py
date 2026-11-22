@@ -75,7 +75,9 @@ class GitHubApp:
 
     async def repo_installation(self, repo: str) -> int:
         """Id da instalação do App no repositório (para revisar sob demanda, sem webhook)."""
-        r = await self.http.get(f"/repos/{repo}/installation", headers={"Authorization": f"Bearer {self.jwt()}"})
+        r = await self.http.get(
+            f"/repos/{repo}/installation", headers={"Authorization": f"Bearer {self.jwt()}"}
+        )
         return int(_check(r)["id"])
 
     async def client(self, installation_id: int) -> GitHubClient:

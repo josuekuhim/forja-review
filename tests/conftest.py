@@ -127,7 +127,9 @@ class FakeGitHub:
                 for rv in self.reviews
                 for i, c in enumerate(rv["comments"])
             ]
-            comentarios.append({"id": 1, "pull_request_review_id": 1, "path": "outro.py", "line": 4})  # de outra review
+            comentarios.append(
+                {"id": 1, "pull_request_review_id": 1, "path": "outro.py", "line": 4}
+            )  # de outra review
             return httpx.Response(200, json=comentarios)
         if m := re.fullmatch(r"/repos/[^/]+/[^/]+/pulls/comments/(\d+)/reactions", path):
             return httpx.Response(200, json=self.reactions.get(int(m[1]), []))

@@ -79,22 +79,50 @@ def reconstroi(diff: str, raiz: Path) -> dict[str, set[int]]:
 
 def roda_ruff(raiz: Path) -> list[tuple[str, int, str, str]]:
     r = subprocess.run(
-        [shutil.which("ruff") or "ruff", "check", "--no-cache", "--preview", "--select", RUFF_SELECT,
-         "--ignore", RUFF_IGNORE, "--output-format", "json", "--exit-zero", "."],
-        cwd=raiz, capture_output=True, text=True, encoding="utf-8", check=True,
+        [
+            shutil.which("ruff") or "ruff",
+            "check",
+            "--no-cache",
+            "--preview",
+            "--select",
+            RUFF_SELECT,
+            "--ignore",
+            RUFF_IGNORE,
+            "--output-format",
+            "json",
+            "--exit-zero",
+            ".",
+        ],
+        cwd=raiz,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        check=True,
     )
-    return [(Path(d["filename"]).resolve().relative_to(raiz.resolve()).as_posix(), d["location"]["row"], d["code"],
-             d["message"]) for d in json.loads(r.stdout or "[]")]
+    return [
+        (
+            Path(d["filename"]).resolve().relative_to(raiz.resolve()).as_posix(),
+            d["location"]["row"],
+            d["code"],
+            d["message"],
+        )
+        for d in json.loads(r.stdout or "[]")
+    ]
 
 
 def roda_bandit(raiz: Path) -> list[tuple[str, int, str, str]]:
     r = subprocess.run(
         [shutil.which("bandit") or "bandit", "-r", ".", "-f", "json", "-q", "--skip", "B101"],
-        cwd=raiz, capture_output=True, text=True, encoding="utf-8",
+        cwd=raiz,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
     )
     out = json.loads(r.stdout or "{}")
-    return [(Path(x["filename"]).as_posix().removeprefix("./"), x["line_number"], x["test_id"], x["issue_text"])
-            for x in out.get("results", [])]
+    return [
+        (Path(x["filename"]).as_posix().removeprefix("./"), x["line_number"], x["test_id"], x["issue_text"])
+        for x in out.get("results", [])
+    ]
 
 
 ap = argparse.ArgumentParser()
@@ -111,7 +139,9 @@ with tempfile.TemporaryDirectory() as tmp:
 seg = time.time() - t0
 
 comentarios, vistos = [], set()
-sintaxe = sum(1 for x in achados if x[2] is None)  # trecho fora dos hunks quebrou a reconstrução: artefato, não achado
+sintaxe = sum(
+    1 for x in achados if x[2] is None
+)  # trecho fora dos hunks quebrou a reconstrução: artefato, não achado
 for path, linha, code, msg in sorted(achados, key=lambda x: (x[0], x[1], x[2] or "")):
     if code is None:
         continue
@@ -119,7 +149,9 @@ for path, linha, code, msg in sorted(achados, key=lambda x: (x[0], x[1], x[2] or
         continue  # fora das linhas adicionadas: o modelo também não pode comentar ali
     vistos.add((path, linha, code))
     texto = f"[{code}] {FRASES[code]}" if code in FRASES else f"[{code}]"
-    comentarios.append({"path": path, "linha": linha, "severidade": "risco", "comentario": texto, "mensagem": msg})
+    comentarios.append(
+        {"path": path, "linha": linha, "severidade": "risco", "comentario": texto, "mensagem": msg}
+    )
 
 res = {
     "modelo": a.ferramenta + (f" ({RUFF_SELECT}; --preview)" if a.ferramenta == "ruff" else ""),
@@ -132,4 +164,6 @@ res = {
     "erros_de_sintaxe_da_reconstrucao": sintaxe,
 }
 Path(a.json_out).write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding="utf-8")
-print(f"{a.ferramenta}: {len(comentarios)} achados em linhas adicionadas ({len(achados)} no total, {sintaxe} de sintaxe da reconstrução), {seg:.1f} s")
+print(
+    f"{a.ferramenta}: {len(comentarios)} achados em linhas adicionadas ({len(achados)} no total, {sintaxe} de sintaxe da reconstrução), {seg:.1f} s"
+)
