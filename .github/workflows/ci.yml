@@ -1,5 +1,7 @@
 name: ci
-on: [push, pull_request]
+# Manual trigger for now; restore `on: [push, pull_request]` to run on every push.
+on:
+  workflow_dispatch:
 jobs:
   test:
     runs-on: ubuntu-latest

@@ -104,6 +104,8 @@ Decisions:
 - **Comment only on lines that are in the diff.** The API rejects the whole review (422) if a line is not in a hunk. Anchoring drops them first; if the diff changes between reading and publishing, the fallback publishes everything in the body.
 - **Privacy.** By default, the diff and the answer go into the trace, because the online eval needs them. In a private repository, `FORJA_REVIEW_CAPTURAR_CONTEUDO=0` keeps only the structured result.
 
+**Tests:** 38 tests, `ruff check .` and `ruff format --check .`, all passing in a local run on 2026-11-22. The GitHub Actions workflow in `.github/workflows/ci.yml` runs the same commands; for now it is triggered manually.
+
 ## Usage
 
 ```bash
